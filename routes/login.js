@@ -139,13 +139,17 @@ if(req.body.referralCode===undefined)
 
                                     'msg': "signed up",
                                     'status': 'success'
+
                                 })
                             }
                         }
                     )
                 }
                 else if (req.body.fbId === '1') {
-                    collection.insert({
+                    var fdoc;
+                    if(req.body.referralCode===undefined)
+                    {
+                        fdoc={
                             "signupDate": new Date(),
                             "email": req.body.email,
                             "uniqueCode": uniqueCode,
@@ -154,10 +158,31 @@ if(req.body.referralCode===undefined)
                             "phone": req.body.phone,
                             "dob": req.body.dob,
                             "blockingStatus": false,
-                            "referralCode": req.body.referralCode,
+
                             "fbId": '1',
                             "gId": req.body.gId
-                        }, function (err, res3) {
+                        }
+                    }
+                        else
+                        {
+                            fdoc={
+                                "signupDate": new Date(),
+                                "email": req.body.email,
+                                "uniqueCode": uniqueCode,
+                                "firstName": req.body.firstName,
+                                "secondName": req.body.secondName,
+                                "phone": req.body.phone,
+                                "dob": req.body.dob,
+                                "blockingStatus": false,
+                                "referralCode": req.body.referralCode,
+
+                                "fbId": '1',
+                                "gId": req.body.gId
+                            }
+                        
+                    }
+
+                    collection.insert(fdoc, function (err, res3) {
 
 
                             if (err) {
@@ -176,8 +201,23 @@ if(req.body.referralCode===undefined)
                     )
                 }
                 else if (req.body.gId === '1') {
-                    collection.insert({
-                            "signupDate": new Date(),
+                    var docss;
+                    if(req.body.referralCode===undefined)
+                    {
+                    docss={"signupDate": new Date(),
+                        "email": req.body.email,
+                        "uniqueCode": uniqueCode,
+                        "firstName": req.body.firstName,
+                        "secondName": req.body.secondName,
+                        "phone": req.body.phone,
+                        "blockingStatus": false,
+                        "dob": req.body.dob,
+
+                        "fbId": req.body.fbId,
+                        "gId": '1'}}
+                        else
+                    {
+                        docss={"signupDate": new Date(),
                             "email": req.body.email,
                             "uniqueCode": uniqueCode,
                             "firstName": req.body.firstName,
@@ -187,8 +227,12 @@ if(req.body.referralCode===undefined)
                             "dob": req.body.dob,
                             "referralCode": req.body.referralCode,
                             "fbId": req.body.fbId,
-                            "gId": '1'
-                        }, function (err, res4) {
+                            "gId": '1'}
+
+                    }
+                    collection.insert(docss
+
+                        , function (err, res4) {
 
 
                             if (err) {
