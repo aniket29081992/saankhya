@@ -7,16 +7,18 @@ var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'a13I11ET23';
 
-function encrypt(buffer){
-    var cipher = crypto.createCipher(algorithm,password)
-    var crypted = Buffer.concat([cipher.update(buffer),cipher.final()]);
-    return crypted;
+function encrypt(buffer) {
+    return buffer;
+//     var cipher = crypto.createCipher(algorithm,password)
+//     var crypted = Buffer.concat([cipher.update(buffer),cipher.final()]);
+//     return crypted;
+// }
 }
-
 function decrypt(buffer){
-    var decipher = crypto.createDecipher(algorithm,password)
-    var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
-    return dec;
+    return buffer;
+    // var decipher = crypto.createDecipher(algorithm,password)
+    // var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
+    // return dec;
 }
 
 var jsonParser = bodyParser.json();

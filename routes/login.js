@@ -12,15 +12,17 @@ var crypto = require('crypto'),
     password = 'a13I11ET23';
 
 function encrypt(buffer) {
-    var cipher = crypto.createCipher(algorithm, password)
-    var crypted = Buffer.concat([cipher.update(buffer), cipher.final()]);
-    return crypted;
+    return buffer
+    // var cipher = crypto.createCipher(algorithm, password)
+    // var crypted = Buffer.concat([cipher.update(buffer), cipher.final()]);
+    // return crypted;
 }
 
 function decrypt(buffer) {
-    var decipher = crypto.createDecipher(algorithm, password)
-    var dec = Buffer.concat([decipher.update(buffer), decipher.final()]);
-    return dec;
+    return buffer
+    // var decipher = crypto.createDecipher(algorithm, password)
+    // var dec = Buffer.concat([decipher.update(buffer), decipher.final()]);
+    // return dec;
 }
 function proceedSignup(req,res,collection)
 {
@@ -75,19 +77,43 @@ function proceedSignup(req,res,collection)
                     var email2 = req.body.email
                     var phoneEncrypted2 = encrypt(new Buffer(phone2, "utf8"))
                     var emailEncrypted2 = encrypt(new Buffer(email2, "utf8"))
-                    collection.insert({
-                            "signupDate": new Date(),
+                    var docins;
+if(req.body.referralCode===undefined)
+{
+
+                        docins={"signupDate": new Date(),
                             "email": emailEncrypted2.toString('utf-8'),
                             "firstName": req.body.firstName,
                             "uniqueCode": uniqueCode,
                             "secondName": req.body.secondName,
                             "phone": phoneEncrypted2.toString('utf-8'),
                             "dob": req.body.dob,
-                            "referralCode": req.body.referralCode,
+
                             "blockingStatus": false,
                             "fbId": '1',
-                            "gId": '1'
-                        }, function (err, res2) {
+                            "gId": '1'}}
+                            else
+
+        {
+             docins={"signupDate": new Date(),
+                "email": emailEncrypted2.toString('utf-8'),
+                "firstName": req.body.firstName,
+                "uniqueCode": uniqueCode,
+                "secondName": req.body.secondName,
+                "phone": phoneEncrypted2.toString('utf-8'),
+                "dob": req.body.dob,
+                "referralCode": req.body.referralCode,
+                "blockingStatus": false,
+                "fbId": '1',
+                "gId": '1'
+    }
+
+
+                    }
+                    collection.insert(docins
+
+
+                        , function (err, res2) {
 
 
                             if (err) {
