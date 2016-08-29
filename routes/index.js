@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 router.post ('/api/signup', login.signUprequest);
-router.get ('/api/login', login.loginRequest);
+router.post ('/api/login', login.loginRequest);
 router.post ('/api/signup/sendotp', sendotp.sendOtp);
 router.post ('/api/verifyotp', sendotp.verifyOtp);
 router.post ('/api/forgot', forgot.reset);

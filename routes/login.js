@@ -213,7 +213,7 @@ var login = {
                     }
                     else {
                         var collection = db.collection("digo");
-var reF=req.body.referralCode
+                        var reF=req.body.referralCode
                         if((reF===undefined)||(reF===null))
                         {
                             proceedSignup(req,res,collection)
@@ -272,30 +272,30 @@ var reF=req.body.referralCode
                     }
                     else {
 
-                        var query = querystring.parse(require('url').parse(req.url).query);
+
 //                     console.log(query)
 // //  console.log(query)
 // //                     console.log("The otp collection doesn't exist. Creating it with sample data...");
                         var loginColl = db.collection("signup");
 
-                        var query = querystring.parse(require('url').parse(req.url).query);
 
-                        var gId = query.gid;
+
+                        var gId = req.body.gid;
 
                         if (gId === undefined)
                             gId = '1'
 
 
-                        var fbId = query.fbid;
+                        var fbId = req.body.fbid;
                         if (fbId === undefined)
                             fbId = '1'
 
-                        console.log(query.fbid)
+
                         if ((fbId == '1') && (gId == '1')) {
                             var pass = db.collection("signup")
 
-                            var username = query.username;
-                            var password = query.password;
+                            var username = req.body.username;
+                            var password = req.body.password;
                             console.log(username + password)
                             var encryPass = encrypt(new Buffer(password, "utf8")).toString('utf-8');
                             var encryUser = encrypt(new Buffer(username, "utf8")).toString('utf-8');

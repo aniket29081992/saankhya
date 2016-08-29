@@ -48,7 +48,7 @@ var forgot = {
                     }
                     else {
                         var pass = db.collection("signup");
-                        var phone=req.body.phone
+                        var phone=req.body.username
                         var passwordd=req.body.password
                         var encrypasss=encrypt(new Buffer(passwordd, "utf8")).toString('utf-8');
                         var encryphone=encrypt(new Buffer(phone, "utf8")).toString('utf-8');
