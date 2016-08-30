@@ -179,7 +179,7 @@ if(req.body.referralCode===undefined)
                                 "fbId": '1',
                                 "gId": req.body.gId
                             }
-                        
+
                     }
 
                     collection.insert(fdoc, function (err, res3) {
