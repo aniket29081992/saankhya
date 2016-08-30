@@ -194,8 +194,9 @@ if(req.body.referralCode===undefined)
                             else {
 
                                 var newcollection = db.collection("signup");
-                                var nn = encrypt(new Buffer(password, "utf8"));
                                 var password="xxx"
+                                var nn = encrypt(new Buffer(password, "utf8"));
+
                                 console.log(decrypt(nn).toString('utf-8'))
                                 newcollection.insert({
                                     "userId": res3.ops[0]._id,
