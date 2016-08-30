@@ -69,14 +69,14 @@ function proceedSignup(req,res,collection)
                 var number = Math.floor(Math.random() * 1000) + 100
                 var uniqueCode = subStringname + number
 
+                var phone2 = req.body.phone
+                var email2 = req.body.email
+                var phoneEncrypted2 = encrypt(new Buffer(phone2, "utf8"))
+                var emailEncrypted2 = encrypt(new Buffer(email2, "utf8"))
                 if ((req.body.fbId === '1') && (req.body.gId === '1')) {
                     var password = req.body.password;
 
 
-                    var phone2 = req.body.phone
-                    var email2 = req.body.email
-                    var phoneEncrypted2 = encrypt(new Buffer(phone2, "utf8"))
-                    var emailEncrypted2 = encrypt(new Buffer(email2, "utf8"))
                     var docins;
 if(req.body.referralCode===undefined)
 {
@@ -151,11 +151,11 @@ if(req.body.referralCode===undefined)
                     {
                         fdoc={
                             "signupDate": new Date(),
-                            "email": req.body.email,
+                            "email": emailEncrypted2.toString('utf-8'),
                             "uniqueCode": uniqueCode,
                             "firstName": req.body.firstName,
                             "secondName": req.body.secondName,
-                            "phone": req.body.phone,
+                            "phone": phoneEncrypted2.toString('utf-8'),
                             "dob": req.body.dob,
                             "blockingStatus": false,
 
@@ -167,11 +167,11 @@ if(req.body.referralCode===undefined)
                         {
                             fdoc={
                                 "signupDate": new Date(),
-                                "email": req.body.email,
+                                "email": emailEncrypted2.toString('utf-8'),
                                 "uniqueCode": uniqueCode,
                                 "firstName": req.body.firstName,
                                 "secondName": req.body.secondName,
-                                "phone": req.body.phone,
+                                "phone": phoneEncrypted2.toString('utf-8'),
                                 "dob": req.body.dob,
                                 "blockingStatus": false,
                                 "referralCode": req.body.referralCode,
@@ -192,9 +192,25 @@ if(req.body.referralCode===undefined)
                                 })
                             }
                             else {
+
+                                var newcollection = db.collection("signup");
+                                var nn = encrypt(new Buffer(password, "utf8"));
+                                var password="xxx"
+                                console.log(decrypt(nn).toString('utf-8'))
+                                newcollection.insert({
+                                    "userId": res3.ops[0]._id,
+                                    "email": emailEncrypted2.toString('utf-8'),
+                                    "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
+                                    "phone": phoneEncrypted2.toString('utf-8')
+                                })
+
+
                                 res.send({
+
+
                                     'msg': "signed up",
                                     'status': 'success'
+
                                 })
                             }
                         }
@@ -205,11 +221,11 @@ if(req.body.referralCode===undefined)
                     if(req.body.referralCode===undefined)
                     {
                     docss={"signupDate": new Date(),
-                        "email": req.body.email,
+                        "email": emailEncrypted2.toString('utf-8'),
                         "uniqueCode": uniqueCode,
                         "firstName": req.body.firstName,
                         "secondName": req.body.secondName,
-                        "phone": req.body.phone,
+                        "phone": phoneEncrypted2.toString('utf-8'),
                         "blockingStatus": false,
                         "dob": req.body.dob,
 
@@ -218,11 +234,11 @@ if(req.body.referralCode===undefined)
                         else
                     {
                         docss={"signupDate": new Date(),
-                            "email": req.body.email,
+                            "email": emailEncrypted2.toString('utf-8'),
                             "uniqueCode": uniqueCode,
                             "firstName": req.body.firstName,
                             "secondName": req.body.secondName,
-                            "phone": req.body.phone,
+                            "phone": phoneEncrypted2.toString('utf-8'),
                             "blockingStatus": false,
                             "dob": req.body.dob,
                             "referralCode": req.body.referralCode,
@@ -242,9 +258,24 @@ if(req.body.referralCode===undefined)
                                 })
                             }
                             else {
+                                var newcollection = db.collection("signup");
+                                var password="xxx"
+                                var nn = encrypt(new Buffer(password, "utf8"));
+                                console.log(decrypt(nn).toString('utf-8'))
+                                newcollection.insert({
+                                    "userId": res4.ops[0]._id,
+                                    "email": emailEncrypted2.toString('utf-8'),
+                                    "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
+                                    "phone": phoneEncrypted2.toString('utf-8')
+                                })
+
+
                                 res.send({
+
+
                                     'msg': "signed up",
                                     'status': 'success'
+
                                 })
                             }
                         }
