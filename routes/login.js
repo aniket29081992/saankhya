@@ -88,6 +88,7 @@ if(req.body.referralCode===undefined)
                             "secondName": req.body.secondName,
                             "phone": phoneEncrypted2.toString('utf-8'),
                             "dob": req.body.dob,
+                            "cCode":req.body.cCode,
 
                             "blockingStatus": false,
                             "fbId": '1',
@@ -103,6 +104,7 @@ if(req.body.referralCode===undefined)
                 "phone": phoneEncrypted2.toString('utf-8'),
                 "dob": req.body.dob,
                 "referralCode": req.body.referralCode,
+                 "cCode":req.body.cCode,
                 "blockingStatus": false,
                 "fbId": '1',
                 "gId": '1'
@@ -129,6 +131,7 @@ if(req.body.referralCode===undefined)
                                 newcollection.insert({
                                     "userId": res2.ops[0]._id,
                                     "email": emailEncrypted2.toString('utf-8'),
+                                    "cCode":req.body.cCode,
                                     "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
                                     "phone": phoneEncrypted2.toString('utf-8')
                                 })
@@ -157,6 +160,7 @@ if(req.body.referralCode===undefined)
                             "secondName": req.body.secondName,
                             "phone": phoneEncrypted2.toString('utf-8'),
                             "dob": req.body.dob,
+                            "cCode":req.body.cCode,
                             "blockingStatus": false,
 
                             "fbId": '1',
@@ -173,6 +177,7 @@ if(req.body.referralCode===undefined)
                                 "secondName": req.body.secondName,
                                 "phone": phoneEncrypted2.toString('utf-8'),
                                 "dob": req.body.dob,
+                                "cCode":req.body.cCode,
                                 "blockingStatus": false,
                                 "referralCode": req.body.referralCode,
 
@@ -193,14 +198,16 @@ if(req.body.referralCode===undefined)
                             }
                             else {
 
+                                var number1 = Math.floor(Math.random() * 100000) + 100
                                 var newcollection = db.collection("signup");
-                                var password="xxx"
+                                var password=number1.toString();
                                 var nn = encrypt(new Buffer(password, "utf8"));
 
                                 console.log(decrypt(nn).toString('utf-8'))
                                 newcollection.insert({
                                     "userId": res3.ops[0]._id,
                                     "email": emailEncrypted2.toString('utf-8'),
+                                    "cCode":req.body.cCode,
                                     "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
                                     "phone": phoneEncrypted2.toString('utf-8')
                                 })
@@ -229,6 +236,7 @@ if(req.body.referralCode===undefined)
                         "phone": phoneEncrypted2.toString('utf-8'),
                         "blockingStatus": false,
                         "dob": req.body.dob,
+                        "cCode":req.body.cCode,
 
                         "fbId": req.body.fbId,
                         "gId": '1'}}
@@ -241,6 +249,7 @@ if(req.body.referralCode===undefined)
                             "secondName": req.body.secondName,
                             "phone": phoneEncrypted2.toString('utf-8'),
                             "blockingStatus": false,
+                            "cCode":req.body.cCode,
                             "dob": req.body.dob,
                             "referralCode": req.body.referralCode,
                             "fbId": req.body.fbId,
@@ -259,12 +268,14 @@ if(req.body.referralCode===undefined)
                                 })
                             }
                             else {
+                                var number11 = Math.floor(Math.random() * 100000) + 100
                                 var newcollection = db.collection("signup");
-                                var password="xxx"
-                                var nn = encrypt(new Buffer(password, "utf8"));
+                                var password=number11.toString();
+
                                 console.log(decrypt(nn).toString('utf-8'))
                                 newcollection.insert({
                                     "userId": res4.ops[0]._id,
+                                    "cCode":req.body.cCode,
                                     "email": emailEncrypted2.toString('utf-8'),
                                     "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
                                     "phone": phoneEncrypted2.toString('utf-8')

@@ -76,7 +76,7 @@ var sendotpfg = {
                                                     if (err == null) {
                                                         api.send_message({
                                                             'src': '+16314462144',
-                                                            'dst': req.body.phone,
+                                                            'dst':  req.body.cCode+req.body.phone,
                                                             'text': "Your verification code is " + otpcode,
                                                             'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
                                                             'method': "POST"
@@ -115,7 +115,7 @@ var sendotpfg = {
                                                     });
                                                     api2.send_message({
                                                         'src': '+16314462144',
-                                                        'dst': req.body.phone,
+                                                        'dst': req.body.cCode+req.body.phone,
                                                         'text': "Your verification code is " + res1.otp,
                                                         'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
                                                         'method': "POST"
@@ -150,7 +150,7 @@ var sendotpfg = {
                                                             });
                                                             api1.send_message({
                                                                 'src': '+16314462144',
-                                                                'dst': req.body.phone,
+                                                                'dst': req.body.cCode+req.body.phone,
                                                                 'text': "Your verification code is " + otpcode1,
                                                                 'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
                                                                 'method': "POST"
