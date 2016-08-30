@@ -43,23 +43,23 @@ var sendotp = {
 
 
                 console.log("Connected to 'signup' database");
-                db.collection('otp', {strict: true}, function (err, collection) {
+                db.collection('otp1', {strict: true}, function (err, collection) {
                     if (err) {
 
                         console.log("The otp collection doesn't exist. Creating it with sample data...");
 
                     }
                     else {
-                        var otpcol = db.collection("otp");
+                        var otpcol = db.collection("otp1");
                         var prof=db.collection("digo")
                       var otpcode=  Math.floor(1000 + Math.random() * 9000)
                         //already present then check db and send
                         var encryptedPhone=encrypt(new Buffer(req.body.phone, "utf8"))
-                        prof.findOne({"phone": encryptedPhone.toString('utf-8')}, function (err11, resu1) {
-                            if(err11===null)
-                            {
-                                if(resu1!=null)
-                                {
+                       // prof.findOne({"phone": encryptedPhone.toString('utf-8')}, function (err11, resu1) {
+                            // if(err11===null)
+                            // {
+                                // if(resu1!=null)
+                                // {
 
 
 
@@ -183,14 +183,14 @@ var sendotp = {
                                     }
                                 }
 
-                            });
-                                }
-                                else
-                                {
-                                    var doc={"status":"error","msg":"User does not exist"};
-                                    res.send(doc);
-                                }
-                            }
+                         //   });
+                                // }
+                                // else
+                                // {
+                                //     var doc={"status":"error","msg":"User does not exist"};
+                                //     res.send(doc);
+                                // }
+                            // }
                             else
                             {
                                 var doc={"status":"error","msg":"Oops something went wrong"};
@@ -216,7 +216,7 @@ var sendotp = {
 db.open(function (err,db) {
     if(err===null)
     {
-        db.collection('otp', {strict: true}, function (err, collection) {
+        db.collection('otp1', {strict: true}, function (err, collection) {
             if (err) {
 
                 console.log("The otp collection doesn't exist. Creating it with sample data...");
@@ -225,7 +225,7 @@ db.open(function (err,db) {
             else {
 
 
-                var otpcol = db.collection("otp");
+                var otpcol = db.collection("otp1");
                 //already present then check db and send
                 var encryptedPhone=encrypt(new Buffer(req.body.phone, "utf8"))
                 otpcol.findOne({"phone": encryptedPhone.toString('utf-8')},function (err, res1) {

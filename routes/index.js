@@ -17,7 +17,7 @@ router.post ('/api/signup/sendotp', sendotp.sendOtp);
 router.post ('/api/verifyotp', sendotp.verifyOtp);
 router.post ('/api/forgot', forgot.reset);
 router.post ('/api/userdetails', setdetails.set);
-router.get ('/api/college', coll.college);
+router.get ('/api/school', coll.college);
 router.get ('/api/city', coll.city);
 
 
