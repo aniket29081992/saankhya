@@ -6,6 +6,8 @@ var sendotp1=require('./sendotpfgpass')
 var forgot=require('./forgotpass')
 var setdetails=require('./setuserdetail')
 var coll=require('./collgcity')
+var sndmsg=require('./sendmessage')
+var page=require('./pagination')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -22,5 +24,7 @@ router.get ('/api/school', coll.college);
 router.get ('/api/city', coll.city);
 router.post ('/api/sendotp', sendotp1.sendOtp1);
 router.post ('/api/verifyotp', sendotp1.verifyOtp1);
+router.post ('/api/sendmsg', sndmsg.sendnew);
+router.post('/api/message/page',page.pagination)
 
 module.exports = router;

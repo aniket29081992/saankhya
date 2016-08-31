@@ -64,7 +64,7 @@ var forgot = {
                                 }
                                 else
                                 {console.log(result)
-                                    var doc={"status":"success ","msg":"password chaged successfully"}
+                                    var doc={"status":"success","msg":"password changed successfully"}
                                     res.send(doc)
 
                                 }
