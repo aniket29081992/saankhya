@@ -51,10 +51,14 @@ var collct = {
                     else {
 
                         var college=db.collection("college");
-                        var n=college.cid;
-                        console.log(n)
+
                         var newdoc=[];
-                        var cursor = db.collection('school').find();
+                        var city=req.query.cityid;
+                        console.log(city)
+                        var cursor = db.collection('school').find({
+                            cityId:parseInt(city)
+                            }
+                        );
                     cursor.each(function (err,item) {
                             if(err===null)
                             {

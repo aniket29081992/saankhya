@@ -13,10 +13,10 @@ var cloud= {
 // cloud.send(userS)
  console.log(registrationTokens,msg)
 
-        for(var i=0;i<registrationTokens.length;i++) {
+
 
             var message = {
-                to: "registration_ids" + registrationTokens[i],
+                "registration_ids":  registrationTokens,
 
                 data: {
                     key1: msg,
@@ -60,6 +60,6 @@ var cloud= {
 //     if(err) console.error(err);
 //     else    console.log(response);
 // });
-        }
+
 }}
 module.exports=cloud
