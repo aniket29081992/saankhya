@@ -195,10 +195,12 @@ var message = {
                                     var mess=db.collection('message');
                                     var teacherTime=0;
                                     var checkTeacher=0;
+                                        var check=0;
                                     var findCheck={"stuId":req.body.stuId,"iStatus":"active","msgBy":"1"};
                                     var resultteacher=mess.find(findCheck).sort({sendTime:-1}).limit(1)
                                     resultteacher.each(function (err, item) {
                                         if (err === null) {
+                                            if(check++==0){
                                             if(item!==null)
                                             {
 
@@ -213,12 +215,12 @@ var message = {
                                                         var ins = {
                                                             "stuId": req.body.stuId,
                                                             "msg": req.body.msg,
-                                                            "teachId": "",
+                                                            "teachId": item.teachId,
                                                             "subId":req.body.subId,
                                                             "attachment":req.body.attachment,
                                                             "extension":req.body.extension,
                                                             "seenTime":req.body.seenTime,
-
+                                                            "localTime":req.body.localTime,
                                                             "sendTime": new Date().getTime().toString(),
                                                             "intId": doc.intId,
                                                             "msgBy": req.body.msgBy,
@@ -270,7 +272,88 @@ console.log("mera naam "+resss)
                                                 }
 
                                                 console.log((difference)/(1000*60*60))
-                                            }}})
+                                            }
+                                            else
+                                            {
+
+
+
+                                                var ins = {
+                                                    "stuId": req.body.stuId,
+                                                    "msg": req.body.msg,
+                                                    "teachId": doc.teachId,
+                                                    "subId":req.body.subId,
+                                                    "attachment":req.body.attachment,
+                                                    "extension":req.body.extension,
+                                                    "seenTime":req.body.seenTime,
+                                                    "localTime":req.body.localTime,
+                                                    "sendTime": new Date().getTime().toString(),
+                                                    "intId": doc.intId,
+                                                    "msgBy": req.body.msgBy,
+                                                    "iStatus": "active"
+
+                                                }
+
+                                                mess.insert(ins, function (err, result) {
+                                                    if (err === null) {
+                                                        // console.log(result)
+                                                        var userS=[]
+                                                        userS.push('')
+                                                        cloud.send(userS)
+
+                                                        var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
+                                                        res.send(msg);
+                                                    }
+                                                    else {
+                                                        var msg = {"status": "error", "msg": "Oops something went wrong"}
+                                                        res.send(msg);
+
+                                                    }
+
+                                                })
+                                            }
+
+                                            // else
+                                            // {
+                                            //
+                                            //     var ins = {
+                                            //         "stuId": req.body.stuId,
+                                            //         "msg": req.body.msg,
+                                            //         "teachId": item.teachId,
+                                            //         "subId":req.body.subId,
+                                            //         "attachment":req.body.attachment,
+                                            //         "extension":req.body.extension,
+                                            //         "seenTime":req.body.seenTime,
+                                            //         "localTime":req.body.localTime,
+                                            //         "sendTime": new Date().getTime().toString(),
+                                            //         "intId": doc.intId,
+                                            //         "msgBy": req.body.msgBy,
+                                            //         "iStatus": "active"
+                                            //
+                                            //     }
+                                            //
+                                            //     mess.insert(ins, function (err, result) {
+                                            //         if (err === null) {
+                                            //             // console.log(result)
+                                            //             var userS=[]
+                                            //             userS.push('')
+                                            //             cloud.send(userS)
+                                            //
+                                            //             var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
+                                            //             res.send(msg);
+                                            //         }
+                                            //         else {
+                                            //             var msg = {"status": "error", "msg": "Oops something went wrong"}
+                                            //             res.send(msg);
+                                            //
+                                            //         }
+                                            //
+                                            //     })
+                                            //
+                                            // }
+
+                                            }
+                                        }})
 
 
                                     //time check

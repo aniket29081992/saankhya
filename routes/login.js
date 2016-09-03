@@ -80,7 +80,8 @@ function proceedSignup(req,res,collection)
                     var docins;
 if(req.body.referralCode===undefined)
 {
-
+var regTokens=[]
+    regTokens.push(req.body.regToken)
                         docins={"signupDate": new Date(),
                             "email": emailEncrypted2.toString('utf-8'),
                             "firstName": req.body.firstName,
@@ -89,6 +90,8 @@ if(req.body.referralCode===undefined)
                             "phone": phoneEncrypted2.toString('utf-8'),
                             "dob": req.body.dob,
                             "cCode":req.body.cCode,
+                            "regTokens":regTokens,
+
 
                             "blockingStatus": false,
                             "fbId": '1',
@@ -96,6 +99,8 @@ if(req.body.referralCode===undefined)
                             else
 
         {
+            var regTokens=[]
+            regTokens.push(req.body.regToken)
              docins={"signupDate": new Date(),
                 "email": emailEncrypted2.toString('utf-8'),
                 "firstName": req.body.firstName,
@@ -103,6 +108,7 @@ if(req.body.referralCode===undefined)
                 "secondName": req.body.secondName,
                 "phone": phoneEncrypted2.toString('utf-8'),
                 "dob": req.body.dob,
+                 "regTokens":regTokens,
                 "referralCode": req.body.referralCode,
                  "cCode":req.body.cCode,
                 "blockingStatus": false,
@@ -152,7 +158,11 @@ if(req.body.referralCode===undefined)
                     var fdoc;
                     if(req.body.referralCode===undefined)
                     {
+
+                        var regTokens=[]
+                        regTokens.push(req.body.regToken)
                         fdoc={
+                            "regTokens":regTokens,
                             "signupDate": new Date(),
                             "email": emailEncrypted2.toString('utf-8'),
                             "uniqueCode": uniqueCode,
@@ -169,7 +179,11 @@ if(req.body.referralCode===undefined)
                     }
                         else
                         {
+
+                            var regTokens=[]
+                            regTokens.push(req.body.regToken)
                             fdoc={
+                                "regTokens":regTokens,
                                 "signupDate": new Date(),
                                 "email": emailEncrypted2.toString('utf-8'),
                                 "uniqueCode": uniqueCode,
@@ -228,6 +242,8 @@ if(req.body.referralCode===undefined)
                     var docss;
                     if(req.body.referralCode===undefined)
                     {
+                        var regTokens=[]
+                        regTokens.push(req.body.regToken)
                     docss={"signupDate": new Date(),
                         "email": emailEncrypted2.toString('utf-8'),
                         "uniqueCode": uniqueCode,
@@ -237,12 +253,17 @@ if(req.body.referralCode===undefined)
                         "blockingStatus": false,
                         "dob": req.body.dob,
                         "cCode":req.body.cCode,
+                        "regTokens":regTokens,
 
                         "fbId": req.body.fbId,
                         "gId": '1'}}
                         else
                     {
-                        docss={"signupDate": new Date(),
+
+                        var regTokens=[]
+                        regTokens.push(req.body.regToken)
+                        docss={
+                            "signupDate": new Date(),
                             "email": emailEncrypted2.toString('utf-8'),
                             "uniqueCode": uniqueCode,
                             "firstName": req.body.firstName,
@@ -251,6 +272,7 @@ if(req.body.referralCode===undefined)
                             "blockingStatus": false,
                             "cCode":req.body.cCode,
                             "dob": req.body.dob,
+                            "regTokens":regTokens,
                             "referralCode": req.body.referralCode,
                             "fbId": req.body.fbId,
                             "gId": '1'}
@@ -272,7 +294,7 @@ if(req.body.referralCode===undefined)
                                 var newcollection = db.collection("signup");
                                 var password=number11.toString();
 
-                                console.log(decrypt(nn).toString('utf-8'))
+                                // console.log(decrypt(nn).toString('utf-8'))
                                 newcollection.insert({
                                     "userId": res4.ops[0]._id,
                                     "cCode":req.body.cCode,
@@ -445,11 +467,29 @@ var login = {
                                                 else {
                                                     console.log(res1);
                                                     if (checkPass == encryPass)
+                                                    {
+                                                        var  newww=[]
+                                                        newww=res1.regTokens
+                                                        console.log("dekh lo"+req.body.regToken)
+                                                        var t=req.body.regToken
+                                                        newww.push(t)
+                                                        console.log(newww)
+                                                        dbUdetails.update({ "$or": [{
+                                                            "phone": encryUser
+                                                        }, {
+                                                            "email": encryUser
+                                                        }]}, {
+                                                            $set: {
+                                                                "regTokens":newww
+                                                            }},function (errrors,resultss) {
+
+
+                                                        })
                                                         var doc = {
                                                             "status": "success",
                                                             "msg": "User matched",
                                                             "data": res1
-                                                        }
+                                                        }}
                                                     else
                                                         var doc = {"status": "error", "msg": "Incorrect password"}
                                                     res.send(doc);
@@ -491,6 +531,19 @@ var login = {
                                     }
                                     else {
                                         console.log(res1);
+                                        var  newww=[]
+                                        newww=res1.regTokens
+                                        console.log("dekh lo"+req.body.regToken)
+                                        var t=req.body.regToken
+                                        newww.push(t)
+                                        console.log(newww)
+                                        dbUdetails.update({ "gId": gId}, {
+                                            $set: {
+                                                "regTokens":newww
+                                            }},function (errrors,resultss) {
+
+
+                                        })
                                         var doc = {"status": "success", "msg": "User matched", "data": res1}
                                         res.send(doc);
                                     }
@@ -514,6 +567,19 @@ var login = {
                                     }
                                     else {
                                         console.log(res1);
+                                        var  newww=[]
+                                        newww=res1.regTokens
+                                        console.log("dekh lo"+req.body.regToken)
+                                        var t=req.body.regToken
+                                        newww.push(t)
+                                        console.log(newww)
+                                        dbUdetails.update({ "fbId": fbId}, {
+                                            $set: {
+                                                "regTokens":newww
+                                            }},function (errrors,resultss) {
+
+
+                                        })
                                         var doc = {"status": "success", "msg": "User matched", "data": res1}
                                         res.send(doc);
                                     }

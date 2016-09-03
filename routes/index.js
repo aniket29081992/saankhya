@@ -8,6 +8,7 @@ var setdetails=require('./setuserdetail')
 var coll=require('./collgcity')
 var sndmsg=require('./sendmessage')
 var page=require('./pagination')
+var accept=require('./accept')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -26,5 +27,6 @@ router.post ('/api/sendotp', sendotp1.sendOtp1);
 router.post ('/api/verifyotp', sendotp1.verifyOtp1);
 router.post ('/api/sendmsg', sndmsg.sendnew);
 router.post('/api/message/page',page.pagination)
+router.post('/api/accept',accept.checkandaccept)
 
 module.exports = router;
