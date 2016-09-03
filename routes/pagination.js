@@ -57,7 +57,7 @@ var page = {
                         var sendDoc=[]
 
 
-                        var cursor = college.find({"stuId":userId}
+                        var cursor = college.find({"stuId":userId,sendTime: { $lt: req.body.sendTime }}
                         ).sort({sendTime: -1}).skip(skp).limit(lmt);
                         cursor.each(function (err, item) {
                             if (err === null) {

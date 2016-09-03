@@ -14,48 +14,137 @@ function encrypt(buffer){
     // return crypted;
 }
 
-function decrypt(buffer){
+function decrypt(buffer)
+{
     return buffer
     // var decipher = crypto.createDecipher(algorithm,password)
     // var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
     // return dec;
 }
 function firstEntry(req,res,mess) {
-    var ins = {
-        "iStatus": "inactive",
-        "stuId": req.body.stuId,
-        "msg": req.body.msg,
-        "teachId": "",
+    console.log("cofse")
+    var findCheck={"stuId":req.body.stuId};
+    var cursor=mess.find(findCheck).sort({sendTime:-1}).limit(1)
+    var count=0
+    var insertDocument;
+    cursor.each(function (err,item) {
+        if(err===null)
+        {
 
-        "sendTime": new Date().getTime().toString(),
-        "intId": new Date().getTime().toString(),
-        "msgBy": req.body.msgBy
-    }
-    mess.insert(ins, function (err, result) {
-        if (err === null) {
-           // console.log(result)
-            var userS=[]
-            userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
-            userS.push('d45cU0fSC2s:APA91bEic92SRp2UIpVXTNzP_JugcZDN8wlMUHYf2uUjz3g0qkV3y13GnbEtjk37zU76VFNKSVb5u1GowkBJ9f_4M17ucPmd2Tf1Tc_pXHVP16l67G0dRRBdGPWnEDOrgnDyChRLjExF')
-            userS.push('eHIknDUbIj8:APA91bHwas2vGsgVUzJpz33wt3jC4FJGH-SLDmP_WIzbCW5gMYOsqWQg2UX5p0kgyStB1vRrpyzN4ari2FRff2laoiJ1ln_P0kNgyBB3lqsMIGhi0tBNEQ_op1Y-LkgwGYdE8vUQYNUQ')
-            userS.push('ddTiyJ4-VcE:APA91bFvoWHUtfc_KgHUNJUUwnKDIZfnE1YjyW0Bded_5O1kZXWxKPtgrwzN3BUKVgMvJjYfuwmlJGue_PNoS5THQDvV7W5DYLcvO5QQGPqifA47TBaCn_vU-9d7LzXMnxzCFgfRcbgT')
+           if(count++==0)
+           {
+               console.log("check")
+               if(item!=null)
+           {
 
-            // userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
-            // userS.push('')
+               //check conditions
+               if((item.iStatus==="unassigned"))
+               {
+                   insertDocument = {
+                       "iStatus": "unassigned",
+                       "stuId": req.body.stuId,
+                       "msg": req.body.msg,
+                       "teachId": "",
+                       "subId":req.body.subId,
+                       "localTime":req.body.localTime,
+                       "attachment":req.body.attachment,
+                       "extension":req.body.extension,
+                       "seenTime":req.body.seenTime,
 
-            cloud.send(userS,req.body.msg)
 
-            var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
-            res.send(msg);
-            //api call
-                          }
-        else {
-            var msg = {"status": "error", "msg": "Oops something went wrong"}
-            res.send(msg);
+
+                       "sendTime": new Date().getTime().toString(),
+                       "intId": item.intId,
+                       "msgBy": req.body.msgBy
+                   }
+               }
+               else
+                   if(item.iStatus==="inactive")
+                   {
+                       insertDocument = {
+                           "iStatus": "unassigned",
+                           "stuId": req.body.stuId,
+                           "msg": req.body.msg,
+                           "teachId": "",
+                           "localTime":req.body.localTime,
+                           "subId":req.body.subId,
+                           "attachment":req.body.attachment,
+                           "extension":req.body.extension,
+                           "seenTime":req.body.seenTime,
+
+                           "sendTime": new Date().getTime().toString(),
+                           "intId": new Date().getTime().toString(),
+                           "msgBy": req.body.msgBy
+                       }
+
+                   }
+
+
+           }
+           else
+
+               {
+                   insertDocument = {
+                       "iStatus": "unassigned",
+                       "stuId": req.body.stuId,
+                       "msg": req.body.msg,
+                       "teachId": "",
+                       "subId":req.body.subId,
+                       "attachment":req.body.attachment,
+                       "extension":req.body.extension,
+                       "seenTime":req.body.seenTime,
+                       "localTime":req.body.localTime,
+
+
+                       "sendTime": new Date().getTime().toString(),
+                       "intId": new Date().getTime().toString(),
+                       "msgBy": req.body.msgBy
+                   }
+               }
+
+               mess.insert(insertDocument, function (err, result)
+               {
+                   if (err === null) {
+                       // console.log(result)
+                       var userS=[]
+                       userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
+                       userS.push('d45cU0fSC2s:APA91bEic92SRp2UIpVXTNzP_JugcZDN8wlMUHYf2uUjz3g0qkV3y13GnbEtjk37zU76VFNKSVb5u1GowkBJ9f_4M17ucPmd2Tf1Tc_pXHVP16l67G0dRRBdGPWnEDOrgnDyChRLjExF')
+                       userS.push('eHIknDUbIj8:APA91bHwas2vGsgVUzJpz33wt3jC4FJGH-SLDmP_WIzbCW5gMYOsqWQg2UX5p0kgyStB1vRrpyzN4ari2FRff2laoiJ1ln_P0kNgyBB3lqsMIGhi0tBNEQ_op1Y-LkgwGYdE8vUQYNUQ')
+                       userS.push('ddTiyJ4-VcE:APA91bFvoWHUtfc_KgHUNJUUwnKDIZfnE1YjyW0Bded_5O1kZXWxKPtgrwzN3BUKVgMvJjYfuwmlJGue_PNoS5THQDvV7W5DYLcvO5QQGPqifA47TBaCn_vU-9d7LzXMnxzCFgfRcbgT')
+
+                       // userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
+                       // userS.push('')
+
+                       cloud.send(userS,req.body.msg)
+
+                       var msg =
+                       {"status": "success", "msg": "Message sent","data":result.ops[0]
+                       }
+                       res.send(msg);
+                       //api call
+
+                   }
+                   else {
+                       var msg = {"status": "error", "msg": "Oops something went wrong"}
+                       res.send(msg);
+
+                   }
+
+               })
+           }
+
+
+
 
         }
 
     })
+
+//check last message if it is unassigned then copy interaction id ,if it is active then also else create new interaction id
+
+
+
+
 
 }
 
@@ -97,31 +186,16 @@ var message = {
                                 {
                                     //if time check here then only
                                     firstEntry(req,res,db.collection('message'))
-
-
 //insert
-         console.log("chill")
+
 
                                 }
                                 else
-                                {
+                                    {
                                     var mess=db.collection('message');
-                                    // var findCheck={"stuId":req.body.stuId,"iStatus":"active","msgBy":"student"};
-                                    // var studentTime=0
-                                    // var teacherTime=0;
-                                    // var resultstudent=mess.find(findCheck).sort({sendTime:-1}).limit(1)
-                                    // resultstudent.each(function (err, item) {
-                                    //     if (err === null) {
-                                    //         if(item!==null)
-                                    //         {
-                                    //             studentTime=parseInt(item.sendTime)
-                                    //             console.log("check1"+item.sendTime)
-                                    //
-                                    //         }}})
-
                                     var teacherTime=0;
                                     var checkTeacher=0;
-                                    var findCheck={"stuId":req.body.stuId,"iStatus":"active","msgBy":"teacher"};
+                                    var findCheck={"stuId":req.body.stuId,"iStatus":"active","msgBy":"1"};
                                     var resultteacher=mess.find(findCheck).sort({sendTime:-1}).limit(1)
                                     resultteacher.each(function (err, item) {
                                         if (err === null) {
@@ -140,12 +214,17 @@ var message = {
                                                             "stuId": req.body.stuId,
                                                             "msg": req.body.msg,
                                                             "teachId": "",
+                                                            "subId":req.body.subId,
+                                                            "attachment":req.body.attachment,
+                                                            "extension":req.body.extension,
+                                                            "seenTime":req.body.seenTime,
+
                                                             "sendTime": new Date().getTime().toString(),
                                                             "intId": doc.intId,
                                                             "msgBy": req.body.msgBy,
                                                             "iStatus": "active"
 
-                                                        }
+                                                                   }
 
                                                         mess.insert(ins, function (err, result) {
                                                             if (err === null) {
@@ -175,7 +254,7 @@ var message = {
                                                         mess.updateMany(findInt, { $set:{"iStatus":"inactive"}},function (errr,resss) {
                                                             if(errr===null)
                                                             {
-
+console.log("mera naam "+resss)
                                                                 firstEntry(req,res,mess)
 
                                                             }
