@@ -2,7 +2,7 @@ var mongo = require('mongodb');
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
-
+var cloud=require('../test')
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'a13I11ET23';
@@ -63,18 +63,73 @@ var accept = {
                                 else
                                 {
                                     var teachId=req.body.teachId
-                                    message.updateMany({"stuId":req.body.stuId,"intId":interactionId,"iStatus":"unassigned"},{ $set:{"teachId":teachId,"iStatus":"active"}},function (errr,resss) {
+                                    message.updateMany({"stuId":req.body.stuId,"intId":interactionId,"iStatus":"unassigned"},{ $set:{"teachId":teachId,"iStatus":"active","acceptTime":new Date().getTime().toString()}},function (errr,resss) {
                                         if(errr!==null)
                                         {
                                             res.send({"status":"error"})
 
                                         }
                                         var teachDb=db.collection("teacherDetails");
-                                        teachDb.update({"teachId":teachId},{ $set:{"availStatus":"inactive"}},function (error1,result1) {
+                                        teachDb.update({"teachId":teachId,"availStatus":"active"},{ $set:{"availStatus":"inactive"}},function (error1,result1) {
                                             if(error1===null)
                                             {
-                                                var doc={"status":"success","msg":"Accepted","teachId":teachId}
-                                                res.send(doc)
+                                                console.log(result1.result.nModified
+                                                )
+                                                if(result1.result.nModified!=0) {
+                                                    var userS=[]
+
+                                                    var teacher=db.collection('teacherDetails');
+                                                    var checkSum=0;
+                                                    var cursorT= teacher.find({"teachId":{ $nin:  req.body.teachId  },   "availStatus":"active"})
+                                                    cursorT.each(function (err, item) {
+                                                        if (err === null) {
+                                                            {
+                                                                checkSum++;
+                                                                if(item!==null)
+                                                                {
+                                                                    // console.log(item.regTokens)
+                                                                    for(var i=0;i<item.regTokens.length;i++)
+                                                                    {
+                                                                        console.log(item.regTokens[i])
+                                                                        userS.push(item.regTokens[i])
+                                                                    }
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    if(checkSum==1)
+                                                                        console.log("no one active")
+                                                                    else {
+
+
+
+                                                                        var dataa=[]
+                                                                        var doc = {
+                                                                            "status": "success",
+                                                                            "msg": "Accepted",
+                                                                            "teachId": teachId
+                                                                        }
+                                                                        res.send(doc)
+
+                                                                        cloud.send(userS,req.body.stuId+req.body.interId,2)
+                                                                        console.log("bas"+userS)}
+
+                                                                }
+                                                            }}})
+
+
+
+                                                }
+                                                else
+
+                                                {
+                                                    var doc = {
+                                                        "status": "error",
+                                                        "msg": "Oops something went wrong"
+                                                             }
+                                                    res.send(doc)
+
+                                                }
 
                                                 //
                                                 //

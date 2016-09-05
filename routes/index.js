@@ -21,6 +21,7 @@ router.post ('/api/login', login.loginRequest);
 router.post ('/api/signup/sendotp', sendotp.sendOtp);
 router.post ('/api/signup/verifyotp', sendotp.verifyOtp);
 router.post ('/api/forgot', forgot.reset);
+router.post ('/api/change', forgot.change);
 router.post ('/api/userdetails', setdetails.set);
 router.get ('/api/school', coll.college);
 router.get ('/api/city', coll.city);

@@ -5,13 +5,13 @@ var fcm = new FCM(serverKey);
 // ... with default values
 //
 var cloud= {
-    send: function (registrationTokens,msg) {
+    send: function (registrationTokens,msg,check) {
 // ... or some given values
 // var registrationTokens=[]
 // registrationTokens.push('cUUp7RHne6o:APA91bHn-yVY8BrwEJ0H89hrt745Qe-xfGQCEIYZLvkZEPQq0HfVtpB_Y2HVl1pMEDBdMV8suJOQXn8OwbayJTvWJAe8Qu-nb4UrMHbdBpa4bKJS3plx6vhJRXb8SOCaAPn7g2XTUGb3')
 
 // cloud.send(userS)
- console.log(registrationTokens,msg)
+
 
 
 
@@ -19,8 +19,8 @@ var cloud= {
                 "registration_ids":  registrationTokens,
 
                 data: {
-                    key1: msg,
-                    key2: 'check2'
+                    Key1: check,
+                    Key2:msg
                 }
             }
 
