@@ -114,8 +114,39 @@ function firstEntry(req,res,mess) {
 
                        // userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
                        // userS.push('')
+//check this code from here
+                       var teacher=db.collection('teacherDetails');
+                       var checkSum=0;
+                      var cursorT= teacher.find({"availStatus":"active"})
+                       cursorT.each(function (err, item) {
+                           if (err === null) {
+                               {
+                                   checkSum++;
+                                   if(item!==null)
+                                   {
+                                      // console.log(item.regTokens)
+                                       for(var i=0;i<item.regTokens.length;i++)
+                                       {
+                                           console.log(item.regTokens[i])
+                                           userS.push(item.regTokens[i])
+                                       }
 
-                       cloud.send(userS,req.body.msg)
+                                   }
+                                   else
+                                   {
+                                       if(checkSum==1)
+                                           console.log("no one active")
+                                       else {
+                                           console.log("bas"+userS)}
+
+                                   }
+                               }}})
+                       //to here
+
+
+
+
+                     //  cloud.send(userS,req.body.msg)
 
                        var msg =
                        {"status": "success", "msg": "Message sent","data":result.ops[0]
@@ -208,6 +239,7 @@ var message = {
                                                 console.log("check2"+teacherTime)
                                                 var difference=new Date().getTime()-teacherTime;
                                                 console.log(difference)
+
                                                 if(difference<=5*60*1000)
                                                 {
 
@@ -256,8 +288,17 @@ var message = {
                                                         mess.updateMany(findInt, { $set:{"iStatus":"inactive"}},function (errr,resss) {
                                                             if(errr===null)
                                                             {
+                                                                var teachDb=db.collection("teacherDetails");
+                                                                teachDb.update({"teachId":item.teachId,},{ $set:{"availStatus":"active"}},function (error1,result1) {
+                                                                    if(error1===null)
+                                                                    {
+                                                                        console.log("yahoo"+item.teachId)
+                                                                        firstEntry(req,res,mess)
+
+
+                                                                    }})
 console.log("mera naam "+resss)
-                                                                firstEntry(req,res,mess)
+
 
                                                             }
                                                             else
@@ -275,42 +316,98 @@ console.log("mera naam "+resss)
                                             }
                                             else
                                             {
-
-
-
-                                                var ins = {
-                                                    "stuId": req.body.stuId,
-                                                    "msg": req.body.msg,
-                                                    "teachId": doc.teachId,
-                                                    "subId":req.body.subId,
-                                                    "attachment":req.body.attachment,
-                                                    "extension":req.body.extension,
-                                                    "seenTime":req.body.seenTime,
-                                                    "localTime":req.body.localTime,
-                                                    "sendTime": new Date().getTime().toString(),
-                                                    "intId": doc.intId,
-                                                    "msgBy": req.body.msgBy,
-                                                    "iStatus": "active"
-
-                                                }
-
-                                                mess.insert(ins, function (err, result) {
+//here
+//check if last message time by student if time is less than 2  minutes then
+var check2=0;
+                                                var findCheck={"stuId":req.body.stuId,"iStatus":"active","msgBy":"0"};
+                                                var resultteacher=mess.find(findCheck).sort({sendTime:1}).limit(1)
+                                                resultteacher.each(function (err, item) {
                                                     if (err === null) {
-                                                        // console.log(result)
-                                                        var userS=[]
-                                                        userS.push('')
-                                                        cloud.send(userS)
+                                                        if(check2++==0){
+                                                            if(item!==null)
+                                                            {
+                                                               var firstMsgtime=parseInt(item.sendTime)
 
-                                                        var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
-                                                        res.send(msg);
-                                                    }
-                                                    else {
-                                                        var msg = {"status": "error", "msg": "Oops something went wrong"}
-                                                        res.send(msg);
+                                                                var differenceNow=new Date().getTime()-firstMsgtime;
+                                                                console.log("yes"+differenceNow)
 
-                                                    }
 
-                                                })
+                                                                if(differenceNow<=5*60*1000)
+                                                                {
+                                                                    var mess=db.collection('message');
+                                                                    var ins =
+                                                                    {
+                                                                        "stuId": req.body.stuId,
+                                                                        "msg": req.body.msg,
+                                                                        "teachId": doc.teachId,
+                                                                        "subId":req.body.subId,
+                                                                        "attachment":req.body.attachment,
+                                                                        "extension":req.body.extension,
+                                                                        "seenTime":req.body.seenTime,
+                                                                        "localTime":req.body.localTime,
+                                                                        "sendTime": new Date().getTime().toString(),
+                                                                        "intId": doc.intId,
+                                                                        "msgBy": req.body.msgBy,
+                                                                        "iStatus": "active"
+
+                                                                    }
+
+                                                                    mess.insert(ins, function (err, result)
+                                                                    {
+                                                                        if (err === null) {
+                                                                            // console.log(result)
+                                                                            var userS=[]
+                                                                            userS.push('')
+                                                                            cloud.send(userS)
+
+                                                                            var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
+                                                                            res.send(msg);
+                                                                        }
+                                                                        else {
+                                                                            var msg = {"status": "error", "msg": "Oops something went wrong"}
+                                                                            res.send(msg);
+
+                                                                        }
+
+                                                                                                              })
+                                                                }
+                                                                else
+                                                                {
+
+                                                                    var mess=db.collection('message');
+                                                                    var findInt={"stuId":req.body.stuId,"iStatus":"active"};
+                                                                    mess.updateMany(findInt, { $set:{"iStatus":"inactive"}},function (errr,resss) {
+                                                                        if(errr===null)
+                                                                        {
+                                                                            var teachDb=db.collection("teacherDetails");
+                                                                            teachDb.update({"teachId":item.teachId,},{ $set:{"availStatus":"active"}},function (error1,result1) {
+                                                                                if(error1===null)
+                                                                                {
+                                                                                    console.log("yahoo"+item.teachId)
+
+                                                                                    firstEntry(req,res,mess)
+                                                                                }
+                                                                            })
+                                                                            console.log("mera naam "+resss)
+
+
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            var msg = {"status": "error", "msg": "Oops something went wrong"}
+                                                                            res.send(msg);
+                                                                        }
+                                                                    })
+
+
+
+                                                                }
+
+                                                            }}}})
+
+
+
+
                                             }
 
                                             // else
@@ -330,7 +427,7 @@ console.log("mera naam "+resss)
                                             //         "msgBy": req.body.msgBy,
                                             //         "iStatus": "active"
                                             //
-                                            //     }
+                                            //          }
                                             //
                                             //     mess.insert(ins, function (err, result) {
                                             //         if (err === null) {
@@ -342,7 +439,8 @@ console.log("mera naam "+resss)
                                             //             var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
                                             //             res.send(msg);
                                             //         }
-                                            //         else {
+                                            //
+                                           //       else {
                                             //             var msg = {"status": "error", "msg": "Oops something went wrong"}
                                             //             res.send(msg);
                                             //
@@ -360,7 +458,7 @@ console.log("mera naam "+resss)
                                     // var w=studentTime-teacherTime;
                                     // console.log("dont"+w)
 
-var w=0;
+                                      var w=0;
 
 
                                     //check time

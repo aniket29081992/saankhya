@@ -51,7 +51,7 @@ var accept = {
                     else {
                         var message = db.collection("message");
                         var interactionId=req.body.interId
-                        var doc={"intId":interactionId,"iStatus":"active"}
+                        var doc={"stuId":req.body.stuId,"intId":interactionId,"iStatus":"active"}
                         message.findOne(doc,function (error,result) {
                             if(error===null)
                             {
@@ -63,17 +63,57 @@ var accept = {
                                 else
                                 {
                                     var teachId=req.body.teachId
-                                    message.updateMany({"intId":interactionId,"iStatus":"unassigned"},{ $set:{"teachId":teachId,"iStatus":"active"}},function (errr,resss) {
+                                    message.updateMany({"stuId":req.body.stuId,"intId":interactionId,"iStatus":"unassigned"},{ $set:{"teachId":teachId,"iStatus":"active"}},function (errr,resss) {
                                         if(errr!==null)
                                         {
                                             res.send({"status":"error"})
 
                                         }
                                         var teachDb=db.collection("teacherDetails");
-                                        teachDb.update({"teachId":teachId,"availStatus":"active"},{ $set:{"teachId":teachId,"availStatus":"inactive"}},function (error1,result1) {
+                                        teachDb.update({"teachId":teachId},{ $set:{"availStatus":"inactive"}},function (error1,result1) {
                                             if(error1===null)
                                             {
-                                                console.log(result1)
+                                                var doc={"status":"success","msg":"Accepted","teachId":teachId}
+                                                res.send(doc)
+
+                                                //
+                                                //
+                                                //
+                                                //
+                                                // var college = db.collection("message");
+                                                //
+                                                // var sendDoc=[]
+                                                //
+                                                // var college = db.collection("message");
+                                                // var cursor = college.find({"stuId":req.body.stuId,sendTime: { $lt: req.body.sendTime }}
+                                                // ).sort({sendTime: -1}).skip(0).limit(10);
+                                                // cursor.each(function (err, item) {
+                                                //     if (err === null) {
+                                                //         if(item!==null)
+                                                //         {
+                                                //
+                                                //             sendDoc.push(item)
+                                                //             console.log(item.sendTime);}
+                                                //         else
+                                                //         {
+                                                //             console.log("mine"+sendDoc.length)
+                                                //             if(sendDoc.length==0)
+                                                //                 res.send({"status:":"error","msg":"We ran out of pages"})
+                                                //             else{
+                                                //
+                                                //
+                                                //
+                                                //                     res.send({"status:":"success","data":sendDoc})}
+                                                //         }
+                                                //
+                                                //     }
+                                                //     else
+                                                //     {
+                                                //         res.send({"status:":"error","msg":"Oops something went wrong"})
+                                                //
+                                                //     }
+                                                // });
+
                                             }
 
 
@@ -81,7 +121,7 @@ var accept = {
 
                                     })
 
-                                    console.log()
+
 
                                 }
 
