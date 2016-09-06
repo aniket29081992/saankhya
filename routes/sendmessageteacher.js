@@ -1,6 +1,7 @@
 var mongo = require('mongodb');
 var crypto = require('crypto');
 var cloud=require('../test')
+var uploadimg=require('./imageuploader')
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
 var crypto = require('crypto'),
@@ -69,7 +70,13 @@ var messageT = {
                                                     var currentTime=new Date().getTime()-lastStudenttime
                                                     if(currentTime<=5*60*1000)
                                                     {
+                                                        var attachment
+                                                        if((req.body.attachment===' ')||(req.body.attachment.length==0))
+                                                            attachment=''
+                                                        else{
 
+                                                            attachment=req.body.stuId+new Date().getTime().toString()
+                                                            uploadimg.upload(attachment,req.body.attachment)}
                                                         {
                                                             var ins = {
                                                                 "stuId": req.body.stuId,
@@ -78,7 +85,7 @@ var messageT = {
                                                                 "acceptTime":item.acceptTime,
 
                                                                 "subId":req.body.subId,
-                                                                "attachment":req.body.attachment,
+                                                                "attachment":attachment,
                                                                 "extension":req.body.extension,
                                                                 "seenTime":req.body.seenTime,
                                                                 "localTime":req.body.localTime,
