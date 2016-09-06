@@ -6,11 +6,11 @@ AWS.config.region = 'ap-south-1';
 AWS.config.accessKeyId= 'AKIAID424XIJM7YQ4L6A';
 AWS.config.secretAccessKey = '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';
 var image= {
-    upload: function (key) {
+    upload: function (key,name) {
 
         var s3bucket = new AWS.S3({params: {Bucket: 'myimageping'}})
         s3bucket.createBucket(function () {
-            var fileName = '/Users/aniketverma/Downloads/pinging_algorithm.png'
+            var fileName = name
             var fileBuffer = fs.readFileSync(fileName);
 
             var params = {Key: key, Body: fileBuffer, ACL: 'public-read'};
@@ -57,3 +57,4 @@ var image= {
 //     });
 // });
     }}
+module.exports=image

@@ -46,8 +46,9 @@ function firstEntry(req,res,mess) {
                    if((req.body.attachment===' ')||(req.body.attachment.length==0))
                        attachment=''
                    else{
-                       uploadimg.upload(req.body.attachment)
-                       attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()}
+
+                       attachment=req.body.stuId+new Date().getTime().toString()
+                       uploadimg.upload(attachment,req.body.attachment)}
                    insertDocument = {
                        "iStatus": "unassigned",
                        "stuId": req.body.stuId,
@@ -75,8 +76,10 @@ function firstEntry(req,res,mess) {
                        console.log("diggo"+req.body.attachment.length)
                        if((req.body.attachment===' ')||(req.body.attachment.length==0))
                            attachment=' '
-                       else{uploadimg.upload(req.body.attachment)
-                           attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()}
+                       else{
+                           attachment=req.body.stuId+new Date().getTime().toString()
+                           uploadimg.upload(attachment,req.body.attachment)
+                       }
                        insertDocument = {
                            "iStatus": "unassigned",
                            "stuId": req.body.stuId,
@@ -106,8 +109,13 @@ function firstEntry(req,res,mess) {
                    console.log("diggo"+req.body.attachment.length)
                    if((req.body.attachment===' ')||(req.body.attachment.length==0))
                        attachment=' '
-                   else{uploadimg.upload(req.body.attachment)
-                       attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()}
+                   else{
+
+                       attachment=req.body.stuId+new Date().getTime().toString()
+                       uploadimg.upload(attachment,req.body.attachment)
+                       // uploadimg.upload(req.body.attachment)
+                       // attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()
+                   }
                    insertDocument = {
                        "iStatus": "unassigned",
                        "stuId": req.body.stuId,
@@ -280,8 +288,12 @@ var message = {
                                                         if((req.body.attachment===' ')||(req.body.attachment.length==0))
                                                             attachment=' '
                                                         else{
-                                                            uploadimg.upload(req.body.attachment)
-                                                            attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()}
+
+                                                            attachment=req.body.stuId+new Date().getTime().toString()
+                                                            uploadimg.upload(attachment,req.body.attachment)
+                                                            // uploadimg.upload(req.body.attachment)
+                                                            // attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()
+                                                        }
                                                         var ins = {
                                                             "stuId": req.body.stuId,
                                                             "msg": req.body.msg,
@@ -384,8 +396,11 @@ var check2=0;
                                                                     if((req.body.attachment===' ')||(req.body.attachment.length==0))
                                                                         attachment=' '
                                                                     else {
-                                                                        uploadimg.upload(req.body.attachment)
-                                                                        attachment = "https://myimageping.s3.ap-south-1.amazonaws.com/" + req.body.stuId + new Date().getTime().toString()
+
+                                                                        attachment=req.body.stuId+new Date().getTime().toString()
+                                                                        uploadimg.upload(attachment,req.body.attachment)
+                                                                        // uploadimg.upload(req.body.attachment)
+                                                                        // attachment = "https://myimageping.s3.ap-south-1.amazonaws.com/" + req.body.stuId + new Date().getTime().toString()
                                                                     }var ins =
                                                                     {
                                                                         "stuId": req.body.stuId,
@@ -445,8 +460,11 @@ var check2=0;
                                                                                     if((req.body.attachment===' ')||(req.body.attachment.length==0))
                                                                                         attachment=' '
                                                                                     else {
-                                                                                        uploadimg.upload(req.body.attachment)
-                                                                                        attachment = "https://myimageping.s3.ap-south-1.amazonaws.com/" + req.body.stuId + new Date().getTime().toString()
+
+                                                                                        attachment=req.body.stuId+new Date().getTime().toString()
+                                                                                        uploadimg.upload(attachment,req.body.attachment)
+                                                                                        // uploadimg.upload(req.body.attachment)
+                                                                                        // attachment = "https://myimageping.s3.ap-south-1.amazonaws.com/" + req.body.stuId + new Date().getTime().toString()
                                                                                     }
                                                                                         var insertDocument = {
                                                                                         "iStatus": "unassigned",
