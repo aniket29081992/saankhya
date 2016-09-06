@@ -80,20 +80,23 @@ var accept = {
 
                                                     var teacher=db.collection('teacherDetails');
                                                     var checkSum=0;
-                                                    var cursorT= teacher.find({"teachId":{ $nin:  req.body.teachId  },   "availStatus":"active"})
+                                                    var cursorT= teacher.find({  "availStatus":"active"})
                                                     cursorT.each(function (err, item) {
                                                         if (err === null) {
                                                             {
                                                                 checkSum++;
-                                                                if(item!==null)
+                                                                if((item!==null))
                                                                 {
                                                                     // console.log(item.regTokens)
-                                                                    for(var i=0;i<item.regTokens.length;i++)
+                                                                    if(item.teachId!=req.body.teachId)
                                                                     {
-                                                                        console.log(item.regTokens[i])
-                                                                        userS.push(item.regTokens[i])
-                                                                    }
+                                                                        for (var i = 0; i < item.regTokens.length; i++)
+                                                                        {
+                                                                            console.log(item.regTokens[i])
+                                                                            userS.push(item.regTokens[i])
 
+                                                                        }
+                                                                    }
                                                                 }
                                                                 else
                                                                 {

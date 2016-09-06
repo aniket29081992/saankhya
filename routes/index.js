@@ -7,10 +7,13 @@ var forgot=require('./forgotpass')
 var setdetails=require('./setuserdetail')
 var coll=require('./collgcity')
 var sndmsg=require('./sendmessage')
+var sndmsgT=require('./sendmessageteacher')
 var page=require('./pagination')
 var accept=require('./accept')
 var end=require('./endchat')
-
+var teach=require('./teacherlogin')
+var teachs=require('./teacherdata')
+var block=require('./blockingteacherstudent')
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
@@ -28,8 +31,12 @@ router.get ('/api/city', coll.city);
 router.post ('/api/sendotp', sendotp1.sendOtp1);
 router.post ('/api/verifyotp', sendotp1.verifyOtp1);
 router.post ('/api/sendmsg', sndmsg.sendnew);
+router.post ('/api/sendmsgteach', sndmsgT.sendnewT);
 router.post('/api/message/page',page.pagination)
 router.post('/api/accept',accept.checkandaccept)
 router.post('/api/end',end.endchat)
+router.post('/api/teacher',teach.login)
+router.post('/api/teacher/signup',teachs.signup)
+router.post('/api/block',block.blocknow)
 
 module.exports = router;
