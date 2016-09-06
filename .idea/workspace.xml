@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f7aa06a-e584-4739-b6bc-ff7807b8fff3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/blockingteacherstudent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/sendmessageteacher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/teacherdata.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/teacherlogin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/adminLogin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/imageuploader.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/accept.js" afterPath="$PROJECT_DIR$/routes/accept.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendmessage.js" afterPath="$PROJECT_DIR$/routes/sendmessage.js" />
     </list>
@@ -35,41 +32,9 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state relative-caret-position="410">
+              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="accept.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/accept.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#46#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -77,8 +42,30 @@
       <file leaf-file-name="sendmessage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2250">
-              <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+            <state relative-caret-position="-1087">
+              <caret line="447" column="125" selection-start-line="447" selection-start-column="125" selection-end-line="447" selection-end-column="125" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imageuploader.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/imageuploader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -87,8 +74,28 @@
       <file leaf-file-name="teacherdata.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/teacherdata.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1170">
-              <caret line="78" column="102" selection-start-line="0" selection-start-column="0" selection-end-line="91" selection-end-column="54" />
+            <state relative-caret-position="135">
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendotp.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/sendotp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="138" column="34" selection-start-line="138" selection-start-column="34" selection-end-line="138" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendmessageteacher.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/sendmessageteacher.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1655">
+              <caret line="221" column="92" selection-start-line="221" selection-start-column="92" selection-end-line="221" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -97,8 +104,18 @@
       <file leaf-file-name="teacherlogin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/teacherlogin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="81" selection-end-column="38" />
+            <state relative-caret-position="236">
+              <caret line="98" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminLogin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/adminLogin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1260">
+              <caret line="84" column="27" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -109,26 +126,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
               <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pagination.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/pagination.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="48" column="63" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forgotpass.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/forgotpass.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-270">
-              <caret line="67" column="49" selection-start-line="66" selection-start-column="35" selection-end-line="67" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -156,11 +153,13 @@
         <option value="$PROJECT_DIR$/routes/forgotpass.js" />
         <option value="$PROJECT_DIR$/routes/accept.js" />
         <option value="$PROJECT_DIR$/routes/sendmessageteacher.js" />
-        <option value="$PROJECT_DIR$/routes/sendmessage.js" />
         <option value="$PROJECT_DIR$/routes/teacherdata.js" />
         <option value="$PROJECT_DIR$/routes/teacherlogin.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/routes/blockingteacherstudent.js" />
+        <option value="$PROJECT_DIR$/routes/adminLogin.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/routes/imageuploader.js" />
+        <option value="$PROJECT_DIR$/routes/sendmessage.js" />
       </list>
     </option>
   </component>
@@ -206,38 +205,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pinglearnbackend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pinglearnbackend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pinglearnbackend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pinglearnbackend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pinglearnbackend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
@@ -250,7 +218,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="inde&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;pag&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/pagination.js&#10;ind&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;te&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;sen&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotp.js&#10;send&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotp.js&#10;ap&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/app.js&#10;index.j&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js" />
+    <property name="SearchEverywhereHistoryKey" value="send&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageteacher.js&#10;test.&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;inde&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;pag&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/pagination.js&#10;ind&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;te&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;sen&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotp.js&#10;ap&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/app.js&#10;index.j&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -259,6 +227,9 @@
   </component>
   <component name="RunManager" selected="Node.js.bin/www">
     <configuration default="false" name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="test.js" working-dir="$PROJECT_DIR$">
+      <method />
+    </configuration>
+    <configuration default="false" name="imageuploader.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="imageuploader.js" working-dir="$PROJECT_DIR$/routes">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -314,13 +285,15 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Node.js.bin/www" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.test.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.imageuploader.js" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.test.js" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.imageuploader.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -338,24 +311,24 @@
       <option name="presentableId" value="Default" />
       <updated>1472013340324</updated>
       <workItem from="1472013358812" duration="66048000" />
-      <workItem from="1472352750321" duration="120195000" />
+      <workItem from="1472352750321" duration="127859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186243000" />
+    <option name="totallyTimeSpent" value="193907000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="717" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4537037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -453,19 +426,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>220</line>
+          <line>242</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>225</line>
+          <line>247</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>23</line>
+          <line>24</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
@@ -483,67 +456,67 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>222</line>
+          <line>244</line>
           <properties />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>244</line>
+          <line>266</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>298</line>
+          <line>329</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>305</line>
+          <line>336</line>
           <properties />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>392</line>
+          <line>432</line>
           <properties />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>397</line>
+          <line>437</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>498</line>
+          <line>547</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>339</line>
+          <line>370</line>
           <properties />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>336</line>
+          <line>367</line>
           <properties />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>341</line>
+          <line>372</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>492</line>
+          <line>541</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
@@ -705,14 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/sendotp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="143" column="49" selection-start-line="138" selection-start-column="44" selection-end-line="143" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -725,22 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="70" column="48" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/sendmessageteacher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="221" column="92" selection-start-line="221" selection-start-column="92" selection-end-line="221" selection-end-column="92" />
           <folding />
         </state>
       </provider>
@@ -777,10 +726,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#46#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/accept.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        <state relative-caret-position="255">
+          <caret line="65" column="63" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="78" />
           <folding />
         </state>
       </provider>
@@ -793,32 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#46#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/teacherdata.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="78" column="102" selection-start-line="0" selection-start-column="0" selection-end-line="91" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/teacherlogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="81" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/blockingteacherstudent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -827,18 +760,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/teacherlogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="98" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/adminLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="27" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        <state relative-caret-position="410">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/imageuploader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/teacherdata.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/sendotp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="138" column="34" selection-start-line="138" selection-start-column="34" selection-end-line="138" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/sendmessageteacher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1655">
+          <caret line="221" column="92" selection-start-line="221" selection-start-column="92" selection-end-line="221" selection-end-column="92" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2250">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+        <state relative-caret-position="-1087">
+          <caret line="447" column="125" selection-start-line="447" selection-start-column="125" selection-end-line="447" selection-end-column="125" />
           <folding />
         </state>
       </provider>

@@ -1,6 +1,7 @@
 var mongo = require('mongodb');
 var crypto = require('crypto');
 var cloud=require('../test')
+var uploadimg=require('./imageuploader')
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
 var crypto = require('crypto'),
@@ -22,6 +23,7 @@ function decrypt(buffer)
     // return dec;
 }
 function firstEntry(req,res,mess) {
+
     console.log("cofse")
     var findCheck={"stuId":req.body.stuId};
     var cursor=mess.find(findCheck).sort({sendTime:-1}).limit(1)
@@ -40,6 +42,12 @@ function firstEntry(req,res,mess) {
                //check conditions
                if((item.iStatus==="unassigned"))
                {
+                   var attachment
+                   if((req.body.attachment===' ')||(req.body.attachment.length==0))
+                       attachment=''
+                   else{
+                       uploadimg.upload(req.body.attachment)
+                       attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()}
                    insertDocument = {
                        "iStatus": "unassigned",
                        "stuId": req.body.stuId,
@@ -48,7 +56,7 @@ function firstEntry(req,res,mess) {
 
                        "subId":req.body.subId,
                        "localTime":req.body.localTime,
-                       "attachment":req.body.attachment,
+                       "attachment":attachment,
                        "extension":req.body.extension,
                        "seenTime":req.body.seenTime,
 
@@ -62,6 +70,13 @@ function firstEntry(req,res,mess) {
                else
                    if(item.iStatus==="inactive")
                    {
+                       var attachment
+
+                       console.log("diggo"+req.body.attachment.length)
+                       if((req.body.attachment===' ')||(req.body.attachment.length==0))
+                           attachment=' '
+                       else{uploadimg.upload(req.body.attachment)
+                           attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()}
                        insertDocument = {
                            "iStatus": "unassigned",
                            "stuId": req.body.stuId,
@@ -70,7 +85,7 @@ function firstEntry(req,res,mess) {
                            "teachId": "",
                            "localTime":req.body.localTime,
                            "subId":req.body.subId,
-                           "attachment":req.body.attachment,
+                           "attachment":attachment,
                            "extension":req.body.extension,
                            "seenTime":req.body.seenTime,
 
@@ -86,6 +101,13 @@ function firstEntry(req,res,mess) {
            else
 
                {
+                   var attachment
+
+                   console.log("diggo"+req.body.attachment.length)
+                   if((req.body.attachment===' ')||(req.body.attachment.length==0))
+                       attachment=' '
+                   else{uploadimg.upload(req.body.attachment)
+                       attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()}
                    insertDocument = {
                        "iStatus": "unassigned",
                        "stuId": req.body.stuId,
@@ -93,7 +115,7 @@ function firstEntry(req,res,mess) {
                        "teachId": "",
                        "subId":req.body.subId,
 
-                       "attachment":req.body.attachment,
+                       "attachment":attachment,
                        "extension":req.body.extension,
                        "seenTime":req.body.seenTime,
                        "localTime":req.body.localTime,
@@ -251,13 +273,22 @@ var message = {
                                                 {
 
                                                     {
+
+                                                        var attachment
+
+                                                        console.log("diggo"+req.body.attachment.length)
+                                                        if((req.body.attachment===' ')||(req.body.attachment.length==0))
+                                                            attachment=' '
+                                                        else{
+                                                            uploadimg.upload(req.body.attachment)
+                                                            attachment="https://myimageping.s3.ap-south-1.amazonaws.com/"+req.body.stuId+new Date().getTime().toString()}
                                                         var ins = {
                                                             "stuId": req.body.stuId,
                                                             "msg": req.body.msg,
                                                             "teachId": item.teachId,
 
                                                             "subId":req.body.subId,
-                                                            "attachment":req.body.attachment,
+                                                            "attachment":attachment,
                                                             "extension":req.body.extension,
                                                             "seenTime":req.body.seenTime,
                                                             "localTime":req.body.localTime,
@@ -346,14 +377,23 @@ var check2=0;
                                                                 if(differenceNow<=15*60*1000)
                                                                 {
                                                                     var mess=db.collection('message');
-                                                                    var ins =
+
+                                                                    var attachment
+
+                                                                    console.log("diggo"+req.body.attachment.length)
+                                                                    if((req.body.attachment===' ')||(req.body.attachment.length==0))
+                                                                        attachment=' '
+                                                                    else {
+                                                                        uploadimg.upload(req.body.attachment)
+                                                                        attachment = "https://myimageping.s3.ap-south-1.amazonaws.com/" + req.body.stuId + new Date().getTime().toString()
+                                                                    }var ins =
                                                                     {
                                                                         "stuId": req.body.stuId,
                                                                         "msg": req.body.msg,
                                                                         "teachId": doc.teachId,
                                                                         "subId":req.body.subId,
                                                                         "acceptTime":item.sendTime,
-                                                                        "attachment":req.body.attachment,
+                                                                        "attachment":attachment,
                                                                         "extension":req.body.extension,
                                                                         "seenTime":req.body.seenTime,
                                                                         "localTime":req.body.localTime,
@@ -399,7 +439,16 @@ var check2=0;
                                                                             teachDb.update({"teachId":item.teachId,},{ $set:{"availStatus":"active"}},function (error1,result1) {
                                                                                 if(error1===null)
                                                                                 {
-                                                                                    var insertDocument = {
+
+                                                                                    var attachment
+                                                                                    console.log("diggo"+req.body.attachment.length)
+                                                                                    if((req.body.attachment===' ')||(req.body.attachment.length==0))
+                                                                                        attachment=' '
+                                                                                    else {
+                                                                                        uploadimg.upload(req.body.attachment)
+                                                                                        attachment = "https://myimageping.s3.ap-south-1.amazonaws.com/" + req.body.stuId + new Date().getTime().toString()
+                                                                                    }
+                                                                                        var insertDocument = {
                                                                                         "iStatus": "unassigned",
                                                                                         "stuId": req.body.stuId,
                                                                                         "msg": req.body.msg,
@@ -407,7 +456,7 @@ var check2=0;
 
                                                                                         "subId":req.body.subId,
                                                                                         "localTime":req.body.localTime,
-                                                                                        "attachment":req.body.attachment,
+                                                                                        "attachment":attachment,
                                                                                         "extension":req.body.extension,
                                                                                         "seenTime":req.body.seenTime,
 

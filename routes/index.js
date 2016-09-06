@@ -14,6 +14,7 @@ var end=require('./endchat')
 var teach=require('./teacherlogin')
 var teachs=require('./teacherdata')
 var block=require('./blockingteacherstudent')
+var admin=require('./adminLogin')
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
@@ -38,5 +39,5 @@ router.post('/api/end',end.endchat)
 router.post('/api/teacher',teach.login)
 router.post('/api/teacher/signup',teachs.signup)
 router.post('/api/block',block.blocknow)
-
+router.post('/api/admin',admin.login)
 module.exports = router;
