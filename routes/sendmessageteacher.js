@@ -51,7 +51,7 @@ var messageT = {
                     }
                     else {
                         var mess = db.collection('message');
-                        var findInt = {"stuId": req.body.stuId, "iStatus": "active","intId":req.body.interId,"teachId":req.body.teachId};
+                        var findInt = {"stuId": req.body.stuId, "iStatus": "active","teachId":req.body.teachId};
                         mess.findOne(findInt,function (err,result) {
                             if(err==null)
                             {
@@ -59,7 +59,7 @@ var messageT = {
                                 {
 
                                     var check=0;
-                                    var findCheck={"stuId":req.body.stuId,"intId":req.body.interId,"iStatus":"active","msgBy":"0"};
+                                    var findCheck={"stuId":req.body.stuId,"teachId":req.body.teachId,"iStatus":"active","msgBy":"0"};
                                     var resultteacher=mess.find(findCheck).sort({sendTime:-1}).limit(1)
                                     resultteacher.each(function (err, item) {
                                         if (err === null) {
@@ -90,7 +90,7 @@ var messageT = {
                                                                 "seenTime":req.body.seenTime,
                                                                 "localTime":req.body.localTime,
                                                                 "sendTime": new Date().getTime().toString(),
-                                                                "intId": req.body.interId,
+                                                                "intId": item.intId,
                                                                 "msgBy": req.body.msgBy,
                                                                 "iStatus": "active"
 
@@ -123,7 +123,7 @@ var messageT = {
                                                     else
                                                     {
                                                         var mess=db.collection('message');
-                                                        var findInt={"stuId":req.body.stuId,"iStatus":"active","intId":req.body.interId};
+                                                        var findInt={"stuId":req.body.stuId,"subId":req.body.subId,"iStatus":"active","teachId":req.body.teachId};
                                                         mess.updateMany(findInt, { $set:{"iStatus":"unassigned"}},function (errr,resss) {
                                                             if(errr===null)
                                                             {
@@ -132,7 +132,7 @@ var messageT = {
                                                                     if(error1===null)
                                                                     {
 
-                                                        var findCheck={"intId":req.body.interId,"stuId":req.body.stuId,"subId":req.body.subId};
+                                                        var findCheck={"teachId":req.body.teachId,"stuId":req.body.stuId,"subId":req.body.subId};
                                                         var cursor=mess.find(findCheck)
                                                         var count=0
                                                         var insertDocument;

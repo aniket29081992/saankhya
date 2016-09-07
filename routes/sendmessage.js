@@ -388,7 +388,7 @@ var check2=0;
 
 
 
-                                                                if(differenceNow<=15*60*1000)
+                                                                if(differenceNow<=2*60*1000)
                                                                 {
                                                                     var mess=db.collection('message');
 
