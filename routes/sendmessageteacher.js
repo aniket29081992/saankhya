@@ -68,7 +68,7 @@ var messageT = {
                                                 {
                                                     var lastStudenttime=parseInt(item.sendTime)
                                                     var currentTime=new Date().getTime()-lastStudenttime
-                                                    if(currentTime<=60*60*1000)
+                                                    if(currentTime<=5*60*1000)
                                                     {
                                                         var attachment
                                                         if((req.body.attachment===' ')||(req.body.attachment.length==0))

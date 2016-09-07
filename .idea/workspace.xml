@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f7aa06a-e584-4739-b6bc-ff7807b8fff3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendmessage.js" afterPath="$PROJECT_DIR$/routes/sendmessage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendmessageteacher.js" afterPath="$PROJECT_DIR$/routes/sendmessageteacher.js" />
     </list>
     <ignored path="pinglearnbackend.iws" />
@@ -35,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sendmessage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sendmessage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="152" column="67" selection-start-line="152" selection-start-column="23" selection-end-line="152" selection-end-column="67" />
+            <state relative-caret-position="197">
+              <caret line="564" column="133" selection-start-line="564" selection-start-column="128" selection-end-line="564" selection-end-column="133" />
               <folding />
             </state>
           </provider>
@@ -87,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sendmessageteacher.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sendmessageteacher.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/sendmessageteacher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="106" column="95" selection-start-line="106" selection-start-column="95" selection-end-line="106" selection-end-column="95" />
+            <state relative-caret-position="339">
+              <caret line="115" column="92" selection-start-line="102" selection-start-column="68" selection-end-line="115" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -154,8 +155,8 @@
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/routes/teacherlogin.js" />
         <option value="$PROJECT_DIR$/routes/accept.js" />
-        <option value="$PROJECT_DIR$/routes/sendmessage.js" />
         <option value="$PROJECT_DIR$/routes/sendmessageteacher.js" />
+        <option value="$PROJECT_DIR$/routes/sendmessage.js" />
       </list>
     </option>
   </component>
@@ -308,12 +309,12 @@
       <updated>1472013340324</updated>
       <workItem from="1472013358812" duration="66048000" />
       <workItem from="1472352750321" duration="131591000" />
-      <workItem from="1473227736206" duration="9660000" />
+      <workItem from="1473227736206" duration="11701000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207299000" />
+    <option name="totallyTimeSpent" value="209340000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="717" extended-state="6" />
@@ -324,7 +325,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4537037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4537037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -451,47 +452,47 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>343</line>
+          <line>363</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>350</line>
+          <line>370</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>470</line>
+          <line>490</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>475</line>
+          <line>495</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>588</line>
+          <line>608</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>384</line>
+          <line>404</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>381</line>
+          <line>401</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>386</line>
+          <line>406</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>582</line>
+          <line>602</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -870,14 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="152" column="67" selection-start-line="152" selection-start-column="23" selection-end-line="152" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -896,8 +889,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/sendmessageteacher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="106" column="95" selection-start-line="106" selection-start-column="95" selection-end-line="106" selection-end-column="95" />
+        <state relative-caret-position="339">
+          <caret line="115" column="92" selection-start-line="102" selection-start-column="68" selection-end-line="115" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="564" column="133" selection-start-line="564" selection-start-column="128" selection-end-line="564" selection-end-column="133" />
           <folding />
         </state>
       </provider>

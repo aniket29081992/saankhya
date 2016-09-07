@@ -316,15 +316,35 @@ var message = {
                                                         mess.insert(ins, function (err, result) {
                                                             if (err === null) {
                                                                 // console.log(result)
+
+                                                                //insert teacher tokens
+                                                                //userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
                                                                 var userS=[]
                                                                 //insert teacher tokens
-                                                                userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
-                                                             var dataa=[]
-                                                                dataa.push(result.ops[0])
-                                                                cloud.send(userS,dataa,0,0)
+                                                                var teacher=db.collection('teacherDetails');
+                                                                var d=item.teachId
 
-                                                                var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
-                                                                res.send(msg);
+                                                                teacher.findOne({"teachId":d},function (err5,res5) {
+                                                                    if(err5===null)
+                                                                    {
+                                                                        if(res5!==null)
+                                                                        {
+                                                                            for(var i=0;i<res5.regTokens.length;i++)
+                                                                                userS.push(res5.regTokens[i])
+
+                                                                            var dataa=[]
+                                                                            dataa.push(result.ops[0])
+                                                                            cloud.send(userS,dataa,0,0)
+
+                                                                            var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
+                                                                            res.send(msg);}
+                                                                            else
+                                                                        {
+                                                                            var msg = {"status": "error", "msg": "Oops something went wrong."}
+                                                                            res.send(msg);
+                                                                        }
+                                                                    }})
+
                                                             }
                                                             else {
                                                                 var msg = {"status": "error", "msg": "Oops something went wrong"}
