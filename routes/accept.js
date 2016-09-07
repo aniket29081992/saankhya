@@ -63,12 +63,12 @@ var accept = {
                                 else
                                 {
                                     var teachId=req.body.teachId
-                                    message.updateMany({"stuId":req.body.stuId,"intId":interactionId,"iStatus":"unassigned"},{ $set:{"teachId":teachId,"iStatus":"active","acceptTime":new Date().getTime().toString()}},function (errr,resss) {
+                                    message.updateMany({"stuId":req.body.stuId,"intId":interactionId,"iStatus":"unassigned","teachId":""},{ $set:{"teachId":teachId,"iStatus":"active","acceptTime":new Date().getTime().toString()}},function (errr,resss) {
                                         if (errr !== null) {
                                             res.send({"status": "error"})
 
                                         }
-                                        else {
+                                       else if((errr===null)&&(resss.nModified!=0) ){
                                             console.log("mera naam "+resss)
 
                                         var teachDb = db.collection("teacherDetails");
@@ -183,11 +183,18 @@ var accept = {
 
                                         })
                                     }
+                                    else if((errr===null)&&(resss.nModified==0) )
+                                        {
+                                            var doc={"status":"error","msg":"Already accepted"}
+                                            res.send(doc)
+                                        }
+
                                     })
 
 
 
                                 }
+                                //cccc
 
                             }
 

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f7aa06a-e584-4739-b6bc-ff7807b8fff3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/accept.js" afterPath="$PROJECT_DIR$/routes/accept.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/teacherlogin.js" afterPath="$PROJECT_DIR$/routes/teacherlogin.js" />
     </list>
     <ignored path="pinglearnbackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +70,8 @@
       <file leaf-file-name="accept.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/accept.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+            <state relative-caret-position="338">
+              <caret line="76" column="67" selection-start-line="76" selection-start-column="67" selection-end-line="76" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -300,12 +298,12 @@
       <updated>1472013340324</updated>
       <workItem from="1472013358812" duration="66048000" />
       <workItem from="1472352750321" duration="131591000" />
-      <workItem from="1473227736206" duration="5130000" />
+      <workItem from="1473227736206" duration="6026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202769000" />
+    <option name="totallyTimeSpent" value="203665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="717" extended-state="6" />
@@ -851,8 +849,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/accept.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+        <state relative-caret-position="338">
+          <caret line="76" column="67" selection-start-line="76" selection-start-column="67" selection-end-line="76" selection-end-column="67" />
           <folding />
         </state>
       </provider>
