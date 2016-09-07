@@ -69,8 +69,8 @@ var teachlogin = {
                                     console.log(newww);
                                     teacher.update({"teachId": req.body.teachId}, {
                                         $set: {
-                                            "regTokens": newww,
-                                            "availStatus":"active"
+                                            "regTokens": newww
+
                                         }
                                     }, function (errrors, resultss) {
                                         if (errrors === null) {

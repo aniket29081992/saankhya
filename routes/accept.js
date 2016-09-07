@@ -64,55 +64,55 @@ var accept = {
                                 {
                                     var teachId=req.body.teachId
                                     message.updateMany({"stuId":req.body.stuId,"intId":interactionId,"iStatus":"unassigned"},{ $set:{"teachId":teachId,"iStatus":"active","acceptTime":new Date().getTime().toString()}},function (errr,resss) {
-                                        if(errr!==null)
-                                        {
-                                            res.send({"status":"error"})
+                                        if (errr !== null) {
+                                            res.send({"status": "error"})
 
                                         }
-                                        var teachDb=db.collection("teacherDetails");
-                                        teachDb.update({"teachId":teachId,"availStatus":"active"},{ $set:{"availStatus":"inactive"}},function (error1,result1) {
-                                            if(error1===null)
-                                            {
+                                        else {
+                                            console.log("mera naam "+resss)
+
+                                        var teachDb = db.collection("teacherDetails");
+                                        teachDb.update({
+                                            "teachId": teachId,
+                                            "availStatus": "active"
+                                        }, {$set: {"availStatus": "inactive"}}, function (error1, result1) {
+                                            if (error1 === null) {
                                                 console.log(result1.result.nModified
                                                 )
-                                                if(result1.result.nModified!=0) {
-                                                    var userS=[]
+                                                if (result1.result.nModified != 0) {
+                                                    var userS = []
 
-                                                    var teacher=db.collection('teacherDetails');
-                                                    var checkSum=0;
-                                                    var cursorT= teacher.find({ "teachId":teachId})
+                                                    var teacher = db.collection('teacherDetails');
+                                                    var checkSum = 0;
+                                                    var cursorT = teacher.find({"teachId": teachId})
                                                     cursorT.each(function (err, item) {
                                                         if (err === null) {
                                                             {
                                                                 checkSum++;
-                                                                if((item!==null))
-                                                                {
+                                                                if ((item !== null)) {
                                                                     // console.log(item.regTokens)
-                                                                    if(item.teachId!=req.body.teachId)
-                                                                    {
-                                                                        for (var i = 0; i < item.regTokens.length; i++)
-                                                                        {
+                                                                    if (item.teachId != req.body.teachId) {
+                                                                        for (var i = 0; i < item.regTokens.length; i++) {
                                                                             console.log(item.regTokens[i])
                                                                             userS.push(item.regTokens[i])
 
                                                                         }
                                                                     }
                                                                 }
-                                                                else
-                                                                {
-                                                                    if(checkSum==1){
+                                                                else {
+                                                                    if (checkSum == 1) {
                                                                         console.log("no one active")
                                                                         var doc = {
                                                                             "status": "error",
                                                                             "msg": "No one active"
 
                                                                         }
-                                                                        res.send(doc)}
+                                                                        res.send(doc)
+                                                                    }
                                                                     else {
 
 
-
-                                                                        var dataa=[]
+                                                                        var dataa = []
                                                                         var doc = {
                                                                             "status": "success",
                                                                             "msg": "Accepted",
@@ -120,22 +120,22 @@ var accept = {
                                                                         }
                                                                         res.send(doc)
 
-                                                                        cloud.send(userS,req.body.stuId+req.body.interId,2)
-                                                                        console.log("bas"+userS)}
+                                                                        cloud.send(userS, req.body.stuId + req.body.interId, 2)
+                                                                        console.log("bas" + userS)
+                                                                    }
 
                                                                 }
-                                                            }}})
-
+                                                            }
+                                                        }
+                                                    })
 
 
                                                 }
-                                                else
-
-                                                {
+                                                else {
                                                     var doc = {
                                                         "status": "error",
                                                         "msg": "Oops something went wrong"
-                                                             }
+                                                    }
                                                     res.send(doc)
 
                                                 }
@@ -182,7 +182,7 @@ var accept = {
 
 
                                         })
-
+                                    }
                                     })
 
 
