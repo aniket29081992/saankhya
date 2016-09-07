@@ -68,7 +68,7 @@ var messageT = {
                                                 {
                                                     var lastStudenttime=parseInt(item.sendTime)
                                                     var currentTime=new Date().getTime()-lastStudenttime
-                                                    if(currentTime<=5*60*1000)
+                                                    if(currentTime<=60*60*1000)
                                                     {
                                                         var attachment
                                                         if((req.body.attachment===' ')||(req.body.attachment.length==0))
@@ -102,13 +102,40 @@ var messageT = {
                                                                     // console.log(result)
                                                                     var userS=[]
                                                                     //insert teacher tokens
-                                                                    userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
-                                                                    var dataa=[]
-                                                                    dataa.push(result.ops[0])
-                                                                    cloud.send(userS,dataa,0,1)
+                                                                    var student=db.collection('digo');
+                                                                    var d=req.body.stuId
+                                                                    var ObjectId=mongo.ObjectId
+                                                                    var _id = new ObjectId(d)
+                                                                    student.findOne({"_id":_id},function (err5,res5) {
+                                                                        if(err5===null)
+                                                                        {
+                                                                            if(res5!==null)
+                                                                            {
+                                                                                for(var i=0;i<res5.regTokens.length;i++)
+                                                                                    userS.push(res5.regTokens[i])
+                                                                                var dataa=[]
+                                                                                dataa.push(result.ops[0])
+                                                                                cloud.send(userS,dataa,0,1)
 
-                                                                    var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
-                                                                    res.send(msg);
+                                                                                var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
+                                                                                res.send(msg);
+                                                                            }
+                                                                            else
+                                                                                {
+                                                                            var doc={"status":"error","msg":"Oops something went wrong"}
+                                                                            res.send(doc)
+                                                                        }
+
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            var doc={"status":"error","msg":"Oops something went wrong"}
+                                                                            res.send(doc)
+                                                                        }
+
+                                                                    })
+                                                                  //  userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
+
                                                                 }
                                                                 else {
                                                                     var msg = {"status": "error", "msg": "Oops something went wrong"}
