@@ -80,7 +80,7 @@ var accept = {
 
                                                     var teacher=db.collection('teacherDetails');
                                                     var checkSum=0;
-                                                    var cursorT= teacher.find({  "availStatus":"active"})
+                                                    var cursorT= teacher.find({ "teachId":teachId})
                                                     cursorT.each(function (err, item) {
                                                         if (err === null) {
                                                             {
