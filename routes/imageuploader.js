@@ -13,7 +13,7 @@ var image= {
             var fileName = name
             var fileBuffer = fs.readFileSync(fileName);
 
-            var params = {Key: key, Body: fileBuffer, ACL: 'public-write'};
+            var params = {Key: key, Body: fileBuffer, ACL: 'public-read'};
             s3bucket.upload(params, function (err, data) {
                 if (err) {
                     console.log("Error uploading data: ", err);
