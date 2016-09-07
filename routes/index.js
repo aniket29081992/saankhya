@@ -36,8 +36,8 @@ router.post ('/api/sendmsgteach', sndmsgT.sendnewT);
 router.post('/api/message/page',page.pagination)
 router.post('/api/accept',accept.checkandaccept)
 router.post('/api/end',end.endchat)
-router.post('/api/teacher',teach.login)
+router.post('/api/teacher/login',teach.login)
 router.post('/api/teacher/signup',teachs.signup)
 router.post('/api/block',block.blocknow)
-router.post('/api/admin',admin.login)
+router.post('/api/admin/login',admin.login)
 module.exports = router;

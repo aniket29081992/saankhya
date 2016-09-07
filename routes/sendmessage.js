@@ -54,6 +54,7 @@ function firstEntry(req,res,mess) {
                        "stuId": req.body.stuId,
                        "msg": req.body.msg,
                        "teachId": "",
+                       "firstName":req.body.firstName,
 
                        "subId":req.body.subId,
                        "localTime":req.body.localTime,
@@ -84,7 +85,7 @@ function firstEntry(req,res,mess) {
                            "iStatus": "unassigned",
                            "stuId": req.body.stuId,
                            "msg": req.body.msg,
-
+                           "firstName":req.body.firstName,
                            "teachId": "",
                            "localTime":req.body.localTime,
                            "subId":req.body.subId,
@@ -122,6 +123,7 @@ function firstEntry(req,res,mess) {
                        "msg": req.body.msg,
                        "teachId": "",
                        "subId":req.body.subId,
+                       "firstName":req.body.firstName,
 
                        "attachment":attachment,
                        "extension":req.body.extension,
@@ -160,7 +162,7 @@ function firstEntry(req,res,mess) {
                                       // console.log(item.regTokens)
                                        for(var i=0;i<item.regTokens.length;i++)
                                        {
-                                           console.log(item.regTokens[i])
+                                           console.log("digo"+item.regTokens[i])
                                            userS.push(item.regTokens[i])
                                        }
 
@@ -177,7 +179,7 @@ function firstEntry(req,res,mess) {
                                            res.send(msg);
                                            var dataa=[]
                                            dataa.push(result.ops[0])
-                                           cloud.send(userS,dataa,0)
+                                           cloud.send(userS,dataa,1,0)
                                            console.log("bas"+userS)}
 
                                    }
@@ -298,7 +300,7 @@ var message = {
                                                             "stuId": req.body.stuId,
                                                             "msg": req.body.msg,
                                                             "teachId": item.teachId,
-
+                                                            "firstName":req.body.firstName,
                                                             "subId":req.body.subId,
                                                             "attachment":attachment,
                                                             "extension":req.body.extension,
@@ -319,7 +321,7 @@ var message = {
                                                                 userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
                                                              var dataa=[]
                                                                 dataa.push(result.ops[0])
-                                                                cloud.send(userS,dataa,0)
+                                                                cloud.send(userS,dataa,0,0)
 
                                                                 var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
                                                                 res.send(msg);
@@ -414,6 +416,7 @@ var check2=0;
                                                                         "localTime":req.body.localTime,
                                                                         "sendTime": new Date().getTime().toString(),
                                                                         "intId": doc.intId,
+                                                                        "firstName":req.body.firstName,
                                                                         "msgBy": req.body.msgBy,
                                                                         "iStatus": "active"
 
@@ -424,14 +427,34 @@ var check2=0;
                                                                         if (err === null) {
                                                                             // console.log(result)
                                                                             var userS=[]
-                                                                            userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
-                                                                            var dataa=[]
-                                                                            dataa.push(result.ops[0])
-                                                                            cloud.send(userS,dataa,0)
+                                                                            var teacher=db.collection('teacherDetails');
+                                                                            teacher.findOne({ "teachId": doc.teachId},function (errors,resultnew)
+                                                                            {
+                                                                                if(errors===null)
+                                                                                {
+                                                                                    for(var i=0;i<resultnew.regTokens.length;i++)
+                                                                                    {
+                                                                                        console.log(item.regTokens[i])
+                                                                                        userS.push(item.regTokens[i])
+                                                                                    }
+                                                                                    var dataa=[]
+                                                                                    dataa.push(result.ops[0])
+                                                                                    cloud.send(userS,dataa,0,0)
 
 
-                                                                            var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
-                                                                            res.send(msg);
+                                                                                    var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
+                                                                                    res.send(msg);
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    var msg = {"status": "error", "msg": "Oops something went wrong"}
+                                                                                    res.send(msg);
+                                                                                }
+
+
+                                                                            })
+                                                                           // userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
+
                                                                         }
                                                                         else
                                                                             {
@@ -471,7 +494,7 @@ var check2=0;
                                                                                         "stuId": req.body.stuId,
                                                                                         "msg": req.body.msg,
                                                                                         "teachId": "",
-
+                                                                                            "firstName":req.body.firstName,
                                                                                         "subId":req.body.subId,
                                                                                         "localTime":req.body.localTime,
                                                                                         "attachment":attachment,
@@ -528,7 +551,7 @@ var check2=0;
                                                                                                                             if(checkSum==1)
                                                                                                                                 console.log("no one active")
                                                                                                                             else {
-                                                                                                                                cloud.send(userS,noDocs,1)
+                                                                                                                                cloud.send(userS,noDocs,1,0)
                                                                                                                                 console.log("bas"+userS)
                                                                                                                                 res.send({"status": "success",
                                                                                                                                     "msg": "Message sent",

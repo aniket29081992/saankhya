@@ -105,7 +105,7 @@ var messageT = {
                                                                     userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
                                                                     var dataa=[]
                                                                     dataa.push(result.ops[0])
-                                                                    cloud.send(userS,dataa,0)
+                                                                    cloud.send(userS,dataa,0,1)
 
                                                                     var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
                                                                     res.send(msg);
@@ -172,7 +172,7 @@ var messageT = {
                                                                                         if(checkSum==1)
                                                                                             console.log("no one active")
                                                                                         else {
-                                                                                            cloud.send(userS,noDocs,1)
+                                                                                            cloud.send(userS,noDocs,1,1)
                                                                                             console.log("bas"+userS)
                                                                                             res.send({"status": "success",
                                                                                                 "msg": "Message sent",

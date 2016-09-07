@@ -61,7 +61,7 @@ var teachlogin = {
                                 }
                                 else {
                                     var newww = []
-                                    if(res1.regTokens.length!=0)
+                                    if(res1.hasOwnProperty("regTokens"))
                                     newww = res1.regTokens
                                     console.log("dekh lo" + req.body.regToken)
                                     var t = req.body.regToken
@@ -69,7 +69,8 @@ var teachlogin = {
                                     console.log(newww);
                                     teacher.update({"teachId": req.body.teachId}, {
                                         $set: {
-                                            "regTokens": newww
+                                            "regTokens": newww,
+                                            "availStatus":"active"
                                         }
                                     }, function (errrors, resultss) {
                                         if (errrors === null) {

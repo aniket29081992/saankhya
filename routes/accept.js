@@ -100,8 +100,14 @@ var accept = {
                                                                 }
                                                                 else
                                                                 {
-                                                                    if(checkSum==1)
+                                                                    if(checkSum==1){
                                                                         console.log("no one active")
+                                                                        var doc = {
+                                                                            "status": "error",
+                                                                            "msg": "No one active"
+
+                                                                        }
+                                                                        res.send(doc)}
                                                                     else {
 
 

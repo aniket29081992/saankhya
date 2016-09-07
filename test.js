@@ -1,11 +1,14 @@
 var FCM = require('fcm-node');
-var serverKey = 'AIzaSyBqv0cIOyCdnPsVUN6O5PTcHvLmeq5vOWg';
+// var serverKey = 'AIzaSyBqv0cIOyCdnPsVUN6O5PTcHvLmeq5vOWg';
+var serverKey= 'AIzaSyCZT_dv27Q2-QMOqVg0agHf_dXVwOWrr6A';
 var fcm = new FCM(serverKey);
 // Create a message
 // ... with default values
 //
 var cloud= {
-    send: function (registrationTokens,msg,check) {
+    send: function (registrationTokens,msg,check,who) {
+
+
 // ... or some given values
 // var registrationTokens=[]
 // registrationTokens.push('cUUp7RHne6o:APA91bHn-yVY8BrwEJ0H89hrt745Qe-xfGQCEIYZLvkZEPQq0HfVtpB_Y2HVl1pMEDBdMV8suJOQXn8OwbayJTvWJAe8Qu-nb4UrMHbdBpa4bKJS3plx6vhJRXb8SOCaAPn7g2XTUGb3')
@@ -47,6 +50,14 @@ var cloud= {
 //     if(err) console.error(err);
 //     else    console.log(response);
 // });
+
+        var serverKey;
+
+        if(who===0)
+            serverKey = 'AIzaSyCZT_dv27Q2-QMOqVg0agHf_dXVwOWrr6A'
+        else
+            serverKey =   'AIzaSyBqv0cIOyCdnPsVUN6O5PTcHvLmeq5vOWg'
+        var fcm = new FCM(serverKey);
 
 // ... or retrying
             fcm.send(message, function (err, response) {
