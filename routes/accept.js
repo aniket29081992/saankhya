@@ -79,20 +79,24 @@ var accept = {
                                             if (error1 === null) {
                                                 console.log(result1.result.nModified
                                                 )
-                                                if (result1.result.nModified != 0) {
+                                                if (result1.result.nModified != 0)
+                                                {
                                                     var userS = []
 
                                                     var teacher = db.collection('teacherDetails');
                                                     var checkSum = 0;
-                                                    var cursorT = teacher.find({"teachId": teachId})
+                                                    var cursorT = teacher.find({"availStatus":"active"})
                                                     cursorT.each(function (err, item) {
                                                         if (err === null) {
                                                             {
                                                                 checkSum++;
-                                                                if ((item !== null)) {
+                                                                if ((item !== null))
+                                                                {
                                                                     // console.log(item.regTokens)
-                                                                    if (item.teachId != req.body.teachId) {
-                                                                        for (var i = 0; i < item.regTokens.length; i++) {
+                                                                    if (item.teachId != req.body.teachId)
+                                                                    {
+                                                                        for (var i = 0; i < item.regTokens.length; i++)
+                                                                        {
                                                                             console.log(item.regTokens[i])
                                                                             userS.push(item.regTokens[i])
 
@@ -120,7 +124,7 @@ var accept = {
                                                                         }
                                                                         res.send(doc)
 
-                                                                        cloud.send(userS, req.body.stuId + req.body.interId, 2)
+                                                                        cloud.send(userS, req.body.interId, 2,0)
                                                                         console.log("bas" + userS)
                                                                     }
 

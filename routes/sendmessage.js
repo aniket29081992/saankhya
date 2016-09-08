@@ -94,7 +94,7 @@ function firstEntry(req,res,mess) {
                            "seenTime":req.body.seenTime,
 
                            "sendTime": new Date().getTime().toString(),
-                           "intId": new Date().getTime().toString(),
+                           "intId": req.body.stuId+new Date().getTime().toString(),
                            "msgBy": req.body.msgBy
                        }
 
@@ -132,7 +132,7 @@ function firstEntry(req,res,mess) {
 
 
                        "sendTime": new Date().getTime().toString(),
-                       "intId": new Date().getTime().toString(),
+                       "intId": req.body.stuId+new Date().getTime().toString(),
                        "msgBy": req.body.msgBy
                    }
                }
@@ -160,17 +160,22 @@ function firstEntry(req,res,mess) {
                                    if(item!==null)
                                    {
                                       // console.log(item.regTokens)
+                                       if(item.hasOwnProperty(regTokens)){
                                        for(var i=0;i<item.regTokens.length;i++)
                                        {
                                            console.log("digo"+item.regTokens[i])
                                            userS.push(item.regTokens[i])
+                                       }
                                        }
 
                                    }
                                    else
                                    {
                                        if(checkSum==1)
-                                           console.log("no one active")
+                                       {
+                                           var msg = {"status": "error", "msg": "Oops something went wrong."}
+                                           res.send(msg);
+                                       }
                                        else {
 
                                            var msg =
@@ -316,7 +321,7 @@ var message = {
                                                         mess.insert(ins, function (err, result) {
                                                             if (err === null) {
                                                                 // console.log(result)
-
+                                                                // var userS=[]
                                                                 //insert teacher tokens
                                                                 //userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
                                                                 var userS=[]
@@ -339,10 +344,7 @@ var message = {
                                                                             var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
                                                                             res.send(msg);}
                                                                             else
-                                                                        {
-                                                                            var msg = {"status": "error", "msg": "Oops something went wrong."}
-                                                                            res.send(msg);
-                                                                        }
+                                                                        no
                                                                     }})
 
                                                             }
@@ -569,7 +571,11 @@ var check2=0;
                                                                                                                         else
                                                                                                                         {
                                                                                                                             if(checkSum==1)
-                                                                                                                                console.log("no one active")
+                                                                                                                            {
+                                                                                                                                var msg = {"status": "error", "msg": "Oops something went wrong."}
+                                                                                                                                res.send(msg);
+
+                                                                                                                                console.log("no one active")}
                                                                                                                             else {
                                                                                                                                 cloud.send(userS,noDocs,1,0)
                                                                                                                                 console.log("bas"+userS)

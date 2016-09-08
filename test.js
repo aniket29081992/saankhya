@@ -52,6 +52,8 @@ var cloud= {
 // });
 
         var serverKey;
+        //0 is for teacher
+        //1 is for  student
 
         if(who===0)
             serverKey = 'AIzaSyCZT_dv27Q2-QMOqVg0agHf_dXVwOWrr6A'
