@@ -160,13 +160,13 @@ function firstEntry(req,res,mess) {
                                    if(item!==null)
                                    {
                                       // console.log(item.regTokens)
-                                       if(item.hasOwnProperty(regTokens)){
+
                                        for(var i=0;i<item.regTokens.length;i++)
                                        {
                                            console.log("digo"+item.regTokens[i])
                                            userS.push(item.regTokens[i])
                                        }
-                                       }
+                                       
 
                                    }
                                    else

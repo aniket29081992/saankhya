@@ -156,7 +156,7 @@ var accept = {
                                                 // var cursor = college.find({"stuId":req.body.stuId,sendTime: { $lt: req.body.sendTime }}
                                                 // ).sort({sendTime: -1}).skip(0).limit(10);
                                                 // cursor.each(function (err, item) {
-                                                //     if (err === null) {
+                                                //     if (err === null) {e
                                                 //         if(item!==null)
                                                 //         {
                                                 //
