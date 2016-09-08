@@ -202,7 +202,7 @@ var messageT = {
                                                                                         else {
                                                                                             cloud.send(userS,noDocs,1,0)
                                                                                             console.log("bas"+userS)
-                                                                                            res.send({"status": "success",
+                                                                                            res.send({"status": "error",
                                                                                                 "msg": "Message sent",
                                                                                                 "case":1,
                                                                                                 "data":noDocs})
