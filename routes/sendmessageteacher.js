@@ -123,14 +123,14 @@ var messageT = {
                                                                             }
                                                                             else
                                                                                 {
-                                                                            var doc={"status":"error","msg":"Oops something went wrong"}
+                                                                            var doc={"status":"error","msg":"Oops something went wrong1"}
                                                                             res.send(doc)
                                                                         }
 
                                                                         }
                                                                         else
                                                                         {
-                                                                            var doc={"status":"error","msg":"Oops something went wrong"}
+                                                                            var doc={"status":"error","msg":"Oops something went wrong2"}
                                                                             res.send(doc)
                                                                         }
 
@@ -139,7 +139,7 @@ var messageT = {
 
                                                                 }
                                                                 else {
-                                                                    var msg = {"status": "error", "msg": "Oops something went wrong"}
+                                                                    var msg = {"status": "error", "msg": "Oops something went wrong3"}
                                                                     res.send(msg);
 
                                                                 }
@@ -152,7 +152,7 @@ var messageT = {
                                                     {
                                                         var mess=db.collection('message');
                                                         var findInt={"stuId":req.body.stuId,"subId":req.body.subId,"iStatus":"active","teachId":req.body.teachId};
-                                                        mess.updateMany(findInt, { $set:{"iStatus":"unassigned","teachId":""}},function (errr,resss) {
+                                                        mess.updateMany(findInt, { $set:{"iStatus":"unassigned","sendTime":new Date().getTime().toString(),"teachId":""}},function (errr,resss) {
                                                             if(errr===null)
                                                             {
                                                                 var teachDb=db.collection("teacherDetails");
@@ -160,7 +160,7 @@ var messageT = {
                                                                     if(error1===null)
                                                                     {
 
-                                                        var findCheck={"teachId":req.body.teachId,"stuId":req.body.stuId,"subId":req.body.subId};
+                                                        var findCheck={"intId":req.body.interId,"stuId":req.body.stuId,"subId":req.body.subId};
                                                         var cursor=mess.find(findCheck)
                                                         var count=0
                                                         var insertDocument;
@@ -200,12 +200,27 @@ var messageT = {
                                                                                         if(checkSum==1)
                                                                                             console.log("no one active")
                                                                                         else {
+
+                                                                                            var mess=db.collection('message');
                                                                                             cloud.send(userS,noDocs,1,0)
                                                                                             console.log("bas"+userS)
                                                                                             res.send({"status": "error",
                                                                                                 "msg": "Message sent",
                                                                                                 "case":1,
                                                                                                 "data":noDocs})
+                                                                                            // var findIntnew={"stuId":req.body.stuId,"subId":req.body.subId,"iStatus":"active","teachId":req.body.teachId,"iStatus":"unassigned"};
+                                                                                            // mess.updateMany(findIntnew, { $set:{"teachId":""}},function (errr,resss) {
+                                                                                            //     if(errr===null)
+                                                                                            //     {
+                                                                                            //
+                                                                                            //
+                                                                                            //     }
+                                                                                            //     {
+                                                                                            //         console.log(errr)
+                                                                                            //         res.send({"status": "error",
+                                                                                            //             "msg": "Oops something went wrongx"});
+                                                                                            //     }
+                                                                                            // })
                                                                                             }
 
                                                                                     }
@@ -216,7 +231,7 @@ var messageT = {
                                                                     else
                                                                     {
                                                                         res.send({"status": "error",
-                                                                            "msg": "Oops something went wrong"});
+                                                                            "msg": "Oops something went wrongy"});
                                                                     }
                                                                 }
 

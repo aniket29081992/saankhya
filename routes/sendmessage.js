@@ -454,10 +454,12 @@ var check2=0;
                                                                             {
                                                                                 if(errors===null)
                                                                                 {
+                                                                                    console.log("digo+"+resultnew.regTokens[0])
+
                                                                                     for(var i=0;i<resultnew.regTokens.length;i++)
                                                                                     {
-                                                                                        console.log(item.regTokens[i])
-                                                                                        userS.push(item.regTokens[i])
+                                                                                        //console.log(item.regTokens[i])
+                                                                                        userS.push(resultnew.regTokens[i])
                                                                                     }
                                                                                     var dataa=[]
                                                                                     dataa.push(result.ops[0])
@@ -492,11 +494,11 @@ var check2=0;
 
                                                                     var mess=db.collection('message');
                                                                     var findInt={"stuId":req.body.stuId,"iStatus":"active","intId":item.intId};
-                                                                    mess.updateMany(findInt, { $set:{"iStatus":"unassigned"}},function (errr,resss) {
+                                                                    mess.updateMany(findInt, { $set:{"iStatus":"unassigned","teachId":""}},function (errr,resss) {
                                                                         if(errr===null)
                                                                         {
                                                                             var teachDb=db.collection("teacherDetails");
-                                                                            teachDb.update({"teachId":item.teachId,},{ $set:{"availStatus":"active"}},function (error1,result1) {
+                                                                            teachDb.update({"teachId":item.teachId},{ $set:{"availStatus":"active"}},function (error1,result1) {
                                                                                 if(error1===null)
                                                                                 {
 
