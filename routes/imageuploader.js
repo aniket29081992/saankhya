@@ -1,3 +1,4 @@
+// Skip to content
 // AKIAID424XIJM7YQ4L6A
 // hK2jAEWnaW2Eh9xFW1hlx9pOLb2nFIttljFpMyO4
 var AWS = require('aws-sdk');
@@ -9,12 +10,12 @@ var image= {
     upload: function (key,name) {
 
         var s3bucket = new AWS.S3({params: {Bucket: 'myimageping'}})
-        s3bucket.createBucket(function () {
+
             var fileName = name
             var fileBuffer = fs.readFileSync(fileName);
 
             var params = {Key: key, Body: fileBuffer, ACL: 'public-read'};
-            s3bucket.upload(params, function (err, data) {
+            s3bucket.putObject(params, function (err, data) {
                 if (err) {
                     console.log("Error uploading data: ", err);
                 } else {
@@ -22,7 +23,7 @@ var image= {
                     console.log(data);
                 }
             });
-        });
+
 
 // var Upload = require('s3-uploader');
 //
@@ -58,3 +59,4 @@ var image= {
 // });
     }}
 module.exports=image
+// Contact GitHub API Training Shop Blog Aboutp
