@@ -166,7 +166,7 @@ function firstEntry(req,res,mess) {
                                            console.log("digo"+item.regTokens[i])
                                            userS.push(item.regTokens[i])
                                        }
-                                       
+
 
                                    }
                                    else

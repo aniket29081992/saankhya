@@ -152,7 +152,7 @@ var messageT = {
                                                     {
                                                         var mess=db.collection('message');
                                                         var findInt={"stuId":req.body.stuId,"subId":req.body.subId,"iStatus":"active","teachId":req.body.teachId};
-                                                        mess.updateMany(findInt, { $set:{"iStatus":"unassigned"}},function (errr,resss) {
+                                                        mess.updateMany(findInt, { $set:{"iStatus":"unassigned","teachId":""}},function (errr,resss) {
                                                             if(errr===null)
                                                             {
                                                                 var teachDb=db.collection("teacherDetails");
@@ -200,7 +200,7 @@ var messageT = {
                                                                                         if(checkSum==1)
                                                                                             console.log("no one active")
                                                                                         else {
-                                                                                            cloud.send(userS,noDocs,1,1)
+                                                                                            cloud.send(userS,noDocs,1,0)
                                                                                             console.log("bas"+userS)
                                                                                             res.send({"status": "success",
                                                                                                 "msg": "Message sent",

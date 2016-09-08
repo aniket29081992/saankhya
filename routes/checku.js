@@ -31,18 +31,21 @@ function decrypt(buffer){
 }
 
 var jsonParser = bodyParser.json();
-var ch = {
-    check111: function (req, res) {
+var ch =
+{
+    check111: function (req, res)
+    {
         var file = req.files;
         console.log("file",JSON.stringify(file))
         console.log("original name:- "+file.fileUpload.originalFilename);
         console.log("Path:- ",file.fileUpload.path);
         var stream = fs.createReadStream(file.fileUpload.path);
-        return s3fsImpl.writeFile(file.fileUpload.originalFilename, stream).then(function(){
+        return s3fsImpl.writeFile(file.fileUpload.originalFilename, stream, {"ContentType":"image/jpg"}).then(function(){
             fs.unlink(file.fileUpload.path, function(err){
                 console.error(err);
             })
             console.log("Sucessfully uploaded to Amazon S3 server");
-        });
-    }}
+            });
+    }
+}
     module.exports=ch
