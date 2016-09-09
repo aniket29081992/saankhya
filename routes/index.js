@@ -17,6 +17,7 @@ var teach=require('./teacherlogin')
 var teachs=require('./teacherdata')
 var block=require('./blockingteacherstudent')
 var admin=require('./adminLogin')
+var logout=require('./logout')
 var c=require('./checku')
 /* GET home page. */
 router.use(multipartyMiddleware);
@@ -45,4 +46,5 @@ router.post('/api/teacher/login',teach.login)
 router.post('/api/teacher/signup',teachs.signup)
 router.post('/api/block',block.blocknow)
 router.post('/api/admin/login',admin.login)
+router.post('/api/logout',logout.logoutteachstud)
 module.exports = router;

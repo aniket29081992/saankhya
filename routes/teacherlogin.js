@@ -64,7 +64,9 @@ var teachlogin = {
                                     if(res1.hasOwnProperty("regTokens"))
                                     newww = res1.regTokens
                                     console.log("dekh lo" + req.body.regToken)
+
                                     var t = req.body.regToken
+                                    if(!newww.includes(t))
                                     newww.push(t)
                                     console.log(newww);
                                     teacher.update({"teachId": req.body.teachId}, {
