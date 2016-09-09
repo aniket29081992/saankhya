@@ -65,7 +65,7 @@ var accept = {
                                     var teachId=req.body.teachId
                                     message.updateMany({"stuId":req.body.stuId,"intId":interactionId,"iStatus":"unassigned","teachId":""},{ $set:{"teachId":teachId,"iStatus":"active","acceptTime":new Date().getTime().toString()}},function (errr,resss) {
                                         if (errr !== null) {
-                                            res.send({"status": "error"})
+                                            res.send({"status": "error","msg":"No one active."})
 
                                         }
                                        else if((errr===null)&&(resss.nModified!=0) ){
