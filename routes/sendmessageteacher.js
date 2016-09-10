@@ -75,8 +75,8 @@ var messageT = {
                                                             attachment=''
                                                         else{
 
-                                                            attachment=req.body.stuId+new Date().getTime().toString()
-                                                            uploadimg.upload(attachment,req.body.attachment)
+                                                            attachment=req.body.attachment
+                                                          //  uploadimg.upload(attachment,req.body.attachment)
                                                         }
                                                         {
                                                             var ins = {
