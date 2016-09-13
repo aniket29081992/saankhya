@@ -3,6 +3,7 @@ var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
 var cloud = require('../test')
+var config=require('../config')
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'a13I11ET23';
@@ -27,9 +28,12 @@ var teachSignup = {
         var Server = mongo.Server,
             Db = mongo.Db,
             BSON = mongo.BSONPure;
+        var host=config.development.database.host
+        var port=config.development.database.port
+        var dbname=config.development.database.db
 
-        var server = new Server('52.66.137.38', 27017, {auto_reconnect: true});
-        db = new Db('test', server);
+        var server = new Server(host, port, {auto_reconnect: true});
+        db = new Db(dbname, server);
         var api = plivo.RestAPI({
             authId: 'MAYJVLZGU4Y2JMODVLNJ',
             authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
@@ -63,24 +67,48 @@ var teachSignup = {
                                 else
                                 {
                                     var teacher = db.collection("teacherDetails")
-
-                                    var regTokens=[]
-                                    var doc={"firstName":req.body.firstName,"lastName":req.body.lastName,
-                                        "teachId":req.body.teachId,"teachPass":req.body.teachPass,"subIds":req.body.subIds,
-                                    "availStatus":"active","blockingStatus":"active"}
-                                    teacher.insert(doc,function (error,resultss) {
-                                        if(error==null)
+                                    //teach id name
+                                    teacher.findOne({"teachId":req.body.teachId},function(error2,result2)
+                                    {
+                                        if(error2===null)
                                         {
-                                            var doc1={"status":"success","msg":"teacher details updated"};
-                                            res.send(doc1)
+                                            if(result2===null)
+                                            {
+                                                var regTokens=[]
+                                                var doc={"firstName":req.body.firstName,"lastName":req.body.lastName,
+                                                    "teachId":req.body.teachId,"teachPass":req.body.teachPass,"subIds":req.body.subIds,
+                                                    "availStatus":"active","blockingStatus":"active"}
+                                                teacher.insert(doc,function (error,resultss) {
+                                                    if(error==null)
+                                                    {
+                                                        var doc1={"status":"success","msg":"teacher details updated"};
+                                                        res.send(doc1)
+                                                    }
+                                                    else
+                                                    {
+                                                        var doc={"status":"error","msg":"Oops something went wrong."}
+                                                        res.send(doc)
+                                                    }
+
+                                                })
+
+                                            }
+                                            else
+                                            {
+                                                var doc={"status":"error","msg":"Id already taken"}
+                                                res.send(doc)
+                                            }
                                         }
                                         else
                                         {
                                             var doc={"status":"error","msg":"Oops something went wrong."}
                                             res.send(doc)
+
                                         }
 
                                     })
+
+
                                 }
 
                             }

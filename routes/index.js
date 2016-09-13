@@ -1,4 +1,5 @@
 var express = require('express');
+
 var router = express.Router();
 var login=require('./login')
 var sendotp=require('./sendotp')
@@ -8,6 +9,7 @@ var setdetails=require('./setuserdetail')
 var multiparty = require('connect-multiparty'),
     multipartyMiddleware = multiparty();
 var coll=require('./collgcity')
+
 var sndmsg=require('./sendmessage')
 var sndmsgT=require('./sendmessageteacher')
 var page=require('./pagination')
@@ -19,12 +21,17 @@ var block=require('./blockingteacherstudent')
 var admin=require('./adminLogin')
 var logout=require('./logout')
 var c=require('./checku')
+var auth=require('./auth')
+var seen=require('./msgseen')
+var reportmsg=require('./reportmsg')
 /* GET home page. */
 router.use(multipartyMiddleware);
 router.get('/', function(req, res, next) {
 
   res.render('index', { title: 'Express' });
 });
+
+router.post('/authenticate', auth.authenticate);
 router.post ('/api/c', c.check111);
 router.post ('/api/signup', login.signUprequest);
 router.post ('/api/login', login.loginRequest);
@@ -46,5 +53,9 @@ router.post('/api/teacher/login',teach.login)
 router.post('/api/teacher/signup',teachs.signup)
 router.post('/api/block',block.blocknow)
 router.post('/api/admin/login',admin.login)
+
 router.post('/api/logout',logout.logoutteachstud)
+router.post('/api/report',reportmsg.msgreported)
+router.post('/api/seen',seen.msgseen)
+
 module.exports = router;

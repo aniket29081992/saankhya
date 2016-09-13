@@ -1,6 +1,7 @@
 var mongo = require('mongodb');
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
+var config=require('../config')
 var plivo = require('plivo');
 var AWS= require('aws-sdk');
 

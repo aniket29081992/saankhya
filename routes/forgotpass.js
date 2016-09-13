@@ -2,6 +2,7 @@ var mongo = require('mongodb');
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
+var config=require('../config')
 
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
@@ -28,8 +29,12 @@ var forgot = {
             Db = mongo.Db,
             BSON = mongo.BSONPure;
 
-        var server = new Server('52.66.137.38', 27017, {auto_reconnect: true});
-        db = new Db('test', server);
+        var host=config.development.database.host
+        var port=config.development.database.port
+        var dbname=config.development.database.db
+
+        var server = new Server(host, port, {auto_reconnect: true});
+        db = new Db(dbname, server);
         var api = plivo.RestAPI({
             authId: 'MAYJVLZGU4Y2JMODVLNJ',
             authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
@@ -84,9 +89,12 @@ var forgot = {
         var Server = mongo.Server,
             Db = mongo.Db,
             BSON = mongo.BSONPure;
+        var host=config.development.database.host
+        var port=config.development.database.port
+        var dbname=config.development.database.db
 
-        var server = new Server('52.66.137.38', 27017, {auto_reconnect: true});
-        db = new Db('test', server);
+        var server = new Server(host, port, {auto_reconnect: true});
+        db = new Db(dbname, server);
         var api = plivo.RestAPI({
             authId: 'MAYJVLZGU4Y2JMODVLNJ',
             authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',

@@ -3,6 +3,7 @@
 // hK2jAEWnaW2Eh9xFW1hlx9pOLb2nFIttljFpMyO4
 var AWS = require('aws-sdk');
 var fs=require('fs')
+var config=require('../config')
 AWS.config.region = 'ap-south-1';
 AWS.config.accessKeyId= 'AKIAID424XIJM7YQ4L6A';
 AWS.config.secretAccessKey = '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';

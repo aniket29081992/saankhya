@@ -2,6 +2,7 @@ var mongo = require('mongodb');
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
+var config=require('../config')
 
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
@@ -27,9 +28,12 @@ var end = {
         var Server = mongo.Server,
             Db = mongo.Db,
             BSON = mongo.BSONPure;
+        var host=config.development.database.host
+        var port=config.development.database.port
+        var dbname=config.development.database.db
 
-        var server = new Server('52.66.137.38', 27017, {auto_reconnect: true});
-        db = new Db('test', server);
+        var server = new Server(host, port, {auto_reconnect: true});
+        db = new Db(dbname, server);
         var api = plivo.RestAPI({
             authId: 'MAYJVLZGU4Y2JMODVLNJ',
             authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
@@ -59,13 +63,14 @@ var end = {
                             {
                                 if(result11!=null)
                                 {
-                                    console.log(result11)
+                                //    console.log(result11)
                                     var teach=db.collection('teacherDetails')
                                     teach.update({"teachId":teacherId},{ $set:{"availStatus":"active"}},function (error111,result111)
                                     {
                                         if(error111===null)
                                         {
-                                            if(result111!=null)
+                                            console.log(result111.result.nModified)
+                                            if(result111.result.nModified!=0)
                                             {
                                                 var doc={"status":"success","msg":"Updated successfully"}
                                                 res.send(doc)

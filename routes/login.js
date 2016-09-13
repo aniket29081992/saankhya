@@ -6,8 +6,9 @@ var crypto = require('crypto');
 var bodyParser = require('body-parser');
 
 var querystring = require('querystring');
-
+var config=require('../config')
 var crypto = require('crypto'),
+
     algorithm = 'aes-256-ctr',
     password = 'a13I11ET23';
 
@@ -332,8 +333,13 @@ var login = {
             Db = mongo.Db,
             BSON = mongo.BSONPure;
 
-        var server = new Server('52.66.137.38', 27017, {auto_reconnect: true});
-        db = new Db('test', server);
+
+        var host=config.development.database.host
+        var port=config.development.database.port
+        var dbname=config.development.database.db
+
+        var server = new Server(host, port, {auto_reconnect: true});
+        db = new Db(dbname, server);
         db.open(function (err, db) {
 
             if (!err) {
@@ -391,9 +397,12 @@ var login = {
         var Server = mongo.Server,
             Db = mongo.Db,
             BSON = mongo.BSONPure;
+        var host=config.development.database.host
+        var port=config.development.database.port
+        var dbname=config.development.database.db
 
-        var server = new Server('52.66.137.38', 27017, {auto_reconnect: true});
-        db = new Db('test', server);
+        var server = new Server(host, port, {auto_reconnect: true});
+        db = new Db(dbname, server);
         db.open(function (err, db) {
 
             if (err === null) {
@@ -469,9 +478,13 @@ var login = {
                                                     if (checkPass == encryPass)
                                                     {
                                                         var  newww=[]
+
                                                         newww=res1.regTokens
+                                                        if((res1.regTokens===null)||(res1.regTokens===undefined))
+                                                            newww=[]
                                                         console.log("dekh lo"+req.body.regToken)
                                                         var t=req.body.regToken
+                                                        if(!newww.includes(t))
                                                         newww.push(t)
                                                         console.log(newww)
                                                         dbUdetails.update({ "$or": [{

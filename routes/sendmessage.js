@@ -1,6 +1,7 @@
 var mongo = require('mongodb');
 var crypto = require('crypto');
 var cloud=require('../test')
+var config=require('../config')
 var uploadimg=require('./imageuploader')
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
@@ -61,7 +62,7 @@ function firstEntry(req,res,mess) {
                        "localTime":req.body.localTime,
                        "attachment":attachment,
                        "extension":req.body.extension,
-                       "seenTime":req.body.seenTime,
+                       "seenTime":"",
 
 
 
@@ -92,7 +93,7 @@ function firstEntry(req,res,mess) {
                            "subId":req.body.subId,
                            "attachment":attachment,
                            "extension":req.body.extension,
-                           "seenTime":req.body.seenTime,
+                           "seenTime":"",
 
                            "sendTime": new Date().getTime().toString(),
                            "intId": req.body.stuId+new Date().getTime().toString(),
@@ -128,7 +129,7 @@ function firstEntry(req,res,mess) {
 
                        "attachment":attachment,
                        "extension":req.body.extension,
-                       "seenTime":req.body.seenTime,
+                       "seenTime":"",
                        "localTime":req.body.localTime,
 
 
@@ -153,6 +154,7 @@ function firstEntry(req,res,mess) {
 //check this code from here
                        var teacher=db.collection('teacherDetails');
                        var checkSum=0;
+                       //add subid
                       var cursorT= teacher.find({"availStatus":"active"})
                        cursorT.each(function (err, item) {
                            if (err === null) {
@@ -230,9 +232,11 @@ var message = {
         var Server = mongo.Server,
             Db = mongo.Db,
             BSON = mongo.BSONPure;
-
-        var server = new Server('52.66.137.38', 27017, {auto_reconnect: true});
-        db = new Db('test', server);
+        var host=config.development.database.host
+        var port=config.development.database.port
+        var dbname=config.development.database.db
+        var server = new Server(host, port, {auto_reconnect: true});
+        db = new Db(dbname, server);
         var api = plivo.RestAPI({
             authId: 'MAYJVLZGU4Y2JMODVLNJ',
             authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
@@ -310,7 +314,7 @@ var message = {
                                                             "subId":req.body.subId,
                                                             "attachment":attachment,
                                                             "extension":req.body.extension,
-                                                            "seenTime":req.body.seenTime,
+                                                            "seenTime":"",
                                                             "localTime":req.body.localTime,
                                                             "sendTime": new Date().getTime().toString(),
                                                             "intId": doc.intId,
@@ -368,6 +372,7 @@ var message = {
                                                             if(errr===null)
                                                             {
                                                                 var teachDb=db.collection("teacherDetails");
+                                                                //add subid
                                                                 teachDb.update({"teachId":item.teachId,},{ $set:{"availStatus":"active"}},function (error1,result1) {
                                                                     if(error1===null)
                                                                     {
@@ -435,7 +440,7 @@ var check2=0;
                                                                         "acceptTime":item.sendTime,
                                                                         "attachment":attachment,
                                                                         "extension":req.body.extension,
-                                                                        "seenTime":req.body.seenTime,
+                                                                        "seenTime":"",
                                                                         "localTime":req.body.localTime,
                                                                         "sendTime": new Date().getTime().toString(),
                                                                         "intId": doc.intId,
@@ -495,7 +500,7 @@ var check2=0;
 
                                                                     var mess=db.collection('message');
                                                                     var findInt={"stuId":req.body.stuId,"iStatus":"active","intId":item.intId};
-                                                                    mess.updateMany(findInt, { $set:{"iStatus":"unassigned","teachId":""}},function (errr,resss) {
+                                                                    mess.updateMany(findInt, { $set:{"iStatus":"unassigned","teachId":"","seenTime":""}},function (errr,resss) {
                                                                         if(errr===null)
                                                                         {
                                                                             var teachDb=db.collection("teacherDetails");
@@ -526,7 +531,7 @@ var check2=0;
                                                                                         "localTime":req.body.localTime,
                                                                                         "attachment":attachment,
                                                                                         "extension":req.body.extension,
-                                                                                        "seenTime":req.body.seenTime,
+                                                                                        "seenTime":"",
 
 
 
