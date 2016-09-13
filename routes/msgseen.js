@@ -77,13 +77,14 @@ var seen = {
                                     {
                                     console.log(mod)
                                     var docn={"stuId":stuId,"intId":interId,"subId":subId,"iStatus":"active","msgBy":upd}
-                                    var cursor=messg.find(docn).sort({sendTime:-1}).limit(mod)
+                                    var cursor=messg.find(docn,{ _id: 1, seenTime: 1 }).sort({sendTime:-1}).limit(mod)
                                     var senddoc=[]
                                     cursor.each(function (err,item) {
                                         if(err===null)
                                         {
                                             if(item!=null)
                                             {
+
                                                 senddoc.push(item)
                                             }
                                             else
