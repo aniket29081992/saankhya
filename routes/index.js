@@ -9,7 +9,7 @@ var setdetails=require('./setuserdetail')
 var multiparty = require('connect-multiparty'),
     multipartyMiddleware = multiparty();
 var coll=require('./collgcity')
-
+var fdback=require('./feedback')
 var sndmsg=require('./sendmessage')
 var sndmsgT=require('./sendmessageteacher')
 var page=require('./pagination')
@@ -17,6 +17,7 @@ var accept=require('./accept')
 var end=require('./endchat')
 var teach=require('./teacherlogin')
 var teachs=require('./teacherdata')
+var list=require('./listteacher')
 var block=require('./blockingteacherstudent')
 var admin=require('./adminLogin')
 var logout=require('./logout')
@@ -56,6 +57,9 @@ router.post('/api/admin/login',admin.login)
 
 router.post('/api/logout',logout.logoutteachstud)
 router.post('/api/report',reportmsg.msgreported)
+router.get('/api/report/view',reportmsg.viewreports)
 router.post('/api/seen',seen.msgseen)
-
+router.get('/api/list/teacher',list.listteacher)
+router.get('/api/feedback/view',fdback.viewfeedbacks)
+router.post('/api/feedback',fdback.feedbackm)
 module.exports = router;

@@ -78,7 +78,8 @@ var teachSignup = {
                                                 var doc={"firstName":req.body.firstName,"lastName":req.body.lastName,
                                                     "teachId":req.body.teachId,"teachPass":req.body.teachPass,"subIds":req.body.subIds,
                                                     "availStatus":"active","blockingStatus":"active"}
-                                                teacher.insert(doc,function (error,resultss) {
+                                                teacher.insert(doc,function (error,resultss)
+                                                {
                                                     if(error==null)
                                                     {
                                                         var doc1={"status":"success","msg":"teacher details updated"};
