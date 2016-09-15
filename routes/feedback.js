@@ -38,6 +38,8 @@ var feedback1 = {
                                 response = req.body.response
                                 rating=req.body.rating
                                 appversion=req.body.app
+                                andversion=req.body.android
+                                phonemodel=req.body.model
 
 
 
@@ -47,6 +49,8 @@ var feedback1 = {
                                 "feedbackedAt": feedbackedAt,
                                 "rating":rating,
                                 "appversion":appversion,
+                                "android":andversion,
+                                "model":phonemodel,
 
                                 "feedback": feedback,
                                 "response": response
