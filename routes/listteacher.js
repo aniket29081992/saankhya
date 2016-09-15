@@ -61,7 +61,8 @@ var list = {
                         var checksubid=req.query.subid
                         teachercursor = dbcollection.find({subIds: { "$in" : [checksubid]} })
                         teachercursor.each(function (err, item11) {
-                                if (err === null) {
+                                if (err === null)
+                                {
                                     countreports++
                                     if (item11 != null) {
                                         console.log(item11)

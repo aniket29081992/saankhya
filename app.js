@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var basicAuth=require('basic-auth');
 
 var app = express();
 
@@ -25,6 +26,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+var auth = function (req, res, next) {
+  var user = basicAuth(req);
+  if (!user || !user.name || !user.pass) {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    res.sendStatus(401);
+    return;
+  }
+  if (user.name === 'amy' && user.pass === 'passwd123') {
+    next();
+  } else {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    res.sendStatus(401);
+    return;
+  }
+}
+
+app.get("/auth", auth, function (req, res) {
+  res.send("This page is authenticated!")
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
