@@ -23,8 +23,8 @@ function decrypt(buffer) {
 }
 
 var jsonParser = bodyParser.json();
-var adminlogin = {
-    login: function (req, res) {
+var appver = {
+    checkversion: function (req, res) {
         var Server = mongo.Server,
             Db = mongo.Db,
             BSON = mongo.BSONPure;
@@ -53,37 +53,13 @@ var adminlogin = {
 
                     }
                     else {
-                        var adminer = db.collection("adminDetails")
-                        adminer.findAndModify({
-                            "adminId": req.body.adminId,
-                            "adminPass": req.body.adminPass
-                        }, function (err, res1) {
-                            if (err === null) {
-                                if (res1 == null) {
-                                    var doc = {"status": "error", "msg": "Invalid credentials"}
-                                    res.send(doc)
-                                }
-                                else    {
+                        var appversion=db.collection('appversion')
+                        appversion.findOne({},function (err,result) {
+                            if(err===null)
+                                res.send({"status":"success","data":result})
 
-                                            var doc = {"status": "success", "msg": "Authenticated"}
-                                            res.send(doc)
-                                        }
-
-
-
-                                }
-
-                            else {
-                                var doc = {"status": "error", "msg": "Oops something went wrong"}
-                                res.send(doc)
-                            }
-
-                                                   })
-
+                        })
                     }
                 })
-            }
-        })
-    }
-}
-module.exports = adminlogin
+            }})}}
+            module.exports=appver

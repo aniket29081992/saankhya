@@ -60,7 +60,28 @@ var setuserdetail = {
                         var city=req.body.city;
                         var target=req.body.target;
                         var after10=req.body.after10;
-                        var docins={"grade":grade,"school":school,"city":city,"target":target,"after10":after10};
+                        var firstName=req.body.firstName
+                        var lastName=req.body.secondName
+                        var dp=req.body.dp
+                        var docins={}
+                        if(grade!==null&&grade!==undefined)
+                        docins['grade']=grade
+                        if(school!==null&&school!==undefined)
+                        docins['school']=school
+                        if(city!==null&&city!==undefined)
+                        docins['city']=city
+                        if(target!==null&&target!==undefined)
+                        docins['target']=target
+                        if(after10!==null&&after10!==undefined)
+                        docins['after10']=after10
+                        if(dp!==null&&dp!==undefined)
+                        docins['dp']=dp
+                        if(firstName!==null&&firstName!==undefined)
+                        docins['firstName']=firstName
+                        if(lastName!==null&&lastName!==undefined)
+                        docins['secondName']=lastName
+
+                        // var docins={"grade":grade,"school":school,"city":city,"target":target,"after10":after10};
 
 
 

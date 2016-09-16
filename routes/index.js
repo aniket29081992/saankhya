@@ -24,6 +24,7 @@ var logout=require('./logout')
 var c=require('./checku')
 var auth=require('./auth')
 var seen=require('./msgseen')
+var appversion=require('./appversion')
 
 var reportmsg=require('./reportmsg')
 /* GET home page. */
@@ -69,6 +70,7 @@ router.post('/api/accept',auth,accept.checkandaccept)
 router.post('/api/end',auth,end.endchat)
 router.post('/api/teacher/login',auth,teach.login)
 router.post('/api/teacher/signup',auth,teachs.signup)
+router.post('/api/teacher/update',auth,teachs.update)
 router.post('/api/block',auth,block.blocknow)
 router.post('/api/admin/login',auth,admin.login)
 
@@ -77,6 +79,7 @@ router.post('/api/report',auth,reportmsg.msgreported)
 router.get('/api/report/view',auth,reportmsg.viewreports)
 router.post('/api/seen',auth,seen.msgseen)
 router.get('/api/list/teacher',auth,list.listteacher)
+router.get('/api/version',auth,appversion.checkversion)
 router.get('/api/feedback/view',auth,fdback.viewfeedbacks)
 router.post('/api/feedback',auth,fdback.feedbackm)
 module.exports = router;
