@@ -54,10 +54,11 @@ var adminlogin = {
                     }
                     else {
                         var adminer = db.collection("adminDetails")
-                        adminer.findAndModify({
+                        adminer.findOne({
                             "adminId": req.body.adminId,
                             "adminPass": req.body.adminPass
-                        }, function (err, res1) {
+                                              }, function (err, res1) {
+                                                  console.log(req.body.adminId+req.body.adminPass)
                             if (err === null) {
                                 if (res1 == null) {
                                     var doc = {"status": "error", "msg": "Invalid credentials"}
