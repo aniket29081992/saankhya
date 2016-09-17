@@ -61,12 +61,12 @@ var sendotp = {
                         var encryptedPhone=encrypt(new Buffer(req.body.phone, "utf8"))
                         var encryptedEmail=encrypt(new Buffer(req.body.email, "utf8"))
                         var doccs={$or:[{"phone":encryptedPhone.toString('utf-8')},{"email":encryptedEmail.toString('utf-8')}]}
-                        prof.findOne(doccs,function (error11,results11) {
+                        prof.findOne(doccs,{"phone":1,"email":1},function (error11,results11) {
                             if(error11===null){
                             if(results11===null)
                             {
 
-                                otpcol.findOne({"phone": encryptedPhone.toString('utf-8')}, function (err, res1) {
+                                otpcol.findOne({"phone": encryptedPhone.toString('utf-8')},{"phone":1}, function (err, res1) {
                                     if (err === null) {
                                         if (res1 === null) {
 

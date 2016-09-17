@@ -53,10 +53,11 @@ var teachlogin = {
 
                     }
                     else {
+                        var encryPass = encrypt(new Buffer(req.body.teachPass, "utf8")).toString('utf-8');
                         var teacher = db.collection("teacherDetails")
                         teacher.findOne({
                             "teachId": req.body.teachId,
-                            "teachPass": req.body.teachPass
+                            "teachPass": encryPass
                         }, function (err, res1) {
                             if (err === null) {
                                 if (res1 == null) {

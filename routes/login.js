@@ -25,6 +25,33 @@ function decrypt(buffer) {
     // var dec = Buffer.concat([decipher.update(buffer), decipher.final()]);
     // return dec;
 }
+
+
+function sendLastmsg(req,res,userid1,doc,collectionmsg)
+{
+    var userid=userid1.toString()
+
+  var searchlastmsh=  collectionmsg.find({"stuId":userid},{msg:1,attachment:1,extension:1,msgBy:1}).sort({"sendTime":-1}).limit(1)
+    var check=0;
+      searchlastmsh.each(function (err, item) {
+          if (err === null) {
+
+                  if(item!==null)
+                  {
+                      console.log("nahi"+item+"m")
+                      doc['details']=item
+                  }
+                  else
+                  {
+
+                      res.send(doc);
+                      // else
+                      //     res.send({"status":"error","msg":"Oopsww something went wrong"})
+                  }
+              }})
+
+
+}
 function proceedSignup(req,res,collection)
 {
 
@@ -445,13 +472,14 @@ var login = {
                             var encryUser = encrypt(new Buffer(username, "utf8")).toString('utf-8');
 
 
-                            pass.findOne({
+                            pass.findOne(
+                                {
                                 "$or": [{
                                     "phone": encryUser
                                 }, {
                                     "email": encryUser
                                 }]
-                            }, function (err, res1) {
+                                }, function (err, res1) {
                                 if (err === null) {
                                     if (res1 != null) {
                                         console.log("digo")
@@ -502,10 +530,16 @@ var login = {
                                                             "status": "success",
                                                             "msg": "User matched",
                                                             "data": res1
-                                                        }}
-                                                    else
+                                                        }
+                                                        var collectionmsg=db.collection('message')
+                                                        var userCheckstu=res1._id
+                                                        console.log(userCheckstu)
+
+                                                        sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
+                                                    }
+                                                    else{
                                                         var doc = {"status": "error", "msg": "Incorrect password"}
-                                                    res.send(doc);
+                                                    res.send(doc);}
                                                 }
                                             }
                                             else {
@@ -557,8 +591,15 @@ var login = {
 
 
                                         })
+
                                         var doc = {"status": "success", "msg": "User matched", "data": res1}
-                                        res.send(doc);
+                                        var collectionmsg=db.collection('message')
+
+                                        var userCheckstu=res1._id
+                                        console.log(userCheckstu)
+
+                                        sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
+                                      //  res.send(doc);
                                     }
                                 }
                                 else {
@@ -593,8 +634,14 @@ var login = {
 
 
                                         })
+                                        var collectionmsg=db.collection('message')
+
                                         var doc = {"status": "success", "msg": "User matched", "data": res1}
-                                        res.send(doc);
+                                        var userCheckstu=res1._id
+                                        console.log(userCheckstu)
+
+                                        sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
+                                        //res.send(doc);
                                     }
                                 }
                                 else {

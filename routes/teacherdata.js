@@ -158,7 +158,8 @@ var teachSignup = {
                         if(req.body.pass!==undefined&&req.body.pass!==null)
                         {
                             pass = req.body.pass
-                            doc2['teachPass']=pass
+                            var epass=encrypt(new Buffer(pass, "utf8")).toString('utf-8')
+                            doc2['teachPass']=epass
                             doc['$set']=doc2
 
                         }
