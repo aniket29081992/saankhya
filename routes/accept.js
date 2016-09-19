@@ -62,7 +62,7 @@ var accept = {
                             {
                                 if(result!=null)
                                 {
-                                    var doc={"status":"error","msg":"Already accepted"}
+                                    var doc={"status":"error","msg":"Already accepted."}
                                     res.send(doc)
                                 }
                                 else

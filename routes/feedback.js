@@ -57,10 +57,10 @@ var feedback1 = {
                             }
                             collectionfeedback.insert(docinsert, function (err, dc) {
                                 if (err === null) {
-                                    res.send({"status": "success", "msg": "Inserted Successfully"})
+                                    res.send({"status": "success", "msg": "Feedback received."})
                                 }
                                 else {
-                                    res.send({"status": "error", "msg": "Problem in feedbacking.Please try again."})
+                                    res.send({"status": "error", "msg": "Problem in sending.Please try again."})
                                 }
                             })
                         }
@@ -112,7 +112,7 @@ var feedback1 = {
                             }
                             else
                             {
-                                res.send({"status":"error","msg":"Oops something went wrong."})
+                                res.send({"status":"error","msg":"Something went wrong."})
                             }
 
                         })

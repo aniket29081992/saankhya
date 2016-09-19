@@ -176,7 +176,7 @@ function firstEntry(req,res,mess) {
                                    {
                                        if(checkSum==1)
                                        {
-                                           var msg = {"status": "error", "msg": "Oops something went wrong."}
+                                           var msg = {"status": "error", "msg": "Something went wrong."}
                                            res.send(msg);
                                        }
                                        else {
@@ -188,6 +188,9 @@ function firstEntry(req,res,mess) {
                                            var dataa=[]
                                            dataa.push(result.ops[0])
                                            cloud.send(userS,dataa,1,0)
+                                           //admin cloud.send(admin,dataa)
+
+
                                            console.log("bas"+userS)}
 
                                    }
@@ -203,7 +206,7 @@ function firstEntry(req,res,mess) {
 
                    }
                    else {
-                       var msg = {"status": "error", "msg": "Oops something went wrong"}
+                       var msg = {"status": "error", "msg": "Something went wrong"}
                        res.send(msg);
 
                    }
@@ -345,6 +348,7 @@ var message = {
                                                                             var dataa=[]
                                                                             dataa.push(result.ops[0])
                                                                             cloud.send(userS,dataa,0,0)
+                                                                            //admin cloud.send(admin,dataa)
 
                                                                             var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
                                                                             res.send(msg);}
@@ -473,6 +477,8 @@ var check2=0;
                                                                                     var dataa=[]
                                                                                     dataa.push(result.ops[0])
                                                                                     cloud.send(userS,dataa,0,0)
+                                                                                    //admin cloud.send(admin,dataa)
+
 
 
                                                                                     var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
@@ -591,6 +597,9 @@ var check2=0;
                                                                                                                                 console.log("no one active")}
                                                                                                                             else {
                                                                                                                                 cloud.send(userS,noDocs,1,0)
+                                                                                                                                //admin cloud.send(admin,dataa)
+
+
                                                                                                                                 console.log("bas"+userS)
                                                                                                                                 res.send({"status": "success",
                                                                                                                                     "msg": "Message sent",

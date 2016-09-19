@@ -62,6 +62,7 @@ var messageA = {
                             {
                                 if(result!=null)
                                 {
+
                                     console.log(result+"dis")
                                     var attachment
                                     if((req.body.attachment===' ')||(req.body.attachment.length==0))
@@ -69,16 +70,16 @@ var messageA = {
                                     else
                                         attachment=req.body.attachment
                                     var ins = {
-                                        "stuId": req.body.stuId,
+                                        "stuId": result.stuId,
                                         "msg": req.body.msg,
-                                        "teachId": req.body.teachId,
+                                        "teachId": result.teachId,
                                         "acceptTime":result.acceptTime,
 
-                                        "subId":req.body.subId,
+                                        "subId":result.subId,
                                         "attachment":attachment,
                                         "extension":req.body.extension,
-                                        "seenTime":req.body.seenTime,
-                                        "localTime":req.body.localTime,
+                                        "seenTime":result.seenTime,
+                                        "localTime":result.localTime,
                                         "sendTime": new Date().getTime().toString(),
                                         "intId": result.intId,
                                         "msgBy": "3",
@@ -139,7 +140,7 @@ var messageA = {
                                                 }
                                             })
 
-                                            var doc111 = {"status": "succaessn"}
+                                            var doc111 = {"status": "success"}
                                             res.send(doc111)
                                         }
                                         else
@@ -175,11 +176,11 @@ var messageA = {
         //
         // })
             }
-            // else
-            // {
-            //     var doc={"status":"error","msg":"Oops4 something went wrong!"}
-            //     res.send(doc)
-            // }
+            else
+            {
+                var doc={"status":"error","msg":"No data found."}
+                res.send(doc)
+            }
 
 
         // })
@@ -201,6 +202,11 @@ var messageA = {
                             // else
                                 //res.send({"status":"success"})
                             //     {res.send({"status":"error","msg":"No msg"})}
+                            }
+                            else
+                            {
+                                res.send({"status":"error","msg":"Oops something went wrong."})
+
                             }
                            })
                     }})}})}}

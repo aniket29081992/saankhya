@@ -86,7 +86,7 @@ var sendotp = {
                                                     }, function (status, response) {
                                                         if (status >= 200 && status < 300) {
                                                             console.log('Successfully made call request.');
-                                                            var data = {"status": "success", "msg": "OTP sent successfully"}
+                                                            var data = {"status": "success", "msg": "OTP sent successfully."}
                                                             res.send(data);
                                                             console.log('Response:', response);
                                                         } else {
@@ -125,7 +125,7 @@ var sendotp = {
                                                 }, function (status, response) {
                                                     if (status >= 200 && status < 300) {
                                                         console.log('Successfully made call request.');
-                                                        var data = {"status": "success", "msg": "OTP sent successfully"}
+                                                        var data = {"status": "success", "msg": "OTP sent successfully."}
                                                         res.send(data);
 
                                                     } else {

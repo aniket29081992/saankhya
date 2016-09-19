@@ -70,7 +70,8 @@ var page = {
                            {
 
                                sendDoc.push(item)
-                                console.log(item.sendTime);}
+                                console.log(item.sendTime);
+                           }
                                 else
                            {
                                console.log("mine"+sendDoc.length)
@@ -89,7 +90,7 @@ var page = {
                                               }
                                               else
                             {
-                                res.send({"status:":"error","msg":"Oops something went wrong"})
+                                res.send({"status:":"error","msg":"Something went wrong"})
 
                             }
                         });

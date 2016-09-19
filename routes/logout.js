@@ -81,7 +81,7 @@ var logout = {
                           }
 else
                           {
-                              res.send({"status":"error","msg":"Oops something went wrong!"})
+                              res.send({"status":"error","msg":"Something went wrong!"})
                           }
                         })
 

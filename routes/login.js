@@ -400,7 +400,7 @@ var login = {
                                 {
                                     if(resultsr===null)
                                     {
-                                        var doc={"status":"error","msg":"Invalid referral code"}
+                                        var doc={"status":"error","msg":"Invalid referral code."}
                                         res.send(doc)
                                     }
                                     else
@@ -410,7 +410,7 @@ var login = {
                                 }
                                 else
                                 {
-                                    var doc={"status":"error","msg":"Oops something went wrong"}
+                                    var doc={"status":"error","msg":"Oops something went wrong."}
                                     res.send(doc)
                                 }
 
@@ -503,7 +503,7 @@ var login = {
                                         }, function (err, res1) {
                                             if (err === null) {
                                                 if (res1 === null) {
-                                                    var doc = {"status": "error", "msg": "User does not exist"}
+                                                    var doc = {"status": "error", "msg": "User does not exist."}
                                                     res.send(doc);
                                                 }
                                                 else {
@@ -543,7 +543,7 @@ var login = {
                                                         sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
                                                     }
                                                     else{
-                                                        var doc = {"status": "error", "msg": "Incorrect password"}
+                                                        var doc = {"status": "error", "msg": "Incorrect password!"}
                                                     res.send(doc);}
                                                 }
                                             }
@@ -557,12 +557,12 @@ var login = {
                                         })
                                     }
                                     else {
-                                        var doc = {"status": "error", "msg": "User does not exist"}
+                                        var doc = {"status": "error", "msg": "User does not exist."}
                                         res.send(doc);
                                     }
                                 }
                                 else {
-                                    var doc = {"status": "error", "msg": "Something went wrong"}
+                                    var doc = {"status": "error", "msg": "Something went wrong."}
                                     res.send(doc);
 
                                 }
@@ -578,7 +578,7 @@ var login = {
                             dbUdetails.findOne({"gId": gId}, function (err, res1) {
                                 if (err === null) {
                                     if (res1 === null) {
-                                        var doc = {"status": "error", "msg": "User does not exist"}
+                                        var doc = {"status": "error", "msg": "User does not exist."}
                                         res.send(doc);
                                     }
                                     else {
@@ -608,7 +608,7 @@ var login = {
                                     }
                                 }
                                 else {
-                                    var doc = {"status": "error", "msg": "Something went wrong"}
+                                    var doc = {"status": "error", "msg": "Something went wrong."}
                                 }
 
 
@@ -621,7 +621,7 @@ var login = {
                             dbUdetails.findOne({"fbId": fbId}, function (err, res1) {
                                 if (err === null) {
                                     if (res1 === null) {
-                                        var doc = {"status": "error", "msg": "User does not exist"}
+                                        var doc = {"status": "error", "msg": "User does not exist."}
                                         res.send(doc);
                                     }
                                     else {
@@ -650,7 +650,7 @@ var login = {
                                     }
                                 }
                                 else {
-                                    var doc = {"status": "error", "msg": "Something went wrong"}
+                                    var doc = {"status": "error", "msg": "Something went wrong."}
                                 }
 
 

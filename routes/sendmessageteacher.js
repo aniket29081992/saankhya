@@ -121,6 +121,8 @@ var messageT = {
                                                                                 var dataa=[]
                                                                                 dataa.push(result.ops[0])
                                                                                 cloud.send(userS,dataa,0,1)
+                                                                                //admin cloud.send(admin,dataa)
+
 
                                                                                 var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
                                                                                 res.send(msg);
@@ -208,6 +210,8 @@ var messageT = {
 
                                                                                             var mess=db.collection('message');
                                                                                             cloud.send(userS,noDocs,1,0)
+                                                                                            //admin cloud.send(admin,dataa)
+
                                                                                             console.log("bas"+userS)
                                                                                             res.send({"status": "error",
                                                                                                 "msg": "Message sent",

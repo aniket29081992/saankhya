@@ -64,12 +64,12 @@ var forgot = {
                             {
                                 if(result.value===null)
                                 {
-                                    var doc={"status":"error","msg":"No user found"}
+                                    var doc={"status":"error","msg":"No user found."}
                                     res.send(doc)
                                 }
                                 else
                                 {console.log(result)
-                                    var doc={"status":"success","msg":"password changed successfully"}
+                                    var doc={"status":"success","msg":"Password changed successfully."}
                                     res.send(doc)
 
                                 }
@@ -77,7 +77,7 @@ var forgot = {
                             else
                             {
                                 console.log(error)
-                                var doc={"status":"error","msg":"Oops something went wrong"}
+                                var doc={"status":"error","msg":"Something went wrong"}
                                 res.send(doc)
                             }
 
@@ -126,12 +126,12 @@ var forgot = {
                             {
                                 if(result.value===null)
                                 {
-                                    var doc={"status":"error","msg":"Please enter correct details"}
+                                    var doc={"status":"error","msg":"Please enter the correct details."}
                                     res.send(doc)
                                 }
                                 else
                                 {console.log(result)
-                                    var doc={"status":"success","msg":"password changed successfully"}
+                                    var doc={"status":"success","msg":"Password changed successfully"}
                                     res.send(doc)
 
                                 }
@@ -139,7 +139,7 @@ var forgot = {
                             else
                             {
                                 console.log(error)
-                                var doc={"status":"error","msg":"Oops something went wrong"}
+                                var doc={"status":"error","msg":"Something went wrong."}
                                 res.send(doc)
                             }
 
