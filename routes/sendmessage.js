@@ -349,7 +349,10 @@ var message = {
                                                                             var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
                                                                             res.send(msg);}
                                                                             else
-                                                                        no
+                                                                        {
+                                                                            var msg = {"status": "error", "msg": "error"}
+                                                                            res.send(msg);
+                                                                        }
                                                                     }})
 
                                                             }

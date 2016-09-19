@@ -172,15 +172,18 @@ var teachSignup = {
                                 else
                                 {var ares=[]
                                     ares=resultdoc.subIds
-                                    if(req.body.sub!==undefined&&req.body.sub!==null&&!(ares.includes(req.body.sub)))
+                                    if((req.body.sub!==undefined&&req.body.sub!==null&&!(ares.includes(req.body.sub)))||((req.body.pass!==undefined&&req.body.pass!==null)))
                                     {
-                                        sub = req.body.sub
+                                        if((req.body.sub!==undefined&&req.body.sub!==null&&!(ares.includes(req.body.sub))))
+                                        {
+                                            sub = req.body.sub
                                         doc1['subIds']=sub
                                         doc['$push']=doc1
+                                        }
                                         // doc1=  { $push: { subIds: "89" } }
                                         // doc['subIds'].push(sub);
 
-                                    }
+
 
                                     teach.update({"teachId":tid},doc,function (errors,results) {
                                         if(errors===null)
@@ -192,7 +195,8 @@ var teachSignup = {
                                             res.send({"status":"error","msg":"Oops something went wrong"})
                                         }
 
-                                    })
+                                    })}
+
 
                                 }
 

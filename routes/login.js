@@ -152,13 +152,15 @@ var regTokens=[]
                         , function (err, res2) {
 
 
-                            if (err) {
+                            if (err)
+                            {
                                 res.send({
                                     'msg': err,
                                     'status': 'error'
                                 })
-                            }
+                                     }
                             else {
+                                console.log(res2+"cool")
                                 var newcollection = db.collection("signup");
                                 var nn = encrypt(new Buffer(password, "utf8"));
                                 console.log(decrypt(nn).toString('utf-8'))
@@ -175,7 +177,8 @@ var regTokens=[]
 
 
                                     'msg': "signed up",
-                                    'status': 'success'
+                                    'status': 'success',
+                                    "data":res2.ops[0]
 
                                 })
                             }
@@ -259,7 +262,8 @@ var regTokens=[]
 
 
                                     'msg': "signed up",
-                                    'status': 'success'
+                                    'status': 'success',
+                                    'data':res3.ops[0]
 
                                 })
                             }
@@ -336,7 +340,8 @@ var regTokens=[]
 
 
                                     'msg': "signed up",
-                                    'status': 'success'
+                                    'status': 'success',
+                                    'data': res4.ops[0]
 
                                 })
                             }

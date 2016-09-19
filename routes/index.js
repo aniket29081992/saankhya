@@ -26,6 +26,7 @@ var c=require('./checku')
 var auth=require('./auth')
 var seen=require('./msgseen')
 var appversion=require('./appversion')
+var adminsend=require('./sendmessageadmin')
 
 var reportmsg=require('./reportmsg')
 /* GET home page. */
@@ -65,6 +66,7 @@ router.get ('/api/city',auth, coll.city);
 router.post ('/api/sendotp',auth, sendotp1.sendOtp1);
 router.post ('/api/verifyotp',auth, sendotp1.verifyOtp1);
 router.post ('/api/sendmsg',auth, sndmsg.sendnew);
+router.post ('/api/sendmsgadmin',auth, adminsend.sendnewA);
 router.post ('/api/sendmsgteach',auth, sndmsgT.sendnewT);
 router.post('/api/message/page',auth,page.pagination)
 router.post('/api/accept',auth,accept.checkandaccept)
