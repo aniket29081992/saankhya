@@ -67,16 +67,20 @@ var setuserdetail = {
                         var dp=req.body.dp
                         var schoolid=req.body.schoolid
                         var docins={}
+                        var newcoins=parseInt(coins)
                         if(grade!==null&&grade!==undefined)
                         docins['grade']=grade
-                        if(school!==null&&school!==undefined)
+                        if(school!==null&&school!==undefined){
                         docins['school']=school
+                        newcoins=newcoins+1000}
                         if(city!==null&&city!==undefined)
                         docins['city']=city
                         if(target!==null&&target!==undefined)
-                        docins['target']=target
+                        {newcoins=newcoins+500
+                        docins['target']=target}
                         if(after10!==null&&after10!==undefined)
-                        docins['after10']=after10
+                        {newcoins=newcoins+500
+                        docins['after10']=after10}
                         if(dp!==null&&dp!==undefined)
                         docins['dp']=dp
                         if(firstName!==null&&firstName!==undefined)
@@ -86,11 +90,11 @@ var setuserdetail = {
                         if(schoolid!==null&&schoolid!==undefined)
                             docins['schoolid']=schoolid
                         if(coins!==null&&coins!==undefined)
-                            docins['coins']=coins
-
+                            docins['coins']=newcoins
 
 
                         // var docins={"grade":grade,"school":school,"city":city,"target":target,"after10":after10};
+
 
 
 

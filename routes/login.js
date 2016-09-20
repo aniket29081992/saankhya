@@ -53,7 +53,7 @@ function sendLastmsg(req,res,userid1,doc,collectionmsg)
 
 
 }
-function proceedSignup(req,res,collection)
+function proceedSignup(req,res,collection,collectioninsert)
 {
 
     var phone = req.body.phone
@@ -167,23 +167,30 @@ var regTokens=[]
                                 var newcollection = db.collection("signup");
                                 var nn = encrypt(new Buffer(password, "utf8"));
                                 console.log(decrypt(nn).toString('utf-8'))
-                                newcollection.insert({
+                                collectioninsert.insert({
                                     "userId": res2.ops[0]._id,
                                     "email": emailEncrypted2.toString('utf-8'),
                                     "cCode":req.body.cCode,
                                     "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
                                     "phone": phoneEncrypted2.toString('utf-8')
+                                },function (errinsert,resultinsert) {
+                                    console.log(errinsert+" up" +resultinsert)
+                                    if(errinsert===null)
+                                    {
+
+                                        res.send({
+
+
+                                            'msg': "signed up",
+                                            'status': 'success',
+                                            "data":res2.ops[0]
+
+                                        })
+                                    }
+
                                 })
 
 
-                                res.send({
-
-
-                                    'msg': "signed up",
-                                    'status': 'success',
-                                    "data":res2.ops[0]
-
-                                })
                             }
                         }
                     )
@@ -253,7 +260,7 @@ var regTokens=[]
                                 var nn = encrypt(new Buffer(password, "utf8"));
 
                                 console.log(decrypt(nn).toString('utf-8'))
-                                newcollection.insert({
+                                collectioninsert.insert({
                                     "userId": res3.ops[0]._id,
                                     "email": emailEncrypted2.toString('utf-8'),
                                     "cCode":req.body.cCode,
@@ -332,7 +339,7 @@ var regTokens=[]
                                 var password=number11.toString();
 
                                 // console.log(decrypt(nn).toString('utf-8'))
-                                newcollection.insert({
+                                collectioninsert.insert({
                                     "userId": res4.ops[0]._id,
                                     "cCode":req.body.cCode,
                                     "email": emailEncrypted2.toString('utf-8'),
@@ -395,7 +402,7 @@ var login = {
                         var reF=req.body.referralCode
                         if((reF===undefined)||(reF===null))
                         {
-                            proceedSignup(req,res,collection)
+                            proceedSignup(req,res,collection,db.collection('signup'))
                         //ccc
                         }
                         else
@@ -411,7 +418,7 @@ var login = {
                                     }
                                     else
                                     {
-                                        proceedSignup(req,res,collection)
+                                        proceedSignup(req,res,collection,db.collection('signup'))
                                     }
                                 }
                                 else
