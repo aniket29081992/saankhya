@@ -24,7 +24,7 @@ function decrypt(buffer)
     // var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
     // return dec;
 }
-function firstEntry(req,res,mess) {
+function firstEntry(req,res,mess,teach) {
 
     console.log("cofse")
     var findCheck={"stuId":req.body.stuId};
@@ -153,10 +153,11 @@ function firstEntry(req,res,mess) {
                        // userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
                        // userS.push('')
 //check this code from here
+                       //checkrefer
                        var teacher=db.collection('teacherDetails');
                        var checkSum=0;
                        //add subid
-                      var cursorT= teacher.find({"availStatus":"active"})
+                      var cursorT= teach.find({"availStatus":"active"})
                        cursorT.each(function (err, item) {
                            if (err === null) {
                                {
@@ -269,7 +270,7 @@ var message = {
                                 if(doc===null)
                                 {
                                     //if time check here then only
-                                    firstEntry(req,res,db.collection('message'))
+                                    firstEntry(req,res,db.collection('message'),db.collection('teacherDetails'))
 //insert
 
 
@@ -385,7 +386,7 @@ var message = {
                                                                     if(error1===null)
                                                                     {
                                                                         console.log("yahoo"+item.teachId)
-                                                                        firstEntry(req,res,mess)
+                                                                        firstEntry(req,res,mess,db.collection('teacherDetails'))
 
 
                                                                     }})
