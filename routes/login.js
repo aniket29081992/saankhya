@@ -2,6 +2,7 @@
  * Created by aniketverma on 20/08/16.
  */
 var mongo = require('mongodb');
+var MongoClient=mongo.MongoClient
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 
@@ -367,12 +368,12 @@ var login = {
 
 
         var host=config.development.database.host
-        var port=config.development.database.port
+        var port=config.development.database.port+"/test"
         var dbname=config.development.database.db
 
         var server = new Server(host, port, {auto_reconnect: true});
         db = new Db(dbname, server);
-        db.open(function (err, db) {
+        MongoClient.connect(host,function (err, db) {
 
             if (!err) {
 
@@ -386,6 +387,7 @@ var login = {
                     }
                     else {
                         var collection = db.collection("digo");
+                        console.log("dd")
                         var reF=req.body.referralCode
                         if((reF===undefined)||(reF===null))
                         {
@@ -400,7 +402,7 @@ var login = {
                                 {
                                     if(resultsr===null)
                                     {
-                                        var doc={"status":"error","msg":"Invalid referral code."}
+                                        var doc={"status":"error","msg":"cid referral code."}
                                         res.send(doc)
                                     }
                                     else
@@ -422,6 +424,8 @@ var login = {
 
                 });
             }
+            else
+                console.log(err)
         })
     }
     ,
@@ -435,7 +439,7 @@ var login = {
 
         var server = new Server(host, port, {auto_reconnect: true});
         db = new Db(dbname, server);
-        db.open(function (err, db) {
+        MongoClient.connect(host,function (err, db) {
 
             if (err === null) {
 

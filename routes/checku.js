@@ -1,4 +1,5 @@
 var mongo = require('mongodb');
+var MongoClient=mongo.MongoClient
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var config=require('../config')

@@ -7,6 +7,7 @@ var config=require('../config')
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'a13I11ET23';
+var MongoClient=mongo.MongoClient
 
 function encrypt(buffer){
     return buffer;
@@ -41,7 +42,7 @@ var accept = {
         });
 
 
-        db.open(function (err, db) {
+        MongoClient.connect(host,function (err, db) {
 
             if (!err) {
 

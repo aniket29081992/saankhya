@@ -1,5 +1,4 @@
 
-
 //var jwt = require('jwt-simple');
 var jwt = require('jsonwebtoken');
 // var config = require('../secret');

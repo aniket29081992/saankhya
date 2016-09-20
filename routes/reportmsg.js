@@ -1,4 +1,5 @@
-var mongo = require('mongodb'); 
+var mongo = require('mongodb');
+var MongoClient=mongo.MongoClient
 var crypto = require('crypto'); 
 var bodyParser = require('body-parser'); 
 var plivo = require('plivo'); 
@@ -24,7 +25,7 @@ var report = { 
     db = new Db(dbname, server); 
     var api = plivo.RestAPI({   authId: 'MAYJVLZGU4Y2JMODVLNJ', 
         authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',         });
-    db.open(function (err, db) {  
+        MongoClient.connect(host,function (err, db) {  
         if (!err) {console.log("Connected to 'signup' database"); 
             db.collection('otp', {strict: true}, function (err, collection) { 
                 if (err) {                              console.log("The otp collection doesn't exist. Creating it with sample data...");                          } 
@@ -94,7 +95,7 @@ var report = { 
         db = new Db(dbname, server);
         var api = plivo.RestAPI({   authId: 'MAYJVLZGU4Y2JMODVLNJ',
             authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',         });
-        db.open(function (err, db) {
+        MongoClient.connect(host,function (err, db) {
             if (!err) {console.log("Connected to 'signup' database");
                 db.collection('otp', {strict: true}, function (err, collection) {
                     if (err) {  

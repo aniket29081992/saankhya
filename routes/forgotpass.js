@@ -1,4 +1,5 @@
 var mongo = require('mongodb');
+var MongoClient=mongo.MongoClient
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
@@ -41,7 +42,7 @@ var forgot = {
         });
 
 
-        db.open(function (err, db) {
+        MongoClient.connect(host,function (err, db) {
 
             if (!err) {
 
@@ -101,7 +102,7 @@ var forgot = {
         });
 
 
-        db.open(function (err, db) {
+        MongoClient.connect(host,function (err, db) {
 
             if (!err) {
 

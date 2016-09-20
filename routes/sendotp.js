@@ -1,4 +1,5 @@
 var mongo = require('mongodb');
+var MongoClient=mongo.MongoClient
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
@@ -41,7 +42,7 @@ var sendotp = {
         });
 
 
-        db.open(function (err, db) {
+        MongoClient.connect(host,function (err, db) {
 
             if (!err) {
 
@@ -249,7 +250,7 @@ var sendotp = {
 
         var server = new Server(host, port, {auto_reconnect: true});
         db = new Db(dbname, server);
-db.open(function (err,db) {
+        MongoClient.connect(host,function (err,db) {
     if(err===null)
     {
         db.collection('otp1', {strict: true}, function (err, collection) {

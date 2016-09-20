@@ -1,9 +1,11 @@
 var mongo = require('mongodb');
+var MongoClient=mongo.MongoClient
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
 var config=require('../config')
 var cloud = require('../test')
+var MongoClient=require('/MongoClient')
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'a13I11ET23';
@@ -40,7 +42,7 @@ var block = {
         });
 
 
-        db.open(function (err, db) {
+        MongoClient.connect(host,function (err, db) {
 
             if (!err) {
 
