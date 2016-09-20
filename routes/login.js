@@ -120,6 +120,7 @@ var regTokens=[]
                             "dob": req.body.dob,
                             "cCode":req.body.cCode,
                             "regTokens":regTokens,
+                            "coins":9000,
 
 
                             "blockingStatus": false,
@@ -138,6 +139,7 @@ var regTokens=[]
                 "phone": phoneEncrypted2.toString('utf-8'),
                 "dob": req.body.dob,
                  "regTokens":regTokens,
+                 "coins":11000,
                 "referralCode": req.body.referralCode,
                  "cCode":req.body.cCode,
                 "blockingStatus": false,
@@ -204,6 +206,7 @@ var regTokens=[]
                             "dob": req.body.dob,
                             "cCode":req.body.cCode,
                             "blockingStatus": false,
+                            "coins":9000,
 
                             "fbId": '1',
                             "gId": req.body.gId
@@ -226,7 +229,7 @@ var regTokens=[]
                                 "cCode":req.body.cCode,
                                 "blockingStatus": false,
                                 "referralCode": req.body.referralCode,
-
+                                 "coins":11000,
                                 "fbId": '1',
                                 "gId": req.body.gId
                             }
@@ -287,7 +290,7 @@ var regTokens=[]
                         "dob": req.body.dob,
                         "cCode":req.body.cCode,
                         "regTokens":regTokens,
-
+                        "coins":9000,
                         "fbId": req.body.fbId,
                         "gId": '1'}}
                         else
@@ -306,6 +309,7 @@ var regTokens=[]
                             "cCode":req.body.cCode,
                             "dob": req.body.dob,
                             "regTokens":regTokens,
+                            "coins":11000,
                             "referralCode": req.body.referralCode,
                             "fbId": req.body.fbId,
                             "gId": '1'}
@@ -396,13 +400,13 @@ var login = {
                         }
                         else
                         {
-                            collection.findOne({"uniqueCode":reF},function (errorsr,resultsr)
+                            collection.findAndModify({"uniqueCode":reF},{update: { $inc: { coins: 2000 } }},function (errorsr,resultsr)
                             {
                                 if(errorsr===null)
                                 {
                                     if(resultsr===null)
                                     {
-                                        var doc={"status":"error","msg":"cid referral code."}
+                                        var doc={"status":"error","msg":"Invalid referral code."}
                                         res.send(doc)
                                     }
                                     else

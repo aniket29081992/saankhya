@@ -59,11 +59,13 @@ var setuserdetail = {
                         var grade=req.body.grade
                         var school=req.body.school;
                         var city=req.body.city;
+                        var coins=req.body.coins;
                         var target=req.body.target;
                         var after10=req.body.after10;
                         var firstName=req.body.firstName
                         var lastName=req.body.secondName
                         var dp=req.body.dp
+                        var schoolid=req.body.schoolid
                         var docins={}
                         if(grade!==null&&grade!==undefined)
                         docins['grade']=grade
@@ -81,6 +83,12 @@ var setuserdetail = {
                         docins['firstName']=firstName
                         if(lastName!==null&&lastName!==undefined)
                         docins['secondName']=lastName
+                        if(schoolid!==null&&schoolid!==undefined)
+                            docins['schoolid']=schoolid
+                        if(coins!==null&&coins!==undefined)
+                            docins['coins']=coins
+
+
 
                         // var docins={"grade":grade,"school":school,"city":city,"target":target,"after10":after10};
 
