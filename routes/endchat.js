@@ -62,9 +62,10 @@ var end = {
                         {
                             if(error11===null)
                             {
-                                if(result11!=null)
+
+                                if(result11.result.nModified!=0)
                                 {
-                                //    console.log(result11)
+                                   console.log(result11)
                                     var teach=db.collection('teacherDetails')
                                     teach.update({"teachId":teacherId},{ $set:{"availStatus":"active"}},function (error111,result111)
                                     {

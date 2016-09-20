@@ -407,10 +407,11 @@ var login = {
                         }
                         else
                         {
-                            collection.findAndModify({"uniqueCode":reF},{update: { $inc: { coins: 2000 } }},function (errorsr,resultsr)
+                            collection.findAndModify({"uniqueCode":reF},[], {$inc: { coins: 2000 } },function (errorsr,resultsr)
                             {
                                 if(errorsr===null)
                                 {
+                                    console.log(errorsr)
                                     if(resultsr===null)
                                     {
                                         var doc={"status":"error","msg":"Invalid referral code."}
@@ -422,8 +423,8 @@ var login = {
                                     }
                                 }
                                 else
-                                {
-                                    var doc={"status":"error","msg":"Oops something went wrong."}
+                                {console.log(errorsr)
+                                    var doc={"status":"error","msg":"Oops something went wrong1."}
                                     res.send(doc)
                                 }
 
@@ -602,6 +603,7 @@ var login = {
                                         newww=res1.regTokens
                                         console.log("dekh lo"+req.body.regToken)
                                         var t=req.body.regToken
+                                        if(!newww.includes(t))
                                         newww.push(t)
                                         console.log(newww)
                                         dbUdetails.update({ "gId": gId}, {
@@ -645,6 +647,7 @@ var login = {
                                         newww=res1.regTokens
                                         console.log("dekh lo"+req.body.regToken)
                                         var t=req.body.regToken
+                                        if(!newww.includes(t))
                                         newww.push(t)
                                         console.log(newww)
                                         dbUdetails.update({ "fbId": fbId}, {
