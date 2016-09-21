@@ -6,6 +6,7 @@ var sendotp=require('./sendotp')
 var sendotp1=require('./sendotpfgpass')
 var forgot=require('./forgotpass')
 var setdetails=require('./setuserdetail')
+var fetch=require('./fetchstudentdetails')
 var multiparty = require('connect-multiparty'),
     multipartyMiddleware = multiparty();
 var coll=require('./collgcity')
@@ -76,7 +77,7 @@ router.post('/api/teacher/signup',auth,teachs.signup)
 router.post('/api/teacher/update',auth,teachs.update)
 router.post('/api/block',auth,block.blocknow)
 router.post('/api/admin/login',auth,admin.login)
-
+router.get('/api/fetchuserdetails',auth,fetch.fetch)
 router.post('/api/logout',auth,logout.logoutteachstud)
 router.post('/api/report',auth,reportmsg.msgreported)
 router.get('/api/report/view',auth,reportmsg.viewreports)

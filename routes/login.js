@@ -28,8 +28,13 @@ function decrypt(buffer) {
 }
 
 
-function sendLastmsg(req,res,userid1,doc,collectionmsg)
+function sendLastmsg(req,res,userid1,doc,collectionmsg,collectionsession)
 {
+    var token;
+    var random1=  Math.floor(100000 + Math.random() * 900000).toString()
+    var random2=  Math.floor(100000 + Math.random() * 900000).toString()
+    var currentTime=new Date().getTime().toString()
+    token=random1+currentTime+random2
     var userid=userid1.toString()
 
   var searchlastmsh=  collectionmsg.find({"stuId":userid},{msg:1,attachment:1,extension:1,msgBy:1}).sort({"sendTime":-1}).limit(1)
@@ -44,8 +49,26 @@ function sendLastmsg(req,res,userid1,doc,collectionmsg)
                   }
                   else
                   {
+doc['token']=token
+                      var useridprev=doc.data._id
+                      var _id;
+                      var ObjectId=mongo.ObjectId
+                      _id = new ObjectId(useridprev)
+                      var insertdoc={}
+                      insertdoc['userId']=_id
+                      insertdoc['token']=token
+                      insertdoc['inTime']=new Date().getTime().toString()
+                      insertdoc['outTime']=''
+                      insertdoc['status']='active'
+collectionsession.insert(insertdoc,function (errinsert,resultisnert)
+{
+    if(errinsert===null)
+        res.send(doc);
+    else
+        res.send({'status':'error','msg':'Something went wrong.'})
 
-                      res.send(doc);
+})
+
                       // else
                       //     res.send({"status":"error","msg":"Oopsww something went wrong"})
                   }
@@ -53,7 +76,7 @@ function sendLastmsg(req,res,userid1,doc,collectionmsg)
 
 
 }
-function proceedSignup(req,res,collection,collectioninsert)
+function proceedSignup(req,res,collection,collectioninsert,collectionsession)
 {
     var token;
     var random1=  Math.floor(100000 + Math.random() * 900000).toString()
@@ -186,15 +209,38 @@ var regTokens=[]
                                     if(errinsert===null)
                                     {
 
-                                        res.send({
+collectionsession.insert({
+    "userId": res2.ops[0]._id,
+    "status":"active",
+    "token":token,
+    "inTime":new Date().getTime().toString(),
+    "outTime":""
+},function (errinsert,resultinsert) {
+    console.log(errinsert+" up" +resultinsert)
+    if(errinsert===null)
+    {
+        res.send({
 
 
-                                            'msg': "signed up",
-                                            'status': 'success',
-                                            "data":res2.ops[0]
+            'msg': "signed up",
+            'status': 'success',
+            "data":res2.ops[0],
+            "token":token
 
-                                        })
+        })
+    }
+    else
+    {
+        res.send({"status":"error","msg":"Something went wrong!"})
+    }
+})
+
                                     }
+                                    else
+                                    {
+                                        res.send({"status":"error","msg":"Something went wrong."})
+                                    }
+
 
                                 })
 
@@ -276,17 +322,46 @@ var regTokens=[]
                                     "cCode":req.body.cCode,
                                     "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
                                     "phone": phoneEncrypted2.toString('utf-8')
+                                },function(errinsert,resultinsert)
+                                {
+                                    if(errinsert===null)
+                                    {
+                                        collectionsession.insert({
+                                            "userId": res3.ops[0]._id,
+                                            "status":"active",
+                                            "token":token,
+                                            "inTime":new Date().getTime().toString(),
+                                            "outTime":""
+                                        },function (errinsert,resultinsert) {
+                                            console.log(errinsert+" up" +resultinsert)
+                                            if(errinsert===null)
+                                            {
+                                                res.send({
+
+
+                                                    'msg': "signed up",
+                                                    'status': 'success',
+                                                    "data":res3.ops[0],
+                                                    "token":token
+
+                                                })
+                                            }
+                                            else
+                                            {
+                                                res.send({"status":"error","msg":"Something went wrong!"})
+                                            }
+                                        })
+
+                                    }
+                                    else
+                                    {
+                                        res.send({"status":"error","msg":"Something went wrong!"})
+
+                                    }
                                 })
 
 
-                                res.send({
 
-
-                                    'msg': "signed up",
-                                    'status': 'success',
-                                    'data':res3.ops[0]
-
-                                })
                             }
                         }
                     )
@@ -357,17 +432,45 @@ var regTokens=[]
                                     "email": emailEncrypted2.toString('utf-8'),
                                     "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
                                     "phone": phoneEncrypted2.toString('utf-8')
+                                },function (errinsert,resultinsert) {
+                                    if(errinsert===null)
+                                    {
+                                        collectionsession.insert({
+                                            "userId": res4.ops[0]._id,
+                                            "status":"active",
+                                            "token":token,
+                                            "inTime":new Date().getTime().toString(),
+                                            "outTime":""
+                                        },function (errinsert,resultinsert) {
+                                            console.log(errinsert+" up" +resultinsert)
+                                            if(errinsert===null)
+                                            {
+                                                res.send({
+
+
+                                                    'msg': "signed up",
+                                                    'status': 'success',
+                                                    "data":res4.ops[0],
+                                                    "token":token
+
+                                                })
+                                            }
+                                            else
+                                            {
+                                                res.send({"status":"error","msg":"Something went wrong!"})
+                                            }
+                                        })
+
+                                    }
+                                    else
+                                    {
+                                        res.send({"status":"error","msg":"Something went wrong!"})
+                                    }
+
                                 })
 
 
-                                res.send({
 
-
-                                    'msg': "signed up",
-                                    'status': 'success',
-                                    'data': res4.ops[0]
-
-                                })
                             }
                         }
                     )
@@ -414,7 +517,7 @@ var login = {
                         var reF=req.body.referralCode
                         if((reF===undefined)||(reF===null))
                         {
-                            proceedSignup(req,res,collection,db.collection('signup'))
+                            proceedSignup(req,res,collection,db.collection('signup'),db.collection('sessionDetailsstudent'))
                         //ccc
                         }
                         else
@@ -431,7 +534,7 @@ var login = {
                                     }
                                     else
                                     {
-                                        proceedSignup(req,res,collection,db.collection('signup'))
+                                        proceedSignup(req,res,collection,db.collection('signup'),db.collection('sessionDetailsstudent'))
                                     }
                                 }
                                 else
@@ -544,12 +647,7 @@ var login = {
                                                     if (checkPass == encryPass)
                                                     {
                                                         var newupdoc={}
-                                                        if(res1.token===undefined||res1.token===null)
-                                                        {
-                                                            newupdoc['token'] = token
-                                                            res1['token']=token
 
-                                                        }
                                                         var  newww=[]
 
                                                         newww=res1.regTokens
@@ -583,7 +681,7 @@ var login = {
                                                         var userCheckstu=res1._id
                                                         console.log(userCheckstu)
 
-                                                        sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
+                                                        sendLastmsg(req,res,userCheckstu,doc,collectionmsg,db.collection("sessionDetailsstudent"))
                                                       }
                                                       else{
                                                           var doc = {"status": "error", "msg": "Something went wrong!"}
@@ -634,12 +732,7 @@ var login = {
                                         var  newww=[]
                                         newww=res1.regTokens
                                         var newupdoc={}
-                                        if(res1.token===undefined||res1.token===null)
-                                        {
-                                            newupdoc['token'] = token
-                                            res1['token']=token
 
-                                        }
                                         console.log("dekh lo"+req.body.regToken)
                                         var t=req.body.regToken
                                         if(!newww.includes(t))
@@ -658,7 +751,7 @@ var login = {
                                                     var userCheckstu=res1._id
                                                     console.log(userCheckstu)
 
-                                                    sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
+                                                    sendLastmsg(req,res,userCheckstu,doc,collectionmsg,db.collection("sessionDetailsstudent"))
                                                 }
                                                 else
                                                 {
@@ -701,12 +794,7 @@ var login = {
                                         newww.push(t)
                                         console.log(newww)
                                         var newupdoc={}
-                                        if(res1.token===undefined||res1.token===null)
-                                        {
-                                            newupdoc['token'] = token
-                                            res1['token']=token
 
-                                        }
                                         newupdoc['regTokens']=newww
                                         dbUdetails.update({ "fbId": fbId}, {
                                             $set: newupdoc
@@ -721,7 +809,7 @@ var login = {
                                                     var userCheckstu=res1._id
                                                     console.log(userCheckstu)
 
-                                                    sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
+                                                    sendLastmsg(req,res,userCheckstu,doc,collectionmsg,db.collection("sessionDetailsstudent"))
                                                 }
                                                 else
                                                 {

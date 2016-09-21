@@ -65,6 +65,10 @@ var logout = {
                             var ObjectId=mongo.ObjectId
                            _id = new ObjectId(d)
                             comp="_id"
+                            var session=db.collection('sessionDetailsstudent')
+                            session.findAndModify({"token":req.body.token,"userId":_id},[],{$set:{'status':'inactive','outTime':new Date().getTime().toString()}})
+
+
                         }
                         else //1 is for teacher
                         {
@@ -74,10 +78,11 @@ var logout = {
                             comp="teachId"
                         }
                       //noinspection JSAnnotator
-                        collectionsout.update({[comp]:_id},{ $pull: {"regTokens": req.body.regToken} },function (err,result) {
+
+                        collectionsout.findAndModify({[comp]:_id},[],{ $pull: {"regTokens": req.body.regToken} },function (err,result) {
                           //  console.log("logout chekc"+result.firstName)
                           if(err===null)
-                          {
+                          {console.log(result)
                               res.send({"status":"success","msg":"deleted reg token"})
                           }
 else

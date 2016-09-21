@@ -59,12 +59,14 @@ var setuserdetail = {
 
                         // var docins={"grade":grade,"school":school,"city":city,"target":target,"after10":after10};
 
-                        var phone=req.body.phone
+                        var userId=req.body.userId
+                        var ObjectId=mongo.ObjectId
+                        var _id = new ObjectId(userId)
 
-
+console.log(_id)
                         // var encrypasss=encrypt(new Buffer(passwordd, "utf8")).toString('utf-8');
-                        var encryphone=encrypt(new Buffer(phone, "utf8")).toString('utf-8');
-                        pass.findOne({ "phone" : encryphone },function (error,result) {
+                       // var encryphone=encrypt(new Buffer(phone, "utf8")).toString('utf-8');
+                        pass.findOne({ "_id": _id },function (error,result) {
                             if(error===null)
                             {
                                 if(result===null)
@@ -74,7 +76,6 @@ var setuserdetail = {
                                 }
                                 else
                                 {
-                                  console.log(encryphone)
                                     var grade=req.body.grade
                                     var school=req.body.school;
                                     var city=req.body.city;
@@ -140,16 +141,13 @@ var setuserdetail = {
 
 
                                     }
-                                  pass.findAndModify({"phone":encryphone},[],{$set:docins},function(errorupdated,resultupdated)
+                                  pass.findAndModify({"_id": _id },[],{$set:docins},function(errorupdated,resultupdated)
                                     {
                                         if(errorupdated===null)
                                         {
                                             if(result.value===null)
                                                 res.send({"status":"error","msg":"No user found."})
-                                            else
-                                            {
-                                                res.send({"status":"success","msg":"Updated successfully."})
-                                            }
+
 
 
                                         }
