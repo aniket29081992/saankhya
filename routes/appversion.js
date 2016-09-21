@@ -62,5 +62,6 @@ var appver = {
                         })
                     }
                 })
-            }})}}
+            }}
+            )}}
             module.exports=appver

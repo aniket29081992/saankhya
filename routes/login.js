@@ -55,8 +55,14 @@ function sendLastmsg(req,res,userid1,doc,collectionmsg)
 }
 function proceedSignup(req,res,collection,collectioninsert)
 {
+    var token;
+    var random1=  Math.floor(100000 + Math.random() * 900000).toString()
+    var random2=  Math.floor(100000 + Math.random() * 900000).toString()
+    var currentTime=new Date().getTime().toString()
+    token=random1+currentTime+random2
 
     var phone = req.body.phone
+
     var email = req.body.email
     var phoneEncrypted = encrypt(new Buffer(phone, "utf8"))
     var emailEncrypted = encrypt(new Buffer(email, "utf8"))
@@ -121,6 +127,7 @@ var regTokens=[]
                             "cCode":req.body.cCode,
                             "regTokens":regTokens,
                             "coins":9000,
+                            "token":token,
 
 
                             "blockingStatus": false,
@@ -139,6 +146,7 @@ var regTokens=[]
                 "phone": phoneEncrypted2.toString('utf-8'),
                 "dob": req.body.dob,
                  "regTokens":regTokens,
+                 "token":token,
                  "coins":11000,
                 "referralCode": req.body.referralCode,
                  "cCode":req.body.cCode,
@@ -209,6 +217,7 @@ var regTokens=[]
                             "uniqueCode": uniqueCode,
                             "firstName": req.body.firstName,
                             "secondName": req.body.secondName,
+                            "token":token,
                             "phone": phoneEncrypted2.toString('utf-8'),
                             "dob": req.body.dob,
                             "cCode":req.body.cCode,
@@ -233,6 +242,7 @@ var regTokens=[]
                                 "secondName": req.body.secondName,
                                 "phone": phoneEncrypted2.toString('utf-8'),
                                 "dob": req.body.dob,
+                                "token":token,
                                 "cCode":req.body.cCode,
                                 "blockingStatus": false,
                                 "referralCode": req.body.referralCode,
@@ -294,6 +304,7 @@ var regTokens=[]
                         "secondName": req.body.secondName,
                         "phone": phoneEncrypted2.toString('utf-8'),
                         "blockingStatus": false,
+                        "token":token,
                         "dob": req.body.dob,
                         "cCode":req.body.cCode,
                         "regTokens":regTokens,
@@ -314,6 +325,7 @@ var regTokens=[]
                             "phone": phoneEncrypted2.toString('utf-8'),
                             "blockingStatus": false,
                             "cCode":req.body.cCode,
+                            "token":token,
                             "dob": req.body.dob,
                             "regTokens":regTokens,
                             "coins":11000,
@@ -412,7 +424,7 @@ var login = {
                                 if(errorsr===null)
                                 {
                                     console.log(errorsr)
-                                    if(resultsr===null)
+                                    if(resultsr.value===null)
                                     {
                                         var doc={"status":"error","msg":"Invalid referral code."}
                                         res.send(doc)
@@ -470,6 +482,11 @@ var login = {
 // //                     console.log("The otp collection doesn't exist. Creating it with sample data...");
                         var loginColl = db.collection("signup");
 
+                        var token;
+                        var random1=  Math.floor(100000 + Math.random() * 900000).toString()
+                        var random2=  Math.floor(100000 + Math.random() * 900000).toString()
+                        var currentTime=new Date().getTime().toString()
+                        token=random1+currentTime+random2
 
 
                         var gId = req.body.gid;
@@ -526,6 +543,13 @@ var login = {
                                                     console.log(res1);
                                                     if (checkPass == encryPass)
                                                     {
+                                                        var newupdoc={}
+                                                        if(res1.token===undefined||res1.token===null)
+                                                        {
+                                                            newupdoc['token'] = token
+                                                            res1['token']=token
+
+                                                        }
                                                         var  newww=[]
 
                                                         newww=res1.regTokens
@@ -536,17 +560,20 @@ var login = {
                                                         if(!newww.includes(t))
                                                         newww.push(t)
                                                         console.log(newww)
+                                                        newupdoc['regTokens']=newww
+
                                                         dbUdetails.update({ "$or": [{
                                                             "phone": encryUser
                                                         }, {
                                                             "email": encryUser
                                                         }]}, {
-                                                            $set: {
-                                                                "regTokens":newww
-                                                            }},function (errrors,resultss) {
+                                                            $set: newupdoc
+                                                            },function (errrors,resultss) {
+                                                                console.log("launch"+resultss)
 
 
-                                                        })
+                                                      if(errrors===null)
+                                                      {
                                                         var doc = {
                                                             "status": "success",
                                                             "msg": "User matched",
@@ -557,6 +584,11 @@ var login = {
                                                         console.log(userCheckstu)
 
                                                         sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
+                                                      }
+                                                      else{
+                                                          var doc = {"status": "error", "msg": "Something went wrong!"}
+                                                          res.send(doc);}
+                                                            })
                                                     }
                                                     else{
                                                         var doc = {"status": "error", "msg": "Incorrect password!"}
@@ -601,31 +633,49 @@ var login = {
                                         console.log(res1);
                                         var  newww=[]
                                         newww=res1.regTokens
+                                        var newupdoc={}
+                                        if(res1.token===undefined||res1.token===null)
+                                        {
+                                            newupdoc['token'] = token
+                                            res1['token']=token
+
+                                        }
                                         console.log("dekh lo"+req.body.regToken)
                                         var t=req.body.regToken
                                         if(!newww.includes(t))
                                         newww.push(t)
                                         console.log(newww)
+                                        newupdoc['regTokens'] = newww
                                         dbUdetails.update({ "gId": gId}, {
-                                            $set: {
-                                                "regTokens":newww
-                                            }},function (errrors,resultss) {
+                                            $set: newupdoc
+
+                                            },function (errrors,resultss) {
+                                                if(errrors===null)
+                                                {
+                                                    var doc = {"status": "success", "msg": "User matched", "data": res1}
+                                                    var collectionmsg=db.collection('message')
+
+                                                    var userCheckstu=res1._id
+                                                    console.log(userCheckstu)
+
+                                                    sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
+                                                }
+                                                else
+                                                {
+                                                    var doc = {"status": "error", "msg": "Something went wrong."}
+                                                    res.send(doc)
+                                                }
 
 
                                         })
 
-                                        var doc = {"status": "success", "msg": "User matched", "data": res1}
-                                        var collectionmsg=db.collection('message')
 
-                                        var userCheckstu=res1._id
-                                        console.log(userCheckstu)
-
-                                        sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
                                       //  res.send(doc);
                                     }
                                 }
                                 else {
                                     var doc = {"status": "error", "msg": "Something went wrong."}
+                                    res.send(doc)
                                 }
 
 
@@ -650,25 +700,43 @@ var login = {
                                         if(!newww.includes(t))
                                         newww.push(t)
                                         console.log(newww)
+                                        var newupdoc={}
+                                        if(res1.token===undefined||res1.token===null)
+                                        {
+                                            newupdoc['token'] = token
+                                            res1['token']=token
+
+                                        }
+                                        newupdoc['regTokens']=newww
                                         dbUdetails.update({ "fbId": fbId}, {
-                                            $set: {
-                                                "regTokens":newww
-                                            }},function (errrors,resultss) {
+                                            $set: newupdoc
+
+                                            },function (errrors,resultss) {
+                                                if(errrors===null)
+                                                {
+
+                                                    var collectionmsg=db.collection('message')
+
+                                                    var doc = {"status": "success", "msg": "User matched", "data": res1}
+                                                    var userCheckstu=res1._id
+                                                    console.log(userCheckstu)
+
+                                                    sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
+                                                }
+                                                else
+                                                {
+                                                    var doc = {"status": "error", "msg": "Something went wrong."}
+                                                    res.send(doc)
+                                                }
 
 
                                         })
-                                        var collectionmsg=db.collection('message')
-
-                                        var doc = {"status": "success", "msg": "User matched", "data": res1}
-                                        var userCheckstu=res1._id
-                                        console.log(userCheckstu)
-
-                                        sendLastmsg(req,res,userCheckstu,doc,collectionmsg)
                                         //res.send(doc);
                                     }
                                 }
                                 else {
                                     var doc = {"status": "error", "msg": "Something went wrong."}
+                                    res.send(doc)
                                 }
 
 

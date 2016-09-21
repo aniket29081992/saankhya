@@ -55,61 +55,112 @@ var setuserdetail = {
                     else {
 
                         var pass = db.collection("digo");
-                        var phone=req.body.phone
-                        var grade=req.body.grade
-                        var school=req.body.school;
-                        var city=req.body.city;
-                        var coins=req.body.coins;
-                        var target=req.body.target;
-                        var after10=req.body.after10;
-                        var firstName=req.body.firstName
-                        var lastName=req.body.secondName
-                        var dp=req.body.dp
-                        var schoolid=req.body.schoolid
-                        var docins={}
-                        var newcoins=parseInt(coins)
-                        if(grade!==null&&grade!==undefined)
-                        docins['grade']=grade
-                        if(school!==null&&school!==undefined){
-                        docins['school']=school
-                        newcoins=newcoins+1000}
-                        if(city!==null&&city!==undefined)
-                        docins['city']=city
-                        if(target!==null&&target!==undefined)
-                        {newcoins=newcoins+500
-                        docins['target']=target}
-                        if(after10!==null&&after10!==undefined)
-                        {newcoins=newcoins+500
-                        docins['after10']=after10}
-                        if(dp!==null&&dp!==undefined)
-                        docins['dp']=dp
-                        if(firstName!==null&&firstName!==undefined)
-                        docins['firstName']=firstName
-                        if(lastName!==null&&lastName!==undefined)
-                        docins['secondName']=lastName
-                        if(schoolid!==null&&schoolid!==undefined)
-                            docins['schoolid']=schoolid
-                        if(coins!==null&&coins!==undefined)
-                            docins['coins']=newcoins
 
 
                         // var docins={"grade":grade,"school":school,"city":city,"target":target,"after10":after10};
 
-
+                        var phone=req.body.phone
 
 
                         // var encrypasss=encrypt(new Buffer(passwordd, "utf8")).toString('utf-8');
                         var encryphone=encrypt(new Buffer(phone, "utf8")).toString('utf-8');
-                        pass.findAndModify({ "phone" : encryphone }, [],{ $set:docins},function (error,result) {
+                        pass.findOne({ "phone" : encryphone },function (error,result) {
                             if(error===null)
                             {
-                                if(result.value===null)
+                                if(result===null)
                                 {
                                     var doc={"status":"error","msg":"No user found"}
                                     res.send(doc)
                                 }
                                 else
                                 {
+                                  console.log(encryphone)
+                                    var grade=req.body.grade
+                                    var school=req.body.school;
+                                    var city=req.body.city;
+
+                                    var target=req.body.target;
+                                    var after10=req.body.after10;
+                                    var firstName=req.body.firstName
+                                    var lastName=req.body.secondName
+                                    var dp=req.body.dp
+                                    var schoolid=req.body.schoolid
+                                    var docins={}
+
+                                    if(grade!==null&&grade!==undefined)
+                                        docins['grade']=grade
+                                    if(school!==null&&school!==undefined) {
+                                        docins['school'] = school
+                                    }
+                                    if(city!==null&&city!==undefined)
+                                        docins['city']=city
+                                    if(target!==null&&target!==undefined)
+                                    {
+                                        docins['target']=target}
+                                    if(after10!==null&&after10!==undefined)
+                                    {
+                                        docins['after10']=after10}
+                                    if(dp!==null&&dp!==undefined)
+                                        docins['dp']=dp
+                                    if(firstName!==null&&firstName!==undefined)
+                                        docins['firstName']=firstName
+                                    if(lastName!==null&&lastName!==undefined)
+                                        docins['secondName']=lastName
+                                    if(schoolid!==null&&schoolid!==undefined)
+                                        docins['schoolid']=schoolid
+
+
+                                    console.log(result)
+                                    var newcoins=parseInt(result.coins)
+                                    newupdatedcoins=newcoins
+                                    if((result.school===null||result.school===undefined)&&((req.body.school!=null)))
+                                    {
+
+                                        newupdatedcoins=newupdatedcoins+1000
+                                            docins['coins']=newupdatedcoins
+
+
+
+                                    }
+                                    if((result.target===null||result.target===undefined)&&((req.body.target!=null)))
+                                {
+
+                                    newupdatedcoins=newupdatedcoins+500
+                                    docins['coins']=newupdatedcoins
+
+
+
+                                }
+                                    if((result.after10===null||result.after10===undefined)&&((req.body.after10!=null)))
+                                    {
+
+                                        newupdatedcoins=newupdatedcoins+500
+                                        docins['coins']=newupdatedcoins
+
+
+
+                                    }
+                                  pass.findAndModify({"phone":encryphone},[],{$set:docins},function(errorupdated,resultupdated)
+                                    {
+                                        if(errorupdated===null)
+                                        {
+                                            if(result.value===null)
+                                                res.send({"status":"error","msg":"No user found."})
+                                            else
+                                            {
+                                                res.send({"status":"success","msg":"Updated successfully."})
+                                            }
+
+
+                                        }
+                                        else
+                                        {
+                                            res.send({"status":"error","msg":"Something went wrong"})
+                                        }
+
+
+                                    })
+
                                     var doc={"status":"success","msg":"Updated successfully","data":result.value}
                                     res.send(doc)
 

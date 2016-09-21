@@ -76,7 +76,8 @@ var report = { 
                                                      
                                                     res.send({"status":"error","msg":"Problem in respondng.Please try again."})
                                                                                                  }                                               }) 
-                                    }                                     }                                     else 
+                                    } 
+                        }                                     else 
                                         {                                         res.send({"status":"error","msg":"Oops something went wrong."})                                     }  
                     })                             }   
             }) 
