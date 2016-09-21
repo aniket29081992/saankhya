@@ -69,19 +69,34 @@ var teachlogin = {
                                     var newww = []
                                     if(res1.hasOwnProperty("regTokens"))
                                     newww = res1.regTokens
-                                    console.log("dekh lo" + req.body.regToken)
+
+                                    //console.log("dekh lo" + req.body.regToken)
 
                                     var t = req.body.regToken
                                     if(!newww.includes(t))
                                     newww.push(t)
                                     console.log(newww);
-                                    teacher.update({"teachId": req.body.teachId}, {
+                                    teacher.update({"teachId": req.body.teachId,"blockingStatus":false}, {
                                         $set: {
                                             "regTokens": newww
 
                                         }
                                     }, function (errrors, resultss) {
                                         if (errrors === null) {
+                                            var token;
+                                            var random1=  Math.floor(100000 + Math.random() * 900000).toString()
+                                            var random2=  Math.floor(100000 + Math.random() * 900000).toString()
+                                            var currentTime=new Date().getTime().toString()
+                                            token=random1+currentTime+random2
+                                            var sessionTeacher=db.collection('sessionDetailsteacher')
+
+                                            var docc={   "teachId": req
+                                                .body.teachId,
+                                                "status":"active",
+                                                "token":token,
+                                                "inTime":new Date().getTime().toString(),
+                                                "outTime":""}
+                                            sessionTeacher.insert(docc)
                                             console.log(resultss)
                                             var doc = {"status": "success", "msg": "Authenticated"}
                                             res.send(doc)

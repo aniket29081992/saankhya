@@ -46,19 +46,21 @@ var jsonParser = bodyParser.json();
 
                     }
                     else {
-                        var collection=db.collection('r')
+                        var collection=db.collection('interaction')
                         var cursor=collection.find()
                         cursor.each(function (err, item) {
-                            var collection1=db.collection('r')
+                            var collection1=db.collection('mycollection')
                             if(item!=null){
-
+                                // var subStringname = item.firstName.substr(0, 4).toUpperCase();
+                                // var number = Math.floor(Math.random() * 1000) + 100
+                                // var uniqueCode = subStringname + number
                                 var doc={}
-                                doc['coins']='9000'
-                                doc['blockingStatus']=false,
-                                    doc['fbId']='1',
-                                    doc['gId']='1',
-                                    doc['cCode']='+91'
-                         collection1.update({"stuId":item.stuId},doc,function(err,res){console.log(res)})}
+                                // doc['grade']=item.grade
+                                // doc['school']=item.school
+                                doc['userId']=item._id
+
+
+                         collection1.update({"phone":item.phone},{$set:doc},function(err,res){console.log(res)})}
 
                         })
 

@@ -76,6 +76,9 @@ var logout = {
                             collectionsout=db.collection('teacherDetails')
                             _id=req.body.userId
                             comp="teachId"
+                            var session=db.collection('sessionDetailsteacher')
+                            session.findAndModify({"token":req.body.token,"teachId":_id},[],{$set:{'status':'inactive','outTime':new Date().getTime().toString()}})
+
                         }
                       //noinspection JSAnnotator
 

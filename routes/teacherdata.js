@@ -78,7 +78,7 @@ var teachSignup = {
                                                 var regTokens=[]
                                                 var doc={"firstName":req.body.firstName,"lastName":req.body.lastName,
                                                     "teachId":req.body.teachId,"teachPass":req.body.teachPass,"subIds":req.body.subIds,
-                                                    "availStatus":"active","blockingStatus":"active"}
+                                                    "availStatus":"active","blockingStatus":false}
                                                 teacher.insert(doc,function (error,resultss)
                                                 {
                                                     if(error==null)
