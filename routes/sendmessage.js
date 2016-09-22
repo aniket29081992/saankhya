@@ -24,7 +24,7 @@ function decrypt(buffer)
     // var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
     // return dec;
 }
-function firstEntry(req,res,mess,teach) {
+function firstEntry(req,res,mess,teach,student) {
 
     console.log("cofse")
     var findCheck={"stuId":req.body.stuId};
@@ -140,80 +140,109 @@ function firstEntry(req,res,mess,teach) {
                    }
                }
 
-               mess.insert(insertDocument, function (err, result)
-               {
-                   if (err === null) {
-                       // console.log(result)
-                       var userS=[]
-                       // userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
-                       // userS.push('d45cU0fSC2s:APA91bEic92SRp2UIpVXTNzP_JugcZDN8wlMUHYf2uUjz3g0qkV3y13GnbEtjk37zU76VFNKSVb5u1GowkBJ9f_4M17ucPmd2Tf1Tc_pXHVP16l67G0dRRBdGPWnEDOrgnDyChRLjExF')
-                       // userS.push('eHIknDUbIj8:APA91bHwas2vGsgVUzJpz33wt3jC4FJGH-SLDmP_WIzbCW5gMYOsqWQg2UX5p0kgyStB1vRrpyzN4ari2FRff2laoiJ1ln_P0kNgyBB3lqsMIGhi0tBNEQ_op1Y-LkgwGYdE8vUQYNUQ')
-                       // userS.push('ddTiyJ4-VcE:APA91bFvoWHUtfc_KgHUNJUUwnKDIZfnE1YjyW0Bded_5O1kZXWxKPtgrwzN3BUKVgMvJjYfuwmlJGue_PNoS5THQDvV7W5DYLcvO5QQGPqifA47TBaCn_vU-9d7LzXMnxzCFgfRcbgT')
+               var coins=0;
+               var lenghtmsg=req.body.msg.length
+               coins=lenghtmsg
+               var lenghtimg=0;
+               if((req.body.attachment!==null)&&(req.body.attachment!==undefined)&&(req.body.attachment.length!==0))
+                   coins=200
 
-                       // userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
-                       // userS.push('')
+               var ObjectId=mongo.ObjectId
+               var _id = new ObjectId(req.body.stuId)
+               student.findAndModify({'_id':_id},[],{$inc:{'coins':coins*-1}},{new:true},function (error,document) {
+                   if(error===null)
+                   {
+                       console.log(document)
+                       if(document.value.coins<=0)
+                           res.send({'status':'error',
+                               'msg':'Insufficient coins'})
+                       else
+                       {
+                           mess.insert(insertDocument, function (err, result)
+                           {
+                               if (err === null) {
+                                   // console.log(result)
+                                   var userS=[]
+                                   // userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
+                                   // userS.push('d45cU0fSC2s:APA91bEic92SRp2UIpVXTNzP_JugcZDN8wlMUHYf2uUjz3g0qkV3y13GnbEtjk37zU76VFNKSVb5u1GowkBJ9f_4M17ucPmd2Tf1Tc_pXHVP16l67G0dRRBdGPWnEDOrgnDyChRLjExF')
+                                   // userS.push('eHIknDUbIj8:APA91bHwas2vGsgVUzJpz33wt3jC4FJGH-SLDmP_WIzbCW5gMYOsqWQg2UX5p0kgyStB1vRrpyzN4ari2FRff2laoiJ1ln_P0kNgyBB3lqsMIGhi0tBNEQ_op1Y-LkgwGYdE8vUQYNUQ')
+                                   // userS.push('ddTiyJ4-VcE:APA91bFvoWHUtfc_KgHUNJUUwnKDIZfnE1YjyW0Bded_5O1kZXWxKPtgrwzN3BUKVgMvJjYfuwmlJGue_PNoS5THQDvV7W5DYLcvO5QQGPqifA47TBaCn_vU-9d7LzXMnxzCFgfRcbgT')
+
+                                   // userS.push('eOIImMOH9eo:APA91bHfA3TN5-xpeHmz6emCizyG05bo8CZcN13G5--FS5UhNubQt_H__rO9gfYVBm5pFHkKx8Bn0S5tCkz8379m3DVty5rLHUIXo_-6ENJx0JR2nGuADNYA7zPhZryFXG3jdK_jAmOu')
+                                   // userS.push('')
 //check this code from here
-                       //checkrefer
-                       var teacher=db.collection('teacherDetails');
-                       var checkSum=0;
-                       //add subid
-                      var cursorT= teach.find({"availStatus":"active"})
-                       cursorT.each(function (err, item) {
-                           if (err === null) {
-                               {
-                                   checkSum++;
-                                   if(item!==null)
-                                   {
-                                      // console.log(item.regTokens)
+                                   //checkrefer
+                                   var teacher=db.collection('teacherDetails');
+                                   var checkSum=0;
+                                   //add subid
+                                   var cursorT= teach.find({"availStatus":"active"})
+                                   cursorT.each(function (err, item) {
+                                       if (err === null) {
+                                           {
+                                               checkSum++;
+                                               if(item!==null)
+                                               {
+                                                   // console.log(item.regTokens)
 
-                                       for(var i=0;i<item.regTokens.length;i++)
-                                       {
-                                           console.log("digo"+item.regTokens[i])
-                                           userS.push(item.regTokens[i])
-                                       }
-
-
-                                   }
-                                   else
-                                   {
-                                       if(checkSum==1)
-                                       {
-                                           var msg = {"status": "error", "msg": "Something went wrong."}
-                                           res.send(msg);
-                                       }
-                                       else {
-
-                                           var msg =
-                                           {"status": "success", "msg": "Message sent","data":result.ops[0]
-                                           }
-                                           res.send(msg);
-                                           var dataa=[]
-                                           dataa.push(result.ops[0])
-                                           cloud.send(userS,dataa,1,0)
-                                           //admin cloud.send(admin,dataa)
+                                                   for(var i=0;i<item.regTokens.length;i++)
+                                                   {
+                                                       console.log("digo"+item.regTokens[i])
+                                                       userS.push(item.regTokens[i])
+                                                   }
 
 
-                                           console.log("bas"+userS)}
+                                               }
+                                               else
+                                               {
+                                                   if(checkSum==1)
+                                                   {
+                                                       var msg = {"status": "error", "msg": "Something went wrong."}
+                                                       res.send(msg);
+                                                   }
+                                                   else {
 
-                                   }
-                               }}})
-                       //to here
+                                                       var msg =
+                                                       {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins
+                                                       }
+                                                       res.send(msg);
+                                                       var dataa=[]
+                                                       dataa.push(result.ops[0])
+                                                       cloud.send(userS,dataa,1,0)
+                                                       //admin cloud.send(admin,dataa)
+
+
+                                                       console.log("bas"+userS)}
+
+                                               }
+                                           }}})
+                                   //to here
 
 
 
 
-                     //
+                                   //
 
-                       //api call
+                                   //api call
+
+                               }
+                               else {
+                                   var msg = {"status": "error", "msg": "Something went wrong"}
+                                   res.send(msg);
+
+                               }
+
+                           })
+
+                       }
 
                    }
-                   else {
-                       var msg = {"status": "error", "msg": "Something went wrong"}
-                       res.send(msg);
-
+                   else
+                   {
+                       res.send({'status':'error','msg':'Something went wrong.1'})
                    }
 
                })
+
            }
 
 
@@ -270,7 +299,7 @@ var message = {
                                 if(doc===null)
                                 {
                                     //if time check here then only
-                                    firstEntry(req,res,db.collection('message'),db.collection('teacherDetails'))
+                                    firstEntry(req,res,db.collection('message'),db.collection('teacherDetails'),db.collection('digo'))
 //insert
 
 
@@ -327,48 +356,77 @@ var message = {
                                                             "iStatus": "active"
 
                                                                    }
+                                                        var coins=0;
+                                                        var lenghtmsg=req.body.msg.length
+                                                        coins=lenghtmsg
+                                                        var lenghtimg=0;
+                                                        if((req.body.attachment!==null)&&(req.body.attachment!==undefined)&&(req.body.attachment.length!==0))
+                                                            coins=200
+                                                        var stu=db.collection('digo')
+                                                        var ObjectId=mongo.ObjectId
+                                                         var _id = new ObjectId(req.body.stuId)
+                                                        stu.findAndModify({'_id':_id},[],{$inc:{'coins':coins*-1}},{new:true},function (error,document) {
+                                                            if(error===null)
+                                                            {
+                                                                if(document.value.coins<=0)
+                                                                    res.send({'status':'error',
+                                                                    'msg':'Insufficient coins'})
+                                                                else
+                                                                {
+                                                                    mess.insert(ins, function (err, result) {
+                                                                        if (err === null) {
+                                                                            // console.log(result)
+                                                                            // var userS=[]
+                                                                            //insert teacher tokens
+                                                                            //userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
+                                                                            var userS=[]
+                                                                            //insert teacher tokens
+                                                                            var teacher=db.collection('teacherDetails');
+                                                                            var d=item.teachId
 
-                                                        mess.insert(ins, function (err, result) {
-                                                            if (err === null) {
-                                                                // console.log(result)
-                                                                // var userS=[]
-                                                                //insert teacher tokens
-                                                                //userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
-                                                                var userS=[]
-                                                                //insert teacher tokens
-                                                                var teacher=db.collection('teacherDetails');
-                                                                var d=item.teachId
+                                                                            teacher.findOne({"teachId":d},function (err5,res5) {
+                                                                                if(err5===null)
+                                                                                {
 
-                                                                teacher.findOne({"teachId":d},function (err5,res5) {
-                                                                    if(err5===null)
-                                                                    {
-                                                                        if(res5!==null)
-                                                                        {
-                                                                            for(var i=0;i<res5.regTokens.length;i++)
-                                                                                userS.push(res5.regTokens[i])
+                                                                                    if(res5!==null)
+                                                                                    {
+                                                                                        for(var i=0;i<res5.regTokens.length;i++)
+                                                                                            userS.push(res5.regTokens[i])
 
-                                                                            var dataa=[]
-                                                                            dataa.push(result.ops[0])
-                                                                            cloud.send(userS,dataa,0,0)
-                                                                            //admin cloud.send(admin,dataa)
+                                                                                        var dataa=[]
+                                                                                        dataa.push(result.ops[0])
+                                                                                        cloud.send(userS,dataa,0,0)
+                                                                                        //admin cloud.send(admin,dataa)
 
-                                                                            var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
-                                                                            res.send(msg);}
-                                                                            else
-                                                                        {
-                                                                            var msg = {"status": "error", "msg": "error"}
-                                                                            res.send(msg);
+                                                                                        var msg = {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins}
+                                                                                        res.send(msg);
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        var msg = {"status": "error", "msg": "error"}
+                                                                                        res.send(msg);
+                                                                                    }
+                                                                                }})
+
                                                                         }
-                                                                    }})
+                                                                        else {
+                                                                            var msg = {"status": "error", "msg": "Oops something went wrong"}
+                                                                            res.send(msg);
+
+                                                                        }
+
+                                                                    })
+
+                                                                }
 
                                                             }
-                                                            else {
-                                                                var msg = {"status": "error", "msg": "Oops something went wrong"}
-                                                                res.send(msg);
-
+                                                            else
+                                                            {
+                                                                res.send({'status':'error','msg':'Something went wrong.'})
                                                             }
 
                                                         })
+
                                                         // consolensole.log(doc)
                                                     }
                                                 }
@@ -386,7 +444,7 @@ var message = {
                                                                     if(error1===null)
                                                                     {
                                                                         console.log("yahoo"+item.teachId)
-                                                                        firstEntry(req,res,mess,db.collection('teacherDetails'))
+                                                                        firstEntry(req,res,mess,db.collection('teacherDetails'),db.collection('digo'))
 
 
                                                                     }})
@@ -459,52 +517,74 @@ var check2=0;
 
                                                                     }
 
-                                                                    mess.insert(ins, function (err, result)
+                                                                    var coins=0;
+                                                                    var lenghtmsg=req.body.msg.length
+                                                                    coins=lenghtmsg
+                                                                    var lenghtimg=0;
+                                                                    if((req.body.attachment!==null)&&(req.body.attachment!==undefined)&&(req.body.attachment.length!==0))
+                                                                        coins=200
+                                                                    var stu=db.collection('digo')
+                                                                    var ObjectId=mongo.ObjectId
+                                                                    var _id = new ObjectId(req.body.stuId)
+                                                                    stu.findAndModify({'_id':_id},[],{$inc:{'coins':coins*-1}},{new:true},function (error,document)
                                                                     {
-                                                                        if (err === null) {
-                                                                            // console.log(result)
-                                                                            var userS=[]
-                                                                            var teacher=db.collection('teacherDetails');
-                                                                            teacher.findOne({ "teachId": doc.teachId},function (errors,resultnew)
+                                                                        if(error===null)
+                                                                        {
+                                                                            if(document.value.coins<=0)
+                                                                                res.send({'status':'error',
+                                                                                    'msg':'Insufficient coins'})
+                                                                            else
                                                                             {
-                                                                                if(errors===null)
+                                                                                mess.insert(ins, function (err, result)
                                                                                 {
-                                                                                    console.log("digo+"+resultnew.regTokens[0])
+                                                                                    if (err === null) {
+                                                                                        // console.log(result)
+                                                                                        var userS=[]
+                                                                                        var teacher=db.collection('teacherDetails');
+                                                                                        teacher.findOne({ "teachId": doc.teachId},function (errors,resultnew)
+                                                                                        {
+                                                                                            if(errors===null)
+                                                                                            {
+                                                                                                console.log("digo+"+resultnew.regTokens[0])
 
-                                                                                    for(var i=0;i<resultnew.regTokens.length;i++)
-                                                                                    {
-                                                                                        //console.log(item.regTokens[i])
-                                                                                        userS.push(resultnew.regTokens[i])
+                                                                                                for(var i=0;i<resultnew.regTokens.length;i++)
+                                                                                                {
+                                                                                                    //console.log(item.regTokens[i])
+                                                                                                    userS.push(resultnew.regTokens[i])
+                                                                                                }
+                                                                                                var dataa=[]
+                                                                                                dataa.push(result.ops[0])
+                                                                                                cloud.send(userS,dataa,0,0)
+                                                                                                //admin cloud.send(admin,dataa)
+
+
+
+                                                                                                var msg = {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins}
+                                                                                                res.send(msg);
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                var msg = {"status": "error", "msg": "Oops something went wrong"}
+                                                                                                res.send(msg);
+                                                                                            }
+
+
+                                                                                        })
+                                                                                        // userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
+
                                                                                     }
-                                                                                    var dataa=[]
-                                                                                    dataa.push(result.ops[0])
-                                                                                    cloud.send(userS,dataa,0,0)
-                                                                                    //admin cloud.send(admin,dataa)
+                                                                                    else
+                                                                                    {
+                                                                                        var msg = {"status": "error", "msg": "Oops something went wrong"}
+                                                                                        res.send(msg);
+
+                                                                                    }
+
+                                                                                })
+                                                                            }
+                                                                    }})
 
 
-
-                                                                                    var msg = {"status": "success", "msg": "Message sent","data":result.ops[0]}
-                                                                                    res.send(msg);
-                                                                                }
-                                                                                else
-                                                                                {
-                                                                                    var msg = {"status": "error", "msg": "Oops something went wrong"}
-                                                                                    res.send(msg);
-                                                                                }
-
-
-                                                                            })
-                                                                           // userS.push('e8k3CgDPZpA:APA91bGx5-RGIvI1XHO63pdZ1HLltuqdpjafWQz01HfmyhZC-1qCLwCwqSeRCsVWCvoYXmdrH9bbYwXiruqhJadHJYjqBlqT2rBjMKrjlJNvM3wiJzaG8KytJjQd6Xfx7IPu1Gn-cGdR')
-
-                                                                        }
-                                                                        else
-                                                                            {
-                                                                            var msg = {"status": "error", "msg": "Oops something went wrong"}
-                                                                            res.send(msg);
-
-                                                                             }
-
-                                                                                                              })
                                                                 }
                                                                 else
                                                                 {
@@ -550,85 +630,116 @@ var check2=0;
                                                                                         "intId": item.intId,
                                                                                         "msgBy": req.body.msgBy
                                                                                     }
-                                                                                    mess.insert(insertDocument, function (err, result)
+
+                                                                                    var coins=0;
+                                                                                    var lenghtmsg=req.body.msg.length
+                                                                                    coins=lenghtmsg
+                                                                                    var lenghtimg=0;
+                                                                                    if((req.body.attachment!==null)&&(req.body.attachment!==undefined)&&(req.body.attachment.length!==0))
+                                                                                        coins=200
+                                                                                    var stu=db.collection('digo')
+                                                                                    var ObjectId=mongo.ObjectId
+                                                                                    var _id = new ObjectId(req.body.stuId)
+                                                                                    stu.findAndModify({'_id':_id},[],{$inc:{'coins':coins*-1}},{new:true},function (error,document)
                                                                                     {
-                                                                                        if (err === null) {
-                                                                                            //her
-                                                                                            var findCheck={"intId":item.intId,"stuId":req.body.stuId,"subId":req.body.subId};
-                                                                                            var cursor=mess.find(findCheck)
-                                                                                            var count=0
-                                                                                            var insertDocument;
-                                                                                            var noDocs=[]
-                                                                                            cursor.each(function (err,item11) {
-                                                                                                if(err===null)
+                                                                                        if(error===null) {
+                                                                                            if (document.value.coins <= 0)
+                                                                                                res.send({
+                                                                                                    'status': 'error',
+                                                                                                    'msg': 'Insufficient coins'
+
+                                                                                                })
+
+                                                                                            else {
+                                                                                                mess.insert(insertDocument, function (err, result)
                                                                                                 {
-                                                                                                    count++;
-                                                                                                    if(item11!=null)
-                                                                                                    {   noDocs.push(item11)
-                                                                                                     }
-                                                                                                     else
-                                                                                                    {
-                                                                                                        if(count>1)
-                                                                                                        {
-                                                                                                            var userS=[]
-
-                                                                                                            var teacher=db.collection('teacherDetails');
-                                                                                                            var checkSum=0;
-                                                                                                            var cursorT= teacher.find({"availStatus":"active"})
-                                                                                                            cursorT.each(function (err, item) {
-                                                                                                                if (err === null) {
+                                                                                                    if (err === null) {
+                                                                                                        //her
+                                                                                                        var findCheck={"intId":item.intId,"stuId":req.body.stuId,"subId":req.body.subId};
+                                                                                                        var cursor=mess.find(findCheck)
+                                                                                                        var count=0
+                                                                                                        var insertDocument;
+                                                                                                        var noDocs=[]
+                                                                                                        cursor.each(function (err,item11) {
+                                                                                                            if(err===null)
+                                                                                                            {
+                                                                                                                count++;
+                                                                                                                if(item11!=null)
+                                                                                                                {   noDocs.push(item11)
+                                                                                                                }
+                                                                                                                else
+                                                                                                                {
+                                                                                                                    if(count>1)
                                                                                                                     {
-                                                                                                                        checkSum++;
-                                                                                                                        if(item!==null)
-                                                                                                                        {
-                                                                                                                            // console.log(item.regTokens)
-                                                                                                                            for(var i=0;i<item.regTokens.length;i++)
-                                                                                                                            {
-                                                                                                                                console.log(item.regTokens[i])
-                                                                                                                                userS.push(item.regTokens[i])
-                                                                                                                            }
+                                                                                                                        var userS=[]
 
-                                                                                                                        }
-                                                                                                                        else
-                                                                                                                        {
-                                                                                                                            if(checkSum==1)
-                                                                                                                            {
-                                                                                                                                var msg = {"status": "error", "msg": "Oops something went wrong."}
-                                                                                                                                res.send(msg);
+                                                                                                                        var teacher=db.collection('teacherDetails');
+                                                                                                                        var checkSum=0;
+                                                                                                                        var cursorT= teacher.find({"availStatus":"active"})
+                                                                                                                        cursorT.each(function (err, item) {
+                                                                                                                            if (err === null) {
+                                                                                                                                {
+                                                                                                                                    checkSum++;
+                                                                                                                                    if(item!==null)
+                                                                                                                                    {
+                                                                                                                                        // console.log(item.regTokens)
+                                                                                                                                        for(var i=0;i<item.regTokens.length;i++)
+                                                                                                                                        {
+                                                                                                                                            console.log(item.regTokens[i])
+                                                                                                                                            userS.push(item.regTokens[i])
+                                                                                                                                        }
 
-                                                                                                                                console.log("no one active")}
-                                                                                                                            else {
-                                                                                                                                cloud.send(userS,noDocs,1,0)
-                                                                                                                                //admin cloud.send(admin,dataa)
+                                                                                                                                    }
+                                                                                                                                    else
+                                                                                                                                    {
+                                                                                                                                        if(checkSum==1)
+                                                                                                                                        {
+                                                                                                                                            var msg = {"status": "error", "msg": "Oops something went wrong."}
+                                                                                                                                            res.send(msg);
 
-
-                                                                                                                                console.log("bas"+userS)
-                                                                                                                                res.send({"status": "success",
-                                                                                                                                    "msg": "Message sent",
-                                                                                                                                    "case":1,
-                                                                                                                                    "data":noDocs})}
-
-                                                                                                                        }
-                                                                                                                    }}})
-                                                                                                            //fcm to all
-
-                                                                                                        }
-                                                                                                        else
-                                                                                                        {
-                                                                                                            res.send({"status": "error",
-                                                                                                                "msg": "Oops something went wrong"});
-                                                                                                        }
-                                                                                                    }
+                                                                                                                                            console.log("no one active")}
+                                                                                                                                        else {
+                                                                                                                                            cloud.send(userS,noDocs,1,0)
+                                                                                                                                            //admin cloud.send(admin,dataa)
 
 
+                                                                                                                                            console.log("bas"+userS)
+                                                                                                                                            res.send({"status": "success",
+                                                                                                                                                'coins':document.value.coins,
+                                                                                                                                                "msg": "Message sent",
+                                                                                                                                                "case":1,
+                                                                                                                                                "data":noDocs})}
+
+                                                                                                                                    }
+                                                                                                                                }}})
+                                                                                                                        //fcm to all
+
+                                                                                                                    }
+                                                                                                                    else
+                                                                                                                    {
+                                                                                                                        res.send({"status": "error",
+                                                                                                                            "msg": "Oops something went wrong"});
+                                                                                                                    }
+                                                                                                                }
 
 
-                                                                                                }
-                                                                                            })
-                                                                                            //r
 
 
-                                                                                        }})
+                                                                                                            }
+                                                                                                        })
+                                                                                                        //r
+
+
+                                                                                                    }})
+                                                                                            }
+                                                                                        }
+                                                                                        else
+                                                                                            {
+                                                                                            res.send({'status':'error','msg':'Something went wrong.'})
+
+                                                                                        }
+                                                                                    })
+
 
                                                                                     console.log("yahoo"+item.teachId)
 

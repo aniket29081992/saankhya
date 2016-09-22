@@ -73,11 +73,12 @@ var fetchUserdetails = {
                                         var userid=result.userId
                                         var newdoc={}
                                         newdoc['_id']=userid
+                                        newdoc['blockingStatus']=false
                                         user.findOne(newdoc,function (errorfind,resultfind) {
                                             if(errorfind===null)
                                             {
                                                 if(resultfind===null)
-                                                    res.send({'status':'error','msg':'Something went wrong!'})
+                                                    res.send({'status':'error','msg':'You are blocked.'})
                                                 else
                                                 {
                                                     res.send({'status':'success','msg':'Data fetched','data':resultfind})
