@@ -66,9 +66,35 @@ var adminlogin = {
                                     res.send(doc)
                                 }
                                 else    {
+                                    var newreg=[]
+                                    if(res1.regTokens!==undefined&&res1.regTokens!==null)
+                                    {
+                                        newreg=res1.regTokens
 
+                                    }
+                                    if(!newreg.includes(req.body.regToken))
+                                        newreg.push(req.body.regToken)
+                                    var newdoc={}
+                                    newdoc['regTokens']=newreg
+                                    adminer.update({
+                                        "adminId": req.body.adminId,
+                                        "adminPass": req.body.adminPass
+                                    },{$set:newdoc}, function (err, res1) {
+                                        if(err===null)
+                                        {
                                             var doc = {"status": "success", "msg": "Authenticated"}
                                             res.send(doc)
+
+                                        }
+                                        else
+                                        {
+                                            var doc = {"status": "error", "msg": "Something went wrong."}
+                                            res.send(doc)
+                                        }
+                                    })
+
+
+
                                         }
 
 

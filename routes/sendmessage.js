@@ -180,12 +180,12 @@ function firstEntry(req,res,mess,teach,student) {
                                                if(item!==null)
                                                {
                                                    // console.log(item.regTokens)
-
+               if(item.regTokens!==undefined&&(item.regTokens!==null)){
                                                    for(var i=0;i<item.regTokens.length;i++)
                                                    {
                                                        console.log("digo"+item.regTokens[i])
                                                        userS.push(item.regTokens[i])
-                                                   }
+                                                   }}
 
 
                                                }
@@ -384,8 +384,9 @@ var message = {
 
                                                                                     if(res5!==null)
                                                                                     {
+                                                                                        if(res5.regTokens!==undefined&&(res5.regTokens!==null)){
                                                                                         for(var i=0;i<res5.regTokens.length;i++)
-                                                                                            userS.push(res5.regTokens[i])
+                                                                                            userS.push(res5.regTokens[i])}
 
                                                                                         var dataa=[]
                                                                                         dataa.push({"coins":document.value.coins})
@@ -541,11 +542,13 @@ var check2=0;
                                                                                             if(errors===null)
                                                                                             {
                                                                                                 console.log("digo+"+resultnew.regTokens[0])
-
+                                                                                                if(resultnew.regTokens!==undefined&&(resultnew.regTokens!==null))
+                                                                                                {
                                                                                                 for(var i=0;i<resultnew.regTokens.length;i++)
                                                                                                 {
                                                                                                     //console.log(item.regTokens[i])
                                                                                                     userS.push(resultnew.regTokens[i])
+                                                                                                }
                                                                                                 }
                                                                                                 var dataa=[]
                                                                                                 dataa.push({"coins":document.value.coins})
@@ -674,11 +677,12 @@ var check2=0;
                                                                                                                                     if(item!==null)
                                                                                                                                     {
                                                                                                                                         // console.log(item.regTokens)
+                                                                                                                                        if(item.regTokens!==undefined&&(item.regTokens!==null)){
                                                                                                                                         for(var i=0;i<item.regTokens.length;i++)
                                                                                                                                         {
                                                                                                                                             console.log(item.regTokens[i])
                                                                                                                                             userS.push(item.regTokens[i])
-                                                                                                                                        }
+                                                                                                                                        }}
 
                                                                                                                                     }
                                                                                                                                     else
