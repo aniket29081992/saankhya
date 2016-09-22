@@ -153,10 +153,7 @@ function firstEntry(req,res,mess,teach,student) {
                    if(error===null)
                    {
                        console.log(document)
-                       if(document.value.coins<=0)
-                           res.send({'status':'error',
-                               'msg':'Insufficient coins'})
-                       else
+
                        {
                            mess.insert(insertDocument, function (err, result)
                            {
@@ -206,6 +203,7 @@ function firstEntry(req,res,mess,teach,student) {
                                                        }
                                                        res.send(msg);
                                                        var dataa=[]
+                                                       dataa.push({"coins":document.value.coins})
                                                        dataa.push(result.ops[0])
                                                        cloud.send(userS,dataa,1,0)
                                                        //admin cloud.send(admin,dataa)
@@ -368,10 +366,6 @@ var message = {
                                                         stu.findAndModify({'_id':_id},[],{$inc:{'coins':coins*-1}},{new:true},function (error,document) {
                                                             if(error===null)
                                                             {
-                                                                if(document.value.coins<=0)
-                                                                    res.send({'status':'error',
-                                                                    'msg':'Insufficient coins'})
-                                                                else
                                                                 {
                                                                     mess.insert(ins, function (err, result) {
                                                                         if (err === null) {
@@ -394,6 +388,7 @@ var message = {
                                                                                             userS.push(res5.regTokens[i])
 
                                                                                         var dataa=[]
+                                                                                        dataa.push({"coins":document.value.coins})
                                                                                         dataa.push(result.ops[0])
                                                                                         cloud.send(userS,dataa,0,0)
                                                                                         //admin cloud.send(admin,dataa)
@@ -530,10 +525,10 @@ var check2=0;
                                                                     {
                                                                         if(error===null)
                                                                         {
-                                                                            if(document.value.coins<=0)
-                                                                                res.send({'status':'error',
-                                                                                    'msg':'Insufficient coins'})
-                                                                            else
+                                                                            // if(document.value.coins<=0)
+                                                                            //     res.send({'status':'error',
+                                                                            //         'msg':'Insufficient coins'})
+                                                                            // else
                                                                             {
                                                                                 mess.insert(ins, function (err, result)
                                                                                 {
@@ -553,6 +548,7 @@ var check2=0;
                                                                                                     userS.push(resultnew.regTokens[i])
                                                                                                 }
                                                                                                 var dataa=[]
+                                                                                                dataa.push({"coins":document.value.coins})
                                                                                                 dataa.push(result.ops[0])
                                                                                                 cloud.send(userS,dataa,0,0)
                                                                                                 //admin cloud.send(admin,dataa)
@@ -643,14 +639,9 @@ var check2=0;
                                                                                     stu.findAndModify({'_id':_id},[],{$inc:{'coins':coins*-1}},{new:true},function (error,document)
                                                                                     {
                                                                                         if(error===null) {
-                                                                                            if (document.value.coins <= 0)
-                                                                                                res.send({
-                                                                                                    'status': 'error',
-                                                                                                    'msg': 'Insufficient coins'
 
-                                                                                                })
 
-                                                                                            else {
+                                                                                         {
                                                                                                 mess.insert(insertDocument, function (err, result)
                                                                                                 {
                                                                                                     if (err === null) {
@@ -699,6 +690,7 @@ var check2=0;
 
                                                                                                                                             console.log("no one active")}
                                                                                                                                         else {
+                                                                                                                                            noDocs.push({'coins':document.value.coins})
                                                                                                                                             cloud.send(userS,noDocs,1,0)
                                                                                                                                             //admin cloud.send(admin,dataa)
 
