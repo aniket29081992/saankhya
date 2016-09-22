@@ -71,9 +71,7 @@ var block = {
                                         var teacher = db.collection("teacherDetails")
 
                                         var regTokens=[]
-                                        var doc={"firstName":req.body.firstName,"lastName":req.body.lastName,
-                                            "teachId":req.body.teachId,"teachPass":req.body.teachPass,"subIds":req.body.subIds,
-                                            "availStatus":"active","blockingStatus":false}
+
                                         teacher.update({"teachId": req.body.teachId}, {
                                             $set: {
                                                 "blockingStatus": true

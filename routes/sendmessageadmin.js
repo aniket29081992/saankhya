@@ -123,6 +123,7 @@ var messageA = {
                                             stu.findOne({"_id":_id},function (error122,result122)
                                             {
                                                 if(error122===null) {
+                                                    console.log(_id)
                                                     var cloudmsg1 = []
                                                     if ((result122.regTokens !== null) && (result122.regTokens !== undefined)) {
                                                         for (var i = 0; i < result122.regTokens.length; i++) {
@@ -141,7 +142,7 @@ var messageA = {
                                                 }
                                             })
 
-                                            var doc111 = {"status": "success"}
+                                            var doc111 = {"status": "success",'msg':'Msg sent',data:ins}
                                             res.send(doc111)
                                         }
                                         else

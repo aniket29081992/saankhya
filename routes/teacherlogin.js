@@ -83,6 +83,8 @@ var teachlogin = {
                                         }
                                     }, function (errrors, resultss) {
                                         if (errrors === null) {
+                                            console.log("nice"+resultss.result.nModified)
+                                            if(resultss.result.nModified!=0){
                                             var token;
                                             var random1=  Math.floor(100000 + Math.random() * 900000).toString()
                                             var random2=  Math.floor(100000 + Math.random() * 900000).toString()
@@ -99,6 +101,13 @@ var teachlogin = {
                                             sessionTeacher.insert(docc)
                                             console.log(resultss)
                                             var doc = {"status": "success", "msg": "Authenticated"}
+                                            res.send(doc)
+                                        }
+                                        else {var doc = {"status": "error", "msg": "You are not allowed to login."}
+                                                res.send(doc)}}
+                                        else
+                                        {
+                                            var doc = {"status": "error", "msg": "Oops something went wrong"}
                                             res.send(doc)
                                         }
 

@@ -58,7 +58,10 @@ var cloud= {
         if(who===0)
             serverKey = 'AIzaSyCZT_dv27Q2-QMOqVg0agHf_dXVwOWrr6A'
         else
-            serverKey =   'AIzaSyBqv0cIOyCdnPsVUN6O5PTcHvLmeq5vOWg'
+            if(who===1)
+            serverKey =   'AIzaSyBDXZJraNeoHvKQcHy9ZFFfnMBYKDSekOY'
+        else
+          serverKey='AIzaSyANRnr9drptTlJCV-DPHddLvCGcTz1r124'
         var fcm = new FCM(serverKey);
 
 // ... or retrying
