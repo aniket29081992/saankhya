@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f7aa06a-e584-4739-b6bc-ff7807b8fff3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/accept.js" afterPath="$PROJECT_DIR$/routes/accept.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/adminLogin.js" afterPath="$PROJECT_DIR$/routes/adminLogin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/appversion.js" afterPath="$PROJECT_DIR$/routes/appversion.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/avtars.js" afterPath="$PROJECT_DIR$/routes/avtars.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/blockingteacherstudent.js" afterPath="$PROJECT_DIR$/routes/blockingteacherstudent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/checku.js" afterPath="$PROJECT_DIR$/routes/checku.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/collgcity.js" afterPath="$PROJECT_DIR$/routes/collgcity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/endchat.js" afterPath="$PROJECT_DIR$/routes/endchat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/feedback.js" afterPath="$PROJECT_DIR$/routes/feedback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/fetchstudentdetails.js" afterPath="$PROJECT_DIR$/routes/fetchstudentdetails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/fetchteacherdetails.js" afterPath="$PROJECT_DIR$/routes/fetchteacherdetails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/forgotpass.js" afterPath="$PROJECT_DIR$/routes/forgotpass.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/listteacher.js" afterPath="$PROJECT_DIR$/routes/listteacher.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/login.js" afterPath="$PROJECT_DIR$/routes/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/logout.js" afterPath="$PROJECT_DIR$/routes/logout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/msgseen.js" afterPath="$PROJECT_DIR$/routes/msgseen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/pagination.js" afterPath="$PROJECT_DIR$/routes/pagination.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/replace.js" afterPath="$PROJECT_DIR$/routes/replace.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/reportmsg.js" afterPath="$PROJECT_DIR$/routes/reportmsg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendmessage.js" afterPath="$PROJECT_DIR$/routes/sendmessage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendmessageadmin.js" afterPath="$PROJECT_DIR$/routes/sendmessageadmin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendmessageteacher.js" afterPath="$PROJECT_DIR$/routes/sendmessageteacher.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendotp.js" afterPath="$PROJECT_DIR$/routes/sendotp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendotpfgpass.js" afterPath="$PROJECT_DIR$/routes/sendotpfgpass.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/setuserdetail.js" afterPath="$PROJECT_DIR$/routes/setuserdetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/teacherdata.js" afterPath="$PROJECT_DIR$/routes/teacherdata.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/teacherlogin.js" afterPath="$PROJECT_DIR$/routes/teacherlogin.js" />
     </list>
     <ignored path="pinglearnbackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="teacherlogin.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="teacherlogin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/teacherlogin.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -111,21 +85,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="173" column="44" selection-start-line="173" selection-start-column="32" selection-end-line="173" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#46#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="sendmessageadmin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/sendmessageadmin.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
               <caret line="24" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="replace.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/replace.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -187,7 +163,6 @@
         <option value="$PROJECT_DIR$/routes/fetchteacherdetails.js" />
         <option value="$PROJECT_DIR$/routes/forgotpass.js" />
         <option value="$PROJECT_DIR$/routes/listteacher.js" />
-        <option value="$PROJECT_DIR$/routes/login.js" />
         <option value="$PROJECT_DIR$/routes/logout.js" />
         <option value="$PROJECT_DIR$/routes/msgseen.js" />
         <option value="$PROJECT_DIR$/routes/pagination.js" />
@@ -201,6 +176,7 @@
         <option value="$PROJECT_DIR$/routes/setuserdetail.js" />
         <option value="$PROJECT_DIR$/routes/teacherdata.js" />
         <option value="$PROJECT_DIR$/routes/teacherlogin.js" />
+        <option value="$PROJECT_DIR$/routes/login.js" />
       </list>
     </option>
   </component>
@@ -297,7 +273,7 @@
       <recent name="$PROJECT_DIR$/routes" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.replace.js">
+  <component name="RunManager" selected="Node.js.bin/www">
     <configuration default="false" name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="test.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
@@ -405,12 +381,12 @@
       <workItem from="1474002104161" duration="16960000" />
       <workItem from="1474094647792" duration="23247000" />
       <workItem from="1474359101456" duration="43763000" />
-      <workItem from="1474522508375" duration="24231000" />
+      <workItem from="1474522508375" duration="24618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402767000" />
+    <option name="totallyTimeSpent" value="403154000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -858,16 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="26" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#46#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/logout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -971,6 +937,16 @@
         <state relative-caret-position="330">
           <caret line="22" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="173" column="44" selection-start-line="173" selection-start-column="32" selection-end-line="173" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#46#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

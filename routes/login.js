@@ -514,7 +514,7 @@ var login = {
                     else {
                         var collection = db.collection("digo");
                         console.log("dd")
-                        var reF=req.body.referralCode.toUpperCase()
+                        var reF=req.body.referralCode
                         if((reF===undefined)||(reF===null))
                         {
                             proceedSignup(req,res,collection,db.collection('signup'),db.collection('sessionDetailsstudent'))
