@@ -28,7 +28,8 @@ var feedback1 = {
             authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',         });
         MongoClient.connect(host,function (err, db) {
                 if (!err) {console.log("Connected to 'signup' database");
-                    db.collection('otp', {strict: true}, function (err, collection) {
+                    db.collection('otp', {strict: true}, function (err, collection)
+                    {
                         if (err) {                              console.log("The otp collection doesn't exist. Creating it with sample data...");                          }
 
                         else {

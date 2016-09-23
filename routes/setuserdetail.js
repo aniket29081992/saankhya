@@ -90,7 +90,8 @@ console.log(_id)
 
                                     if(grade!==null&&grade!==undefined)
                                         docins['grade']=grade
-                                    if(school!==null&&school!==undefined) {
+                                    if(school!==null&&school!==undefined)
+                                    {
                                         docins['school'] = school
                                     }
                                     if(city!==null&&city!==undefined)

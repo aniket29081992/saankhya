@@ -104,7 +104,9 @@ var messageA = {
                                                             cloudmsg.push(result12.regTokens[i])
 
                                                         }
-                                                        cloud.send(cloudmsg, ins, 0, 0)
+                                                        var send=[]
+                                                        send.push(ins);
+                                                        cloud.send(cloudmsg, send, 0, 0)
 
 
                                                     }
@@ -130,7 +132,9 @@ var messageA = {
                                                             cloudmsg1.push(result122.regTokens[i])
 
                                                         }
-                                                        cloud.send(cloudmsg1, ins, 1, 0)
+                                                        var send=[]
+                                                        send.push(ins);
+                                                        cloud.send(cloudmsg1, send, 0, 1)
 
 
 

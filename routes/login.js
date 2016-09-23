@@ -123,7 +123,7 @@ function proceedSignup(req,res,collection,collectioninsert,collectionsession)
             else if (res1 === null) {
 
 
-                var subStringname = req.body.firstName.substr(0, 4);
+                var subStringname = req.body.firstName.substr(0, 4).toUpperCase();
                 var number = Math.floor(Math.random() * 1000) + 100
                 var uniqueCode = subStringname + number
 
@@ -171,7 +171,7 @@ var regTokens=[]
                  "regTokens":regTokens,
                  "token":token,
                  "coins":11000,
-                "referralCode": req.body.referralCode,
+                "referralCode": req.body.referralCode.toUpperCase(),
                  "cCode":req.body.cCode,
                 "blockingStatus": false,
                 "fbId": '1',
@@ -291,7 +291,7 @@ collectionsession.insert({
                                 "token":token,
                                 "cCode":req.body.cCode,
                                 "blockingStatus": false,
-                                "referralCode": req.body.referralCode,
+                                "referralCode": req.body.referralCode.toUpperCase(),
                                  "coins":11000,
                                 "fbId": '1',
                                 "gId": req.body.gId
@@ -404,7 +404,7 @@ collectionsession.insert({
                             "dob": req.body.dob,
                             "regTokens":regTokens,
                             "coins":11000,
-                            "referralCode": req.body.referralCode,
+                            "referralCode": req.body.referralCode.toUpperCase(),
                             "fbId": req.body.fbId,
                             "gId": '1'}
 
@@ -514,7 +514,7 @@ var login = {
                     else {
                         var collection = db.collection("digo");
                         console.log("dd")
-                        var reF=req.body.referralCode
+                        var reF=req.body.referralCode.toUpperCase()
                         if((reF===undefined)||(reF===null))
                         {
                             proceedSignup(req,res,collection,db.collection('signup'),db.collection('sessionDetailsstudent'))
