@@ -86,10 +86,13 @@ console.log(_id)
                                     var lastName=req.body.secondName
                                     var dp=req.body.dp
                                     var schoolid=req.body.schoolid
+                                    var dob=req.body.dob
                                     var docins={}
 
                                     if(grade!==null&&grade!==undefined)
                                         docins['grade']=grade
+                                    if(dob!==null&&dob!==undefined)
+                                        docins['dob']=dob
                                     if(school!==null&&school!==undefined)
                                     {
                                         docins['school'] = school
