@@ -54,6 +54,7 @@ var cloud= {
         var serverKey;
         //0 is for teacher
         //1 is for  student
+        //rest anything is for admin
 
         if(who===0)
             serverKey = 'AIzaSyCZT_dv27Q2-QMOqVg0agHf_dXVwOWrr6A'
@@ -61,6 +62,7 @@ var cloud= {
             if(who===1)
             serverKey =   'AIzaSyCtcsrfSHOqWdNUk_F7gygejPAJmyAKLOI'
         else
+            if(who===3)
           serverKey='AIzaSyANRnr9drptTlJCV-DPHddLvCGcTz1r124'
         var fcm = new FCM(serverKey);
 

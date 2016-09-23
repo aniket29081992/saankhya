@@ -24,7 +24,7 @@ function decrypt(buffer)
     // var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
     // return dec;
 }
-function firstEntry(req,res,mess,teach,student) {
+function firstEntry(req,res,mess,teach,student,admin) {
 
     console.log("cofse")
     var findCheck={"stuId":req.body.stuId};
@@ -172,7 +172,7 @@ function firstEntry(req,res,mess,teach,student) {
                                    var teacher=db.collection('teacherDetails');
                                    var checkSum=0;
                                    //add subid
-                                   var cursorT= teach.find({"availStatus":"active"})
+                                   var cursorT= teach.find({"availStatus":"active",subIds: req.body.subId})
                                    cursorT.each(function (err, item) {
                                        if (err === null) {
                                            {
@@ -191,12 +191,14 @@ function firstEntry(req,res,mess,teach,student) {
                                                }
                                                else
                                                {
-                                                   if(checkSum==1)
-                                                   {
-                                                       var msg = {"status": "error", "msg": "Something went wrong."}
-                                                       res.send(msg);
-                                                   }
-                                                   else {
+                                                   // if(checkSum==1)
+                                                   // {
+                                                   //     var msg = {"status": "error", "msg": "1Something went wrong."}
+                                                   //     res.send(msg);
+                                                   // }
+                                                   // else
+                                                       {
+
 
                                                        var msg =
                                                        {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins
@@ -205,6 +207,34 @@ function firstEntry(req,res,mess,teach,student) {
                                                        var dataa=[]
                                                        dataa.push({"coins":document.value.coins})
                                                        dataa.push(result.ops[0])
+
+                                                       var cursoradmin=admin.find();
+                                                       var admindata=[]
+                                                       cursoradmin.each(function (error,item) {
+                                                           if(error===null)
+                                                           {
+
+                                                               if(item!==null)
+                                                               {
+                                                                   if(item.regTokens!==undefined&&item.regTokens!==null)
+                                                                   {
+                                                                       for(var i=0;i<item.regTokens.length;i++)
+                                                                       {
+                                                                           admindata.push(item.regTokens[i])
+                                                                           console.log(item.regTokens[i])
+                                                                           console.log(admindata)
+                                                                       }
+                                                                   }
+                                                               }
+                                                               else
+                                                               {
+                                                                   console.log(admindata)
+                                                                   cloud.send(admindata,dataa,0,3)
+                                                               }
+
+                                                           }
+
+                                                       })
                                                        cloud.send(userS,dataa,1,0)
                                                        //admin cloud.send(admin,dataa)
 
@@ -297,7 +327,7 @@ var message = {
                                 if(doc===null)
                                 {
                                     //if time check here then only
-                                    firstEntry(req,res,db.collection('message'),db.collection('teacherDetails'),db.collection('digo'))
+                                    firstEntry(req,res,db.collection('message'),db.collection('teacherDetails'),db.collection('digo'),db.collection('adminDetails'))
 //insert
 
 
@@ -391,8 +421,37 @@ var message = {
                                                                                         var dataa=[]
                                                                                         dataa.push({"coins":document.value.coins})
                                                                                         dataa.push(result.ops[0])
+                                                                                        var admin=db.collection('adminDetails')
+
+                                                                                        var admindata=[]
+                                                                                        var cursoradmin=admin.find();
+                                                                                        cursoradmin.each(function (error,item) {
+                                                                                            if(error===null)
+                                                                                            {
+                                                                                                if(item!==null)
+                                                                                                {
+                                                                                                    if(item.regTokens!==undefined&&item.regTokens!==null)
+                                                                                                    {
+                                                                                                        for(var i=0;i<item.regTokens.length;i++)
+                                                                                                        {
+                                                                                                            admindata.push(item.regTokens[i])
+                                                                                                            console.log(item.regTokens[i])
+                                                                                                            console.log(admindata)
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    console.log(admindata)
+                                                                                                    cloud.send(admindata,dataa,0,3)
+                                                                                                }
+
+                                                                                            }
+
+                                                                                        })
                                                                                         cloud.send(userS,dataa,0,0)
                                                                                         //admin cloud.send(admin,dataa)
+
 
                                                                                         var msg = {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins}
                                                                                         res.send(msg);
@@ -430,17 +489,17 @@ var message = {
                                                 {
                                                     {
                                                         //find and modify all
-                                                        var findInt={"stuId":req.body.stuId,"iStatus":"active"};
+                                                        var findInt={"stuId":req.body.stuId,'subId':req.body.subId,"iStatus":"active"};
                                                         mess.updateMany(findInt, { $set:{"iStatus":"inactive"}},function (errr,resss) {
                                                             if(errr===null)
                                                             {
                                                                 var teachDb=db.collection("teacherDetails");
                                                                 //add subid
-                                                                teachDb.update({"teachId":item.teachId,},{ $set:{"availStatus":"active"}},function (error1,result1) {
+                                                                teachDb.update({"teachId":item.teachId,subIds:req.body.subId},{ $set:{"availStatus":"active"}},function (error1,result1) {
                                                                     if(error1===null)
                                                                     {
                                                                         console.log("yahoo"+item.teachId)
-                                                                        firstEntry(req,res,mess,db.collection('teacherDetails'),db.collection('digo'))
+                                                                        firstEntry(req,res,mess,db.collection('teacherDetails'),db.collection('digo'),db.collection('adminDetails'))
 
 
                                                                     }})
@@ -537,7 +596,7 @@ var check2=0;
                                                                                         // console.log(result)
                                                                                         var userS=[]
                                                                                         var teacher=db.collection('teacherDetails');
-                                                                                        teacher.findOne({ "teachId": doc.teachId},function (errors,resultnew)
+                                                                                        teacher.findOne({ "teachId": doc.teachId,subIds: req.body.subId},function (errors,resultnew)
                                                                                         {
                                                                                             if(errors===null)
                                                                                             {
@@ -553,7 +612,62 @@ var check2=0;
                                                                                                 var dataa=[]
                                                                                                 dataa.push({"coins":document.value.coins})
                                                                                                 dataa.push(result.ops[0])
+                                                                                                var admin=db.collection('adminDetails')
+                                                                                                var cursoradmin=admin.find();
+                                                                                                var admindata=[]
+                                                                                                cursoradmin.each(function (error,item) {
+                                                                                                    if(error===null)
+                                                                                                    {
+
+                                                                                                        if(item!==null)
+                                                                                                        {
+                                                                                                            if(item.regTokens!==undefined&&item.regTokens!==null)
+                                                                                                            {
+                                                                                                                for(var i=0;i<item.regTokens.length;i++)
+                                                                                                                {
+                                                                                                                    admindata.push(item.regTokens[i])
+                                                                                                                    console.log(item.regTokens[i])
+                                                                                                                    console.log(admindata)
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                        else
+                                                                                                        {
+                                                                                                            console.log(admindata)
+                                                                                                            cloud.send(admindata,dataa,0,3)
+                                                                                                        }
+
+                                                                                                    }
+
+                                                                                                })
                                                                                                 cloud.send(userS,dataa,0,0)
+                                                                                                var admin=db.collection('adminDetails')
+                                                                                                var cursoradmin=admin.find();
+                                                                                                cursoradmin.each(function (error,item) {
+                                                                                                    if(error===null)
+                                                                                                    {
+                                                                                                        var admindata=[]
+                                                                                                        if(item!==null)
+                                                                                                        {
+                                                                                                            if(item.regTokens!==undefined&&item.regTokens!==null)
+                                                                                                            {
+                                                                                                                for(var i=0;i<item.regTokens.length;i++)
+                                                                                                                {
+                                                                                                                    admindata.push(item.regTokens[i])
+                                                                                                                    console.log(item.regTokens[i])
+                                                                                                                    console.log(admindata)
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                        else
+                                                                                                        {
+                                                                                                            console.log(admindata)
+                                                                                                            cloud.send(admindata,dataa,0,3)
+                                                                                                        }
+
+                                                                                                    }
+
+                                                                                                })
                                                                                                 //admin cloud.send(admin,dataa)
 
 
@@ -669,7 +783,7 @@ var check2=0;
 
                                                                                                                         var teacher=db.collection('teacherDetails');
                                                                                                                         var checkSum=0;
-                                                                                                                        var cursorT= teacher.find({"availStatus":"active"})
+                                                                                                                        var cursorT= teacher.find({"availStatus":"active",subIds: req.body.subId})
                                                                                                                         cursorT.each(function (err, item) {
                                                                                                                             if (err === null) {
                                                                                                                                 {
@@ -687,18 +801,46 @@ var check2=0;
                                                                                                                                     }
                                                                                                                                     else
                                                                                                                                     {
-                                                                                                                                        if(checkSum==1)
-                                                                                                                                        {
-                                                                                                                                            var msg = {"status": "error", "msg": "Oops something went wrong."}
-                                                                                                                                            res.send(msg);
-
-                                                                                                                                            console.log("no one active")}
-                                                                                                                                        else {
+                                                                                                                                        // if(checkSum==1)
+                                                                                                                                        // {
+                                                                                                                                        //     var msg = {"status": "error", "msg": "Oops something went wrong."}
+                                                                                                                                        //     res.send(msg);
+                                                                                                                                        //
+                                                                                                                                        //     console.log("no one active")}
+                                                                                                                                        // else
+                                                                                                                                            {
                                                                                                                                             noDocs.push({'coins':document.value.coins})
                                                                                                                                             cloud.send(userS,noDocs,1,0)
                                                                                                                                             //admin cloud.send(admin,dataa)
 
+                                                                                                                                            var admin=db.collection('adminDetails')
+                                                                                                                                            var cursoradmin=admin.find();
+                                                                                                                                            var admindata=[]
+                                                                                                                                            cursoradmin.each(function (error,item) {
+                                                                                                                                                if(error===null)
+                                                                                                                                                {
 
+                                                                                                                                                    if(item!==null)
+                                                                                                                                                    {
+                                                                                                                                                        if(item.regTokens!==undefined&&item.regTokens!==null)
+                                                                                                                                                        {
+                                                                                                                                                            for(var i=0;i<item.regTokens.length;i++)
+                                                                                                                                                            {
+                                                                                                                                                                admindata.push(item.regTokens[i])
+                                                                                                                                                                console.log(item.regTokens[i])
+                                                                                                                                                                console.log(admindata)
+                                                                                                                                                            }
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                    else
+                                                                                                                                                    {
+                                                                                                                                                        console.log(admindata)
+                                                                                                                                                        cloud.send(admindata,dataa,0,3)
+                                                                                                                                                    }
+
+                                                                                                                                                }
+
+                                                                                                                                            })
                                                                                                                                             console.log("bas"+userS)
                                                                                                                                             res.send({"status": "success",
                                                                                                                                                 'coins':document.value.coins,

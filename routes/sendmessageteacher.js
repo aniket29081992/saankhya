@@ -121,6 +121,34 @@ var messageT = {
                                                                                     userS.push(res5.regTokens[i])
                                                                                 var dataa=[]
                                                                                 dataa.push(result.ops[0])
+                                                                                var admin=db.collection('adminDetails')
+                                                                                var cursoradmin=admin.find();
+                                                                                var admindata=[]
+                                                                                cursoradmin.each(function (error,item) {
+                                                                                    if(error===null)
+                                                                                    {
+
+                                                                                        if(item!==null)
+                                                                                        {
+                                                                                            if(item.regTokens!==undefined&&item.regTokens!==null)
+                                                                                            {
+                                                                                                for(var i=0;i<item.regTokens.length;i++)
+                                                                                                {
+                                                                                                    admindata.push(item.regTokens[i])
+                                                                                                    console.log(item.regTokens[i])
+                                                                                                    console.log(admindata)
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            console.log(admindata)
+                                                                                            cloud.send(admindata,dataa,0,3)
+                                                                                        }
+
+                                                                                    }
+
+                                                                                })
                                                                                 cloud.send(userS,dataa,0,1)
                                                                                 //admin cloud.send(admin,dataa)
 
@@ -210,6 +238,34 @@ var messageT = {
                                                                                         else {
 
                                                                                             var mess=db.collection('message');
+                                                                                            var admin=db.collection('adminDetails')
+                                                                                            var cursoradmin=admin.find();
+                                                                                            var admindata=[]
+                                                                                            cursoradmin.each(function (error,item) {
+                                                                                                if(error===null)
+                                                                                                {
+
+                                                                                                    if(item!==null)
+                                                                                                    {
+                                                                                                        if(item.regTokens!==undefined&&item.regTokens!==null)
+                                                                                                        {
+                                                                                                            for(var i=0;i<item.regTokens.length;i++)
+                                                                                                            {
+                                                                                                                admindata.push(item.regTokens[i])
+                                                                                                                console.log(item.regTokens[i])
+                                                                                                                console.log(admindata)
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                    else
+                                                                                                    {
+                                                                                                        console.log(admindata)
+                                                                                                        cloud.send(admindata,dataa,0,3)
+                                                                                                    }
+
+                                                                                                }
+
+                                                                                            })
                                                                                             cloud.send(userS,noDocs,1,0)
                                                                                             //admin cloud.send(admin,dataa)
 

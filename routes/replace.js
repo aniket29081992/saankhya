@@ -46,10 +46,10 @@ var jsonParser = bodyParser.json();
 
                     }
                     else {
-                        var collection=db.collection('interaction')
+                        var collection=db.collection('avtars')
                         var cursor=collection.find()
                         cursor.each(function (err, item) {
-                            var collection1=db.collection('mycollection')
+
                             if(item!=null){
                                 // var subStringname = item.firstName.substr(0, 4).toUpperCase();
                                 // var number = Math.floor(Math.random() * 1000) + 100
@@ -57,10 +57,9 @@ var jsonParser = bodyParser.json();
                                 var doc={}
                                 // doc['grade']=item.grade
                                 // doc['school']=item.school
-                                doc['userId']=item._id
+                                doc['extension']='.png'
 
-
-                         collection1.update({"phone":item.phone},{$set:doc},function(err,res){console.log(res)})}
+                         collection.update({"url":item.url},{$set:doc},function(err,res){console.log(res)})}
 
                         })
 
