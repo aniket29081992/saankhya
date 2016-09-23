@@ -76,8 +76,9 @@ var teachSignup = {
                                             if(result2===null)
                                             {
                                                 var regTokens=[]
+                                            var encPass=    encrypt(new Buffer(req.body.teachPass, "utf8")).toString('utf-8')
                                                 var doc={"firstName":req.body.firstName,"lastName":req.body.lastName,
-                                                    "teachId":req.body.teachId,"teachPass":req.body.teachPass,"subIds":req.body.subIds,
+                                                    "teachId":req.body.teachId,"teachPass":encPass,"subIds":req.body.subIds,
                                                     "availStatus":"active","blockingStatus":false}
                                                 teacher.insert(doc,function (error,resultss)
                                                 {
