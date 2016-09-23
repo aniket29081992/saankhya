@@ -6,14 +6,22 @@ var plivo = require('plivo'); 
 var config = require('../config')
 var config = require('../config')  var crypto = require('crypto'), 
     algorithm = 'aes-256-ctr', 
-    password = 'a13I11ET23';  function encrypt(buffer)
-{     return buffer;     //
-// var cipher = crypto.createCipher(algorithm,password) 
-// var crypted = Buffer.concat([cipher.update(buffer),cipher.final()]); 
-// return crypted; }  function decrypt(buffer) {     return buffer     // var decipher = crypto.createDecipher(algorithm,password) 
-// var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]); 
-// return dec; 
-}  var jsonParser = bodyParser.json();
+    password = 'a13I11ET23';
+function encrypt(buffer){
+    //return buffer;
+    var cipher = crypto.createCipher(algorithm,password)
+    var crypted = Buffer.concat([cipher.update(buffer),cipher.final()]);
+    return crypted;
+}
+
+function decrypt(buffer){
+    //return buffer
+    var decipher = crypto.createDecipher(algorithm,password)
+    var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
+    return dec;
+}
+
+var jsonParser = bodyParser.json();
 var report = { 
     msgreported: function (req, res) { 
     var Server = mongo.Server, 

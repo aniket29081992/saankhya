@@ -10,17 +10,17 @@ var crypto = require('crypto'),
     password = 'a13I11ET23';
 
 function encrypt(buffer){
-    return buffer;
-    // var cipher = crypto.createCipher(algorithm,password)
-    // var crypted = Buffer.concat([cipher.update(buffer),cipher.final()]);
-    // return crypted;
+    // return buffer;
+    var cipher = crypto.createCipher(algorithm,password)
+    var crypted = Buffer.concat([cipher.update(buffer),cipher.final()]);
+    return crypted;
 }
 
 function decrypt(buffer){
-    return buffer
-    // var decipher = crypto.createDecipher(algorithm,password)
-    // var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
-    // return dec;
+    // return buffer
+    var decipher = crypto.createDecipher(algorithm,password)
+    var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
+    return dec;
 }
 
 var jsonParser = bodyParser.json();
@@ -46,7 +46,8 @@ var jsonParser = bodyParser.json();
 
                     }
                     else {
-                        var collection=db.collection('avtars')
+                        var collection=db.collection('school')
+                        var collection1=db.collection('new digo')
                         var cursor=collection.find()
                         cursor.each(function (err, item) {
 
@@ -57,9 +58,9 @@ var jsonParser = bodyParser.json();
                                 var doc={}
                                 // doc['grade']=item.grade
                                 // doc['school']=item.school
-                                doc['extension']='.png'
 
-                         collection.update({"url":item.url},{$set:doc},function(err,res){console.log(res)})}
+                             doc['school']=item.schoolName
+                         collection1.update({"school":item.cid},{$set:doc},function(err,res){console.log(res)})}
 
                         })
 

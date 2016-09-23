@@ -10,17 +10,17 @@ var crypto = require('crypto'),
 var MongoClient=mongo.MongoClient
 
 function encrypt(buffer){
-    return buffer;
-    // var cipher = crypto.createCipher(algorithm,password)
-    // var crypted = Buffer.concat([cipher.update(buffer),cipher.final()]);
-    // return crypted;
+
+    var cipher = crypto.createCipher(algorithm,password)
+    var crypted = Buffer.concat([cipher.update(buffer),cipher.final()]);
+    return crypted;
 }
 
 function decrypt(buffer){
-    return buffer
-    // var decipher = crypto.createDecipher(algorithm,password)
-    // var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
-    // return dec;
+
+    var decipher = crypto.createDecipher(algorithm,password)
+    var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
+    return dec;
 }
 
 var jsonParser = bodyParser.json();
