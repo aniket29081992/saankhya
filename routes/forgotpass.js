@@ -20,6 +20,7 @@ function decrypt(buffer){
    // return buffer
     var decipher = crypto.createDecipher(algorithm,password)
     var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
+
     return dec;
 }
 
@@ -60,6 +61,7 @@ var forgot = {
                         var passwordd=req.body.password
                         var encrypasss=encrypt(new Buffer(passwordd, "utf8")).toString('utf-8');
                         var encryphone=encrypt(new Buffer(phone, "utf8")).toString('utf-8');
+                        console.log(decrypt(encrypasss))
                         pass.findAndModify({ "phone" : encryphone }, [],{ $set:{"password": encrypasss}} ,function (error,result) {
                             if(error===null)
                             {
@@ -122,7 +124,19 @@ var forgot = {
                         var encrypasss=encrypt(new Buffer(passwordd, "utf8")).toString('utf-8');
                         var newencrypasss=encrypt(new Buffer(req.body.newpassword, "utf8")).toString('utf-8');
                         var encryphone=encrypt(new Buffer(user, "utf8")).toString('utf-8');
-                        pass.findAndModify({$and:[{ $or : [ {"email":encryphone },{"phone":encryphone }] },{"password":encrypasss}]}, [],{ $set:{"password": newencrypasss}} ,function (error,result) {
+                        var ObjectId=mongo.ObjectId
+                       var _id = new ObjectId(user)
+                        console.log(passwordd+decrypt(encrypt(new Buffer(passwordd, "utf8"))))
+                    var check=new Buffer(encrypasss,"utf-8")
+                        var newstring=decrypt(check)
+                     var phone11=new Buffer(encrypasss,'utf-8')
+
+                        console.log(decrypt(encrypasss))
+                        console.log(encrypt(new Buffer(passwordd, "utf8")))
+
+
+
+                        pass.findAndModify( {"userId":_id,'password':encrypasss }, [],{ $set:{"password": newencrypasss}} ,function (error,result) {
                             if(error===null)
                             {
                                 if(result.value===null)

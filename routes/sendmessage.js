@@ -205,7 +205,8 @@ function firstEntry(req,res,mess,teach,student,admin) {
                                                        }
                                                        res.send(msg);
                                                        var dataa=[]
-                                                       dataa.push({"coins":document.value.coins})
+                                                     //  dataa.push({"coins":document.value.coins})
+                                                           result.ops[0]['coins']=document.value.coins
                                                        dataa.push(result.ops[0])
 
                                                        var cursoradmin=admin.find();
@@ -419,7 +420,8 @@ var message = {
                                                                                             userS.push(res5.regTokens[i])}
 
                                                                                         var dataa=[]
-                                                                                        dataa.push({"coins":document.value.coins})
+                                                                                        // dataa.push({"coins":document.value.coins})
+                                                                                        result.ops[0]['coins']=document.value.coins
                                                                                         dataa.push(result.ops[0])
                                                                                         var admin=db.collection('adminDetails')
 
@@ -610,7 +612,8 @@ var check2=0;
                                                                                                 }
                                                                                                 }
                                                                                                 var dataa=[]
-                                                                                                dataa.push({"coins":document.value.coins})
+                                                                                                result.ops[0]['coins']=document.value.coins
+                                                                                               // dataa.push({"coins":document.value.coins})
                                                                                                 dataa.push(result.ops[0])
                                                                                                 var admin=db.collection('adminDetails')
                                                                                                 var cursoradmin=admin.find();
@@ -785,18 +788,22 @@ var check2=0;
                                                                                                                         var checkSum=0;
                                                                                                                         var cursorT= teacher.find({"availStatus":"active",subIds: req.body.subId})
                                                                                                                         cursorT.each(function (err, item) {
-                                                                                                                            if (err === null) {
+                                                                                                                            if (err === null)
+                                                                                                                            {
                                                                                                                                 {
                                                                                                                                     checkSum++;
                                                                                                                                     if(item!==null)
                                                                                                                                     {
                                                                                                                                         // console.log(item.regTokens)
-                                                                                                                                        if(item.regTokens!==undefined&&(item.regTokens!==null)){
+                                                                                                                                        if(item.regTokens!==undefined&&(item.regTokens!==null))
+                                                                                                                                        {
                                                                                                                                         for(var i=0;i<item.regTokens.length;i++)
                                                                                                                                         {
                                                                                                                                             console.log(item.regTokens[i])
                                                                                                                                             userS.push(item.regTokens[i])
-                                                                                                                                        }}
+                                                                                                                                        }
+
+                                                                                                                                        }
 
                                                                                                                                     }
                                                                                                                                     else
@@ -809,6 +816,7 @@ var check2=0;
                                                                                                                                         //     console.log("no one active")}
                                                                                                                                         // else
                                                                                                                                             {
+
                                                                                                                                             noDocs.push({'coins':document.value.coins})
                                                                                                                                             cloud.send(userS,noDocs,1,0)
                                                                                                                                             //admin cloud.send(admin,dataa)
