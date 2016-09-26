@@ -676,7 +676,7 @@ var login = {
                                                             "status": "success",
                                                             "msg": "User matched",
                                                             "data": res1
-                                                        }
+                                                                  }
                                                         var collectionmsg=db.collection('message')
                                                         var userCheckstu=res1._id
                                                         console.log(userCheckstu)

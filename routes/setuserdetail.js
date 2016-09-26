@@ -162,8 +162,9 @@ console.log(_id)
 
 
                                     })
+                                    console.log(result)
 
-                                    var doc={"status":"success","msg":"Updated successfully","data":result.value}
+                                    var doc={"status":"success","msg":"Updated successfully","data":result}
                                     res.send(doc)
 
                                 }
