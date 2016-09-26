@@ -86,7 +86,7 @@ var accept = {
                                             if (error1 === null) {
                                                 console.log(result1.result.nModified
                                                 )
-                                                if (result1.result.nModified != 0)
+                                                
                                                 {
                                                     var userS = []
 
@@ -133,14 +133,14 @@ var accept = {
 
 
                                                 }
-                                                else {
-                                                    var doc = {
-                                                        "status": "error",
-                                                        "msg": "Oops something went wrong"
-                                                    }
-                                                    res.send(doc)
-
-                                                }
+                                                // else {
+                                                //     var doc = {
+                                                //         "status": "error",
+                                                //         "msg": "Oops something went wrong"
+                                                //     }
+                                                //     res.send(doc)
+                                                //
+                                                // }
 
                                                 //
                                                 //
