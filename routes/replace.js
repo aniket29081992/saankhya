@@ -46,8 +46,8 @@ var jsonParser = bodyParser.json();
 
                     }
                     else {
-                        var collection=db.collection('school')
-                        var collection1=db.collection('new digo')
+                        var collection=db.collection('new digo')
+                        var collection1=db.collection('newsignup')
                         var cursor=collection.find()
                         cursor.each(function (err, item) {
 
@@ -56,11 +56,13 @@ var jsonParser = bodyParser.json();
                                 // var number = Math.floor(Math.random() * 1000) + 100
                                 // var uniqueCode = subStringname + number
                                 var doc={}
+                                console.log(item._id.toString())
                                 // doc['grade']=item.grade
                                 // doc['school']=item.school
-
-                             doc['school']=item.schoolName
-                         collection1.update({"school":item.cid},{$set:doc},function(err,res){console.log(res)})}
+{
+                         var encryPass = encrypt(new Buffer(item.uniqueCode, "utf8")).toString('utf-8');
+                         doc['email']=item.uniqueCode
+                         collection1.update({"userId":item._id},{$set:doc},function(err,res){console.log("e")})}}
 
                         })
 

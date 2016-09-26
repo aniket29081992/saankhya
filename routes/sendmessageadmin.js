@@ -57,7 +57,7 @@ var messageA = {
                     else {
                         var mess = db.collection('message');
 
-                        var findInt = {"stuId": req.body.stuId,"subId":req.body.subId, "iStatus": "active","teachId":req.body.teachId};
+                        var findInt = {"stuId": req.body.stuId,"subId":req.body.subId, s,"teachId":req.body.teachId};
                         mess.findOne(findInt,function (err,result) {
                             if(err==null)
                             {

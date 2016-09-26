@@ -81,7 +81,8 @@ var accept = {
                                         teachDb.update({
                                             "teachId": teachId,
                                             "availStatus": "active"
-                                        }, {$set: {"availStatus": "inactive"}}, function (error1, result1) {
+
+                                        }, {$set: {"availStatus": "active"}}, function (error1, result1) {
                                             if (error1 === null) {
                                                 console.log(result1.result.nModified
                                                 )
