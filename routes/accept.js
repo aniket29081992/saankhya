@@ -86,7 +86,7 @@ var accept = {
                                             if (error1 === null) {
                                                 console.log(result1.result.nModified
                                                 )
-                                                
+
                                                 {
                                                     var userS = []
 

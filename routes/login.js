@@ -203,7 +203,9 @@ var regTokens=[]
                                     "email": emailEncrypted2.toString('utf-8'),
                                     "cCode":req.body.cCode,
                                     "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
-                                    "phone": phoneEncrypted2.toString('utf-8')
+                                    "phone": phoneEncrypted2.toString('utf-8'),
+                                    "phonedecrypt":phoneEncrypted2,
+                                    "emaildecrypt":emailEncrypted2
                                 },function (errinsert,resultinsert) {
                                     console.log(errinsert+" up" +resultinsert)
                                     if(errinsert===null)
@@ -321,7 +323,10 @@ collectionsession.insert({
                                     "email": emailEncrypted2.toString('utf-8'),
                                     "cCode":req.body.cCode,
                                     "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
-                                    "phone": phoneEncrypted2.toString('utf-8')
+                                    "phone": phoneEncrypted2.toString('utf-8'),
+                                    "phonedecrypt":phoneEncrypted2,
+                                    "emaildecrypt":emailEncrypted2
+
                                 },function(errinsert,resultinsert)
                                 {
                                     if(errinsert===null)
@@ -431,7 +436,9 @@ collectionsession.insert({
                                     "cCode":req.body.cCode,
                                     "email": emailEncrypted2.toString('utf-8'),
                                     "password": encrypt(new Buffer(password, "utf8")).toString('utf-8'),
-                                    "phone": phoneEncrypted2.toString('utf-8')
+                                    "phone": phoneEncrypted2.toString('utf-8'),
+                                    "phonedecrypt":phoneEncrypted2,
+                                    "emaildecrypt":emailEncrypted2
                                 },function (errinsert,resultinsert) {
                                     if(errinsert===null)
                                     {

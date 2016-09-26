@@ -47,13 +47,15 @@ var end = {
 
 
                 console.log("Connected to 'signup' database");
-                db.collection('otp', {strict: true}, function (err, collection) {
+                db.collection('otp', {strict: true}, function (err, collection)
+                {
                     if (err) {
 
                         console.log("The otp collection doesn't exist. Creating it with sample data...");
 
-                    }
-                    else {
+                              }
+                    else
+                        {
                         var message=db.collection('message')
                         var teacherId=req.body.teachId
                         var interId=req.body.interId
@@ -62,7 +64,7 @@ var end = {
                         {
                             if(error11===null)
                             {
-console.log(result11.result.nModified)
+                                 console.log(result11.result.nModified)
                                 if(result11.result.nModified!=0)
                                 {
                                    console.log(result11)
@@ -72,17 +74,17 @@ console.log(result11.result.nModified)
                                         if(error111===null)
                                         {
                                             console.log(result111.result.nModified)
-                                            if(result111.result.nModified!=0)
+                                            // if(result111.result.nModified!=0)
                                             {
                                                 var doc={"status":"success","msg":"Updated successfully"}
                                                 res.send(doc)
                                             }
-                                            else
-                                            {
-                                                var doc={"status":"error","msg":"Teacher not found"}
-                                                res.send(doc)
-
-                                            }
+                                            // else
+                                            // {
+                                            //     var doc={"status":"error","msg":"Teacher not found"}
+                                            //     res.send(doc)
+                                            //
+                                            // }
                                         }
                                         else
                                         {
