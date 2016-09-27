@@ -21,7 +21,7 @@ var checkHours2=23
 var n= time.toLocaleTimeString()
 console.log(hours)
 function disabledchat(student,stuId) {
-    // console.log('dif'+hours)
+     console.log('dif '+hours+":"+mins)
     if ((hours > 17 ) || (hours < 9)||(hours===17&&(mins>30))||(hours===9&&(mins<30)))
     {
         console.log(hours+":"+mins)
