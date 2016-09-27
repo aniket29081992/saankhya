@@ -4,7 +4,8 @@ var config = {
 
         //mongodb connection settings
         database: {
-            host:   'mongodb://pinglearn:admin@52.66.163.65:27017/test',
+            host:   'mongodb://pinglearn:admin@52.66.77.153:27017/test',
+            // host:   'mongodb://pinglearn:admin@52.66.163.65:27017/test',
             port:   '27017',
             db:     'test'
         },
