@@ -149,8 +149,13 @@ console.log(_id)
                                     {
                                         if(errorupdated===null)
                                         {
-                                            if(result.value===null)
+                                            if(resultupdated.value===null)
                                                 res.send({"status":"error","msg":"No user found."})
+                                            else
+                                            {
+                                                var doc={"status":"success","msg":"Updated successfully","data":resultupdated.value}
+                                            res.send(doc)
+                                            }
 
 
 
@@ -162,10 +167,6 @@ console.log(_id)
 
 
                                     })
-                                    console.log(result)
-
-                                    var doc={"status":"success","msg":"Updated successfully","data":result}
-                                    res.send(doc)
 
                                 }
                             }

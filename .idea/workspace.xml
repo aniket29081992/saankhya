@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f7aa06a-e584-4739-b6bc-ff7807b8fff3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/accept.js" afterPath="$PROJECT_DIR$/routes/accept.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/endchat.js" afterPath="$PROJECT_DIR$/routes/endchat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/login.js" afterPath="$PROJECT_DIR$/routes/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/replace.js" afterPath="$PROJECT_DIR$/routes/replace.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/setuserdetail.js" afterPath="$PROJECT_DIR$/routes/setuserdetail.js" />
     </list>
     <ignored path="pinglearnbackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,41 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="forgotpass.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/forgotpass.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1845">
-              <caret line="123" column="96" selection-start-line="123" selection-start-column="96" selection-end-line="123" selection-end-column="96" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="sendotp.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/sendotp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-660">
+            <state relative-caret-position="75">
               <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sendmessageteacher.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/sendmessageteacher.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="68" column="73" selection-start-line="68" selection-start-column="73" selection-end-line="68" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="accept.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/accept.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="102" column="105" selection-start-line="102" selection-start-column="68" selection-end-line="102" selection-end-column="105" />
               <folding />
             </state>
           </provider>
@@ -70,8 +40,38 @@
       <file leaf-file-name="endchat.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/endchat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+            <state relative-caret-position="990">
+              <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="www" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/www">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="76" column="19" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="sendmessage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-899">
+            <state relative-caret-position="578">
               <caret line="794" column="86" selection-start-line="794" selection-start-column="86" selection-end-line="794" selection-end-column="86" />
               <folding>
                 <element signature="e#48845#50419#0" expanded="false" />
@@ -89,21 +89,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setuserdetail.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="setuserdetail.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/setuserdetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="178" column="26" selection-start-line="178" selection-start-column="26" selection-end-line="178" selection-end-column="26" />
+            <state relative-caret-position="83">
+              <caret line="153" column="48" selection-start-line="153" selection-start-column="48" selection-end-line="153" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3509">
-              <caret line="440" column="66" selection-start-line="440" selection-start-column="66" selection-end-line="440" selection-end-column="66" />
+            <state relative-caret-position="10215">
+              <caret line="683" column="82" selection-start-line="683" selection-start-column="82" selection-end-line="683" selection-end-column="82" />
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
               </folding>
@@ -114,18 +114,8 @@
       <file leaf-file-name="replace.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/replace.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="56" column="57" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sendmessageadmin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/sendmessageadmin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="59" column="88" selection-start-line="59" selection-start-column="88" selection-end-line="59" selection-end-column="88" />
+            <state relative-caret-position="975">
+              <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -172,13 +162,13 @@
         <option value="$PROJECT_DIR$/routes/teacherdata.js" />
         <option value="$PROJECT_DIR$/routes/teacherlogin.js" />
         <option value="$PROJECT_DIR$/routes/forgotpass.js" />
-        <option value="$PROJECT_DIR$/routes/setuserdetail.js" />
-        <option value="$PROJECT_DIR$/routes/replace.js" />
         <option value="$PROJECT_DIR$/routes/sendmessageadmin.js" />
         <option value="$PROJECT_DIR$/routes/accept.js" />
         <option value="$PROJECT_DIR$/routes/endchat.js" />
         <option value="$PROJECT_DIR$/routes/sendmessage.js" />
         <option value="$PROJECT_DIR$/routes/login.js" />
+        <option value="$PROJECT_DIR$/routes/replace.js" />
+        <option value="$PROJECT_DIR$/routes/setuserdetail.js" />
       </list>
     </option>
   </component>
@@ -196,7 +186,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="725" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -237,7 +227,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/buddysvc-master" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="logi&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;send&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotp.js&#10;endc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;acc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;sendme&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;a&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;end&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;endch&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;acce&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;teac&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageteacher.js&#10;se&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageadmin.js&#10;sendm&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageadmin.js&#10;re&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/replace.js&#10;setus&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;log&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;sen&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;inde&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;for&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;fo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;rep&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/replace.js&#10;tes&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;logo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/logout.js&#10;set&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;setuse&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;pas&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;feed&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/feedback.js&#10;admin&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/adminLogin.js&#10;te&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;test&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;bloc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/blockingteacherstudent.js&#10;login&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;fet&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/fetchstudentdetails.js&#10;teacher&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/teacherlogin.js&#10;in&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;teacherl&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/teacherlogin.js&#10;sendmess&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;report&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/reportmsg.js&#10;logout&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/logout.js&#10;blo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/blockingteacherstudent.js&#10;login.&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;accept&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;proce&#9;null&#9;null&#10;config&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/config.js&#10;login.js&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;ad&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/adminLogin.js&#10;admi&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/adminLogin.js&#10;fee&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/feedback.js&#10;sig&#9;null&#9;null&#10;col&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/collgcity.js&#10;app&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/app.js" />
+    <property name="SearchEverywhereHistoryKey" value="app&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/app.js&#10;end&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;inde&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;endch&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;re&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/replace.js&#10;logi&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;send&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotp.js&#10;endc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;acc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;sendme&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;a&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;acce&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;teac&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageteacher.js&#10;se&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageadmin.js&#10;sendm&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageadmin.js&#10;setus&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;log&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;sen&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;for&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;fo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;rep&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/replace.js&#10;tes&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;logo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/logout.js&#10;set&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;setuse&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;pas&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;feed&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/feedback.js&#10;admin&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/adminLogin.js&#10;te&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;test&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;bloc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/blockingteacherstudent.js&#10;login&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;fet&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/fetchstudentdetails.js&#10;teacher&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/teacherlogin.js&#10;in&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;teacherl&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/teacherlogin.js&#10;sendmess&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;report&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/reportmsg.js&#10;logout&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/logout.js&#10;blo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/blockingteacherstudent.js&#10;login.&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;accept&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;proce&#9;null&#9;null&#10;config&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/config.js&#10;login.js&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;ad&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/adminLogin.js&#10;admi&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/adminLogin.js&#10;fee&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/feedback.js&#10;sig&#9;null&#9;null&#10;col&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/collgcity.js" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -354,12 +344,14 @@
       <workItem from="1474359101456" duration="43763000" />
       <workItem from="1474522508375" duration="32152000" />
       <workItem from="1474781046994" duration="1475000" />
-      <workItem from="1474875126426" duration="11258000" />
+      <workItem from="1474875126426" duration="14900000" />
+      <workItem from="1474952299953" duration="20000" />
+      <workItem from="1474952324076" duration="1122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="423421000" />
+    <option name="totallyTimeSpent" value="428205000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -371,7 +363,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="725" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="726" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25416997" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -379,7 +371,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26540285" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.54731864" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270142" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -389,7 +381,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32698414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32543445" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -552,7 +544,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/accept.js</url>
           <line>88</line>
-          <properties />
           <option name="timeStamp" value="115" />
         </line-breakpoint>
       </breakpoints>
@@ -564,7 +555,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/constants.js" />
     <entry file="file://$PROJECT_DIR$/constants.js" />
     <entry file="file://$PROJECT_DIR$/routes/constants.js" />
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -618,25 +608,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/blocking.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/response.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="162" column="11" selection-start-line="162" selection-start-column="11" selection-end-line="162" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -672,7 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="64" column="23" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -787,7 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
           <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="65" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -795,15 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="15" selection-start-line="20" selection-start-column="36" selection-end-line="22" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="65" column="23" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -811,7 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -819,7 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1845">
           <caret line="123" column="96" selection-start-line="123" selection-start-column="96" selection-end-line="123" selection-end-column="96" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -827,15 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="92" column="53" selection-start-line="92" selection-start-column="53" selection-end-line="92" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/setuserdetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="178" column="26" selection-start-line="178" selection-start-column="26" selection-end-line="178" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,22 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="59" column="88" selection-start-line="59" selection-start-column="88" selection-end-line="59" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/replace.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="56" column="57" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/sendmessageteacher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="68" column="73" selection-start-line="68" selection-start-column="73" selection-end-line="68" selection-end-column="73" />
           <folding />
         </state>
       </provider>
@@ -871,27 +809,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/endchat.js">
+    <entry file="file://$PROJECT_DIR$/routes/sendmessageteacher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+        <state relative-caret-position="1020">
+          <caret line="68" column="73" selection-start-line="68" selection-start-column="73" selection-end-line="68" selection-end-column="73" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-899">
-          <caret line="794" column="86" selection-start-line="794" selection-start-column="86" selection-end-line="794" selection-end-column="86" />
-          <folding>
-            <element signature="e#48845#50419#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/sendotp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
+        <state relative-caret-position="75">
           <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
           <folding />
         </state>
@@ -899,11 +827,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3509">
-          <caret line="440" column="66" selection-start-line="440" selection-start-column="66" selection-end-line="440" selection-end-column="66" />
+        <state relative-caret-position="10215">
+          <caret line="683" column="82" selection-start-line="683" selection-start-column="82" selection-end-line="683" selection-end-column="82" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/replace.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/endchat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/javascript/nodejs/library/node-globals-stub.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1703">
+          <caret line="137" column="2" selection-start-line="137" selection-start-column="2" selection-end-line="137" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="794" column="86" selection-start-line="794" selection-start-column="86" selection-end-line="794" selection-end-column="86" />
+          <folding>
+            <element signature="e#48845#50419#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="76" column="19" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/setuserdetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="153" column="48" selection-start-line="153" selection-start-column="48" selection-end-line="153" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
