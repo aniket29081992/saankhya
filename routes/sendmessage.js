@@ -22,18 +22,22 @@ var n= time.toLocaleTimeString()
 function disabledchat(student,stuId) {
     if ((hours > 22 ) || (hours < 15))
     {
+        console.log(hours)
 
         var ObjectId=mongo.ObjectId
         var _id = new ObjectId(stuId)
         var userS=[]
-        student.findOne({"_id":_id},function (err5,res5) {
+        student.findOne({"_id":_id},function (err5,res5)
+        {
             if (err5 === null) {
-                if (res5 !== null) {
+                if (res5 !== null)
+                {
                     for (var i = 0; i < res5.regTokens.length; i++)
                         userS.push(res5.regTokens[i])
                     var msg='Sorry, I am available from 3pm to 11pm IST. Feel free to ping me then \uD83D\uDE42 Thank you.'
                     cloud.send (userS,msg,1,1)
-                                   }
+
+                }
             }
         })
 

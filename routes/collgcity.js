@@ -132,6 +132,9 @@ var time=new Date()
                        var n= time.toLocaleTimeString()
                         var startEnd= '12:30:00 PM'
                         var endEnd=  '03:00:00 PM'
+
+                        console.log(typeof encrypt(new Buffer(startEnd, "utf8")))
+
                         // console.log(startEnd)
                         console.log()
                         console.log(typeof (parseInt(time.getHours())))

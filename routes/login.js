@@ -135,7 +135,6 @@ function proceedSignup(req,res,collection,collectioninsert,collectionsession)
                 {
                     var password = req.body.password;
 
-
                     var docins;
 if(req.body.referralCode===undefined)
 {
