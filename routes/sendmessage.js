@@ -72,6 +72,7 @@ function firstEntry(req,res,mess,teach,student,admin)
     var count=0
     var insertDocument;
     cursor.each(function (err,item) {
+        console.log(item)
         if(err===null)
         {
 
@@ -367,7 +368,7 @@ var message = {
                     }
                     else {
                       var mess=db.collection('message');
-                        var findInt={"stuId":req.body.stuId,"iStatus":"active"};
+                        var findInt={"stuId":req.body.stuId,"subId":req.body.subId,"iStatus":"active"};
 
                         mess.findOne(findInt,function (errors,doc) {
                             if(errors===null)
