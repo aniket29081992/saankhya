@@ -69,8 +69,8 @@ var cloud= {
 // ... or retrying
             fcm.send(message, function (err, response) {
                 if (err) console.error(err);
-                else
-                    console.log(response);
+                // else
+                //     console.log(response);
             });
 
 // ... or retrying a specific number of times (10)

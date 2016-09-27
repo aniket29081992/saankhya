@@ -19,7 +19,9 @@ var checkHours=15
 var checkMinutes=30
 var checkHours2=23
 var n= time.toLocaleTimeString()
+console.log(hours)
 function disabledchat(student,stuId) {
+    console.log('dif'+hours)
     if ((hours > 22 ) || (hours < 15))
     {
         console.log(hours)
@@ -116,7 +118,7 @@ function firstEntry(req,res,mess,teach,student,admin)
                    {
                        var attachment
 
-                       console.log("diggo"+req.body.attachment.length)
+                       // console.log("diggo"+req.body.attachment.length)
                        if((req.body.attachment===' ')||(req.body.attachment.length==0))
                            attachment=' '
                        else{
@@ -150,7 +152,7 @@ function firstEntry(req,res,mess,teach,student,admin)
                {
                    var attachment
 
-                   console.log("diggo"+req.body.attachment.length)
+                   // console.log("diggo"+req.body.attachment.length)
                    if((req.body.attachment===' ')||(req.body.attachment.length==0))
                        attachment=' '
                    else{
@@ -192,7 +194,7 @@ function firstEntry(req,res,mess,teach,student,admin)
                student.findAndModify({'_id':_id},[],{$inc:{'coins':coins*-1}},{new:true},function (error,document) {
                    if(error===null)
                    {
-                       console.log(document)
+                       // console.log(document)
 
                        {
                            mess.insert(insertDocument, function (err, result)
@@ -224,7 +226,7 @@ function firstEntry(req,res,mess,teach,student,admin)
                                  {
                                                    for(var i=0;i<item.regTokens.length;i++)
                                                    {
-                                                       console.log("digo"+item.regTokens[i])
+                                                       // console.log("digo"+item.regTokens[i])
                                                        userS.push(item.regTokens[i])
                                                    }
                                  }
@@ -264,14 +266,14 @@ function firstEntry(req,res,mess,teach,student,admin)
                                                                        for(var i=0;i<item.regTokens.length;i++)
                                                                        {
                                                                            admindata.push(item.regTokens[i])
-                                                                           console.log(item.regTokens[i])
-                                                                           console.log(admindata)
+                                                                           // console.log(item.regTokens[i])
+                                                                           // console.log(admindata)
                                                                        }
                                                                    }
                                                                }
                                                                else
                                                                {
-                                                                   console.log(admindata)
+                                                                   // console.log(admindata)
                                                                    cloud.send(admindata,dataa,0,3)
                                                                }
 
@@ -284,7 +286,7 @@ function firstEntry(req,res,mess,teach,student,admin)
 
 
 
-                                                       console.log("bas"+userS)
+                                                       // console.log("bas"+userS)
                                                        }
 
                                                }
@@ -393,9 +395,9 @@ var message = {
                                             {
 
                                                 teacherTime=parseInt(item.sendTime)
-                                                console.log("check2"+teacherTime)
+                                                // console.log("check2"+teacherTime)
                                                 var difference=new Date().getTime()-teacherTime;
-                                                console.log(difference)
+                                                // console.log(difference)
 
                                                 if(difference<=5*60*1000)
                                                 {
