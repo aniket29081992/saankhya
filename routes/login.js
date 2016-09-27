@@ -123,7 +123,7 @@ function proceedSignup(req,res,collection,collectioninsert,collectionsession)
             else if (res1 === null) {
 
 
-                var subStringname = req.body.firstName.substr(0, 4).toUpperCase();
+                var subStringname = req.body.firstName.substr(0, 4).toUpperCase().trim();
                 var number = Math.floor(Math.random() * 1000) + 100
                 var uniqueCode = subStringname + number
 
@@ -131,7 +131,8 @@ function proceedSignup(req,res,collection,collectioninsert,collectionsession)
                 var email2 = req.body.email
                 var phoneEncrypted2 = encrypt(new Buffer(phone2, "utf8"))
                 var emailEncrypted2 = encrypt(new Buffer(email2, "utf8"))
-                if ((req.body.fbId === '1') && (req.body.gId === '1')) {
+                if ((req.body.fbId === '1') && (req.body.gId === '1'))
+                {
                     var password = req.body.password;
 
 

@@ -9,6 +9,39 @@ var plivo = require('plivo');
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'a13I11ET23';
+var time=new Date()
+console.log(new Date(new Date().getTime()+new Date().getTimezoneOffset()*60000 ))
+console.log(new Date().getTime()+new Date().getTimezoneOffset()*60000)
+console.log(time.toLocaleTimeString())
+var hours=parseInt(time.getHours())
+var mins=parseInt(time.getMinutes())
+var checkHours=15
+var checkMinutes=30
+var checkHours2=23
+var n= time.toLocaleTimeString()
+function disabledchat(student,stuId) {
+    if ((hours > 22 ) || (hours < 15))
+    {
+
+        var ObjectId=mongo.ObjectId
+        var _id = new ObjectId(stuId)
+        var userS=[]
+        student.findOne({"_id":_id},function (err5,res5) {
+            if (err5 === null) {
+                if (res5 !== null) {
+                    for (var i = 0; i < res5.regTokens.length; i++)
+                        userS.push(res5.regTokens[i])
+                    var msg='Sorry, I am available from 3pm to 11pm IST. Feel free to ping me then \uD83D\uDE42 Thank you.'
+                    cloud.send (userS,msg,1,1)
+                                   }
+            }
+        })
+
+
+
+
+                }
+}
 
 function encrypt(buffer){
     //return buffer;
@@ -24,7 +57,8 @@ function decrypt(buffer)
     var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
     return dec;
 }
-function firstEntry(req,res,mess,teach,student,admin) {
+function firstEntry(req,res,mess,teach,student,admin)
+{
 
     console.log("cofse")
     var findCheck={"stuId":req.body.stuId};
@@ -50,9 +84,10 @@ function firstEntry(req,res,mess,teach,student,admin) {
                    else{
 
                        attachment=req.body.attachment
-                   //    uploadimg.upload(attachment,req.body.attachment)
+                   //  uploadimg.upload(attachment,req.body.attachment)
                        }
-                   insertDocument = {
+                        insertDocument =
+                        {
                        "iStatus": "unassigned",
                        "stuId": req.body.stuId,
                        "msg": req.body.msg,
@@ -70,7 +105,7 @@ function firstEntry(req,res,mess,teach,student,admin) {
                        "sendTime": new Date().getTime().toString(),
                        "intId": item.intId,
                        "msgBy": req.body.msgBy
-                   }
+                         }
                }
                else
                    if(item.iStatus==="inactive")
@@ -83,8 +118,9 @@ function firstEntry(req,res,mess,teach,student,admin) {
                        else{
                            attachment=req.body.attachment
                            // uploadimg.upload(attachment,req.body.attachment)
-                       }
-                       insertDocument = {
+                           }
+                       insertDocument =
+                       {
                            "iStatus": "unassigned",
                            "stuId": req.body.stuId,
                            "msg": req.body.msg,
@@ -180,12 +216,14 @@ function firstEntry(req,res,mess,teach,student,admin) {
                                                if(item!==null)
                                                {
                                                    // console.log(item.regTokens)
-               if(item.regTokens!==undefined&&(item.regTokens!==null)){
+                                 if(item.regTokens!==undefined&&(item.regTokens!==null))
+                                 {
                                                    for(var i=0;i<item.regTokens.length;i++)
                                                    {
                                                        console.log("digo"+item.regTokens[i])
                                                        userS.push(item.regTokens[i])
-                                                   }}
+                                                   }
+                                 }
 
 
                                                }
@@ -237,10 +275,13 @@ function firstEntry(req,res,mess,teach,student,admin) {
 
                                                        })
                                                        cloud.send(userS,dataa,1,0)
+                                                           disabledchat(student,req.body.stuId)
                                                        //admin cloud.send(admin,dataa)
 
 
-                                                       console.log("bas"+userS)}
+
+                                                       console.log("bas"+userS)
+                                                       }
 
                                                }
                                            }}})
@@ -425,6 +466,7 @@ var message = {
                                                                                         dataa.push(result.ops[0])
                                                                                         var admin=db.collection('adminDetails')
 
+
                                                                                         var admindata=[]
                                                                                         var cursoradmin=admin.find();
                                                                                         cursoradmin.each(function (error,item) {
@@ -452,6 +494,7 @@ var message = {
 
                                                                                         })
                                                                                         cloud.send(userS,dataa,0,0)
+                                                                                        disabledchat(db.collection('digo'),req.body.stuId)
                                                                                         //admin cloud.send(admin,dataa)
 
 
@@ -644,6 +687,7 @@ var check2=0;
 
                                                                                                 })
                                                                                                 cloud.send(userS,dataa,0,0)
+                                                                                                disabledchat(db.collection('digo'),req.body.stuId)
                                                                                                 var admin=db.collection('adminDetails')
                                                                                                 var cursoradmin=admin.find();
                                                                                                 cursoradmin.each(function (error,item) {
@@ -673,7 +717,7 @@ var check2=0;
                                                                                                 })
                                                                                                 //admin cloud.send(admin,dataa)
 
-
+                                                                                                disabledchat(db.collection('digo'),req.body.stuId)
 
                                                                                                 var msg = {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins}
                                                                                                 res.send(msg);
@@ -771,12 +815,14 @@ var check2=0;
                                                                                                         var count=0
                                                                                                         var insertDocument;
                                                                                                         var noDocs=[]
-                                                                                                        cursor.each(function (err,item11) {
+                                                                                                        cursor.each(function (err,item11)
+                                                                                                        {
                                                                                                             if(err===null)
                                                                                                             {
                                                                                                                 count++;
                                                                                                                 if(item11!=null)
-                                                                                                                {   noDocs.push(item11)
+                                                                                                                {
+                                                                                                                    noDocs.push(item11)
                                                                                                                 }
                                                                                                                 else
                                                                                                                 {
@@ -845,6 +891,7 @@ var check2=0;
                                                                                                                                                         console.log(admindata)
                                                                                                                                                         cloud.send(admindata,dataa,0,3)
                                                                                                                                                     }
+                                                                                                                                                    disabledchat(db.collection('digo'),req.body.stuId)
 
                                                                                                                                                 }
 

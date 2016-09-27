@@ -82,7 +82,7 @@ var sendotpfg = {
                                                         api.send_message({
                                                             'src': '+16314462144',
                                                             'dst':  req.body.cCode+req.body.phone,
-                                                            'text': "Your verification code is " + otpcode,
+                                                            'text':  otpcode+"is the OTP to verify your phone number on Pinglearn.",
                                                             'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
                                                             'method': "POST"
                                                         }, function (status, response) {
@@ -121,7 +121,7 @@ var sendotpfg = {
                                                     api2.send_message({
                                                         'src': '+16314462144',
                                                         'dst': req.body.cCode+req.body.phone,
-                                                        'text': "Your verification code is " + res1.otp,
+                                                        'text': res1.otp+"is the OTP to verify your phone number on Pinglearn.",
                                                         'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
                                                         'method': "POST"
                                                     }, function (status, response) {
@@ -156,7 +156,7 @@ var sendotpfg = {
                                                             api1.send_message({
                                                                 'src': '+16314462144',
                                                                 'dst': req.body.cCode+req.body.phone,
-                                                                'text': "Your verification code is " + otpcode1,
+                                                                'text': otpcode1+"is the OTP to verify your phone number on Pinglearn.",
                                                                 'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
                                                                 'method': "POST"
                                                             }, function (status, response) {

@@ -122,7 +122,26 @@ var collct = {
 
                     }
                     else {
+var time=new Date()
+                        // console.log(new Date(new Date().getTime()+new Date().getTimezoneOffset()*60000 ))
+                        // console.log(new Date().getTime()+new Date().getTimezoneOffset()*60000)
+                        // console.log(time.toLocaleTimeString())
+                        var timeee='12:44:16 AM'
+                        var newww=0
+                        console.log(time.toLocaleTimeString())
+                       var n= time.toLocaleTimeString()
+                        var startEnd= '12:30:00 PM'
+                        var endEnd=  '03:00:00 PM'
+                        // console.log(startEnd)
+                        console.log()
+                        console.log(typeof (parseInt(time.getHours())))
+                        console.log(time.getMinutes())
 
+
+                       if(Date.parse(n)<Date.parse(endEnd))
+                           console.log("ccc")
+
+                        // var match=10:0
                         var college=db.collection("city");
                         var n=college.cid;
                         console.log(n)
@@ -136,7 +155,7 @@ var collct = {
                                 {
 
                                     newdoc.push(item)
-                                    console.log(newdoc);
+                                    //console.log(newdoc);
                                 }
                                 else
                                 {
