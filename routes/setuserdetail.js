@@ -145,7 +145,7 @@ console.log(_id)
 
 
                                     }
-                                  pass.findAndModify({"_id": _id },[],{$set:docins},function(errorupdated,resultupdated)
+                                  pass.findAndModify({"_id": _id },[],{$set:docins},{new:true},function(errorupdated,resultupdated)
                                     {
                                         if(errorupdated===null)
                                         {

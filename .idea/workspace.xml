@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f7aa06a-e584-4739-b6bc-ff7807b8fff3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/replace.js" afterPath="$PROJECT_DIR$/routes/replace.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/setuserdetail.js" afterPath="$PROJECT_DIR$/routes/setuserdetail.js" />
     </list>
     <ignored path="pinglearnbackend.iws" />
@@ -93,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/routes/setuserdetail.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="83">
-              <caret line="153" column="48" selection-start-line="153" selection-start-column="48" selection-end-line="153" selection-end-column="48" />
+              <caret line="147" column="93" selection-start-line="147" selection-start-column="93" selection-end-line="147" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -346,12 +344,12 @@
       <workItem from="1474781046994" duration="1475000" />
       <workItem from="1474875126426" duration="14900000" />
       <workItem from="1474952299953" duration="20000" />
-      <workItem from="1474952324076" duration="1122000" />
+      <workItem from="1474952324076" duration="1609000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="428205000" />
+    <option name="totallyTimeSpent" value="428692000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -896,7 +894,7 @@
     <entry file="file://$PROJECT_DIR$/routes/setuserdetail.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
-          <caret line="153" column="48" selection-start-line="153" selection-start-column="48" selection-end-line="153" selection-end-column="48" />
+          <caret line="147" column="93" selection-start-line="147" selection-start-column="93" selection-end-line="147" selection-end-column="93" />
           <folding />
         </state>
       </provider>
