@@ -67,7 +67,7 @@ function firstEntry(req,res,mess,teach,student,admin)
 {
 
     console.log("cofse")
-    var findCheck={"stuId":req.body.stuId};
+    var findCheck={"stuId":req.body.stuId,"subId":req.body.subId};
     var cursor=mess.find(findCheck).sort({sendTime:-1}).limit(1)
     var count=0
     var insertDocument;
