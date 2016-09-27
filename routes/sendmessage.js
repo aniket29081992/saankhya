@@ -21,10 +21,10 @@ var checkHours2=23
 var n= time.toLocaleTimeString()
 console.log(hours)
 function disabledchat(student,stuId) {
-    console.log('dif'+hours)
-    if ((hours > 22 ) || (hours < 15))
+    // console.log('dif'+hours)
+    if ((hours > 17 ) || (hours < 9)||(hours===17&&(mins>30))||(hours===9&&(mins<30)))
     {
-        console.log(hours)
+        console.log(hours+":"+mins)
 
         var ObjectId=mongo.ObjectId
         var _id = new ObjectId(stuId)
