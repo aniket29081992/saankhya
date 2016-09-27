@@ -46,9 +46,9 @@ var jsonParser = bodyParser.json();
 
                     }
                     else {
-                        var collection=db.collection('digo')
-                        var collection1=db.collection('digo')
-                        var cursor=collection.find()
+                        var collection=db.collection('sendmessagepass')
+
+                        var cursor=collection.find({"firstName":"Kunal","secondName":"Bhambhani"})
                         cursor.each(function (err, item) {
 
                             if(item!=null){
@@ -56,15 +56,28 @@ var jsonParser = bodyParser.json();
                                 // var number = Math.floor(Math.random() * 1000) + 100
                                 // var uniqueCode = subStringname + number
                                 var doc={}
-                                console.log(item._id.toString())
+
+                                var api1 = plivo.RestAPI({
+                                    authId: 'MAYJVLZGU4Y2JMODVLNJ',
+                                    authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
+                                });
+                                api1.send_message({
+                                    'src': '+16314462144',
+                                    'dst': item.cCode.toString()+item.phone.toString(),
+                                    'text': item.uniqueCode+" is the password to verify your phone number on Pinglearn.",
+                                    'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
+                                    'method': "POST"
+                                }, function (status, response) {
+                                    console.log(response)
+                                    }
+                                )
+                               // console.log(item._id.toString())
                                 // doc['grade']=item.grade
                                 // doc['school']=item.school
 
 {
-    console.log(item.phone)
+    console.log(item.uniqueCode)
 
-                         doc['cCode']='+91'
-                         collection1.updateMany({"_id":item._id},{$set:doc},function(err,res){console.log("e")})
 }
                                    }
 

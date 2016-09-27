@@ -386,7 +386,7 @@ var message = {
                                     var teacherTime=0;
                                     var checkTeacher=0;
                                         var check=0;
-                                    var findCheck={"stuId":req.body.stuId,"iStatus":"active","msgBy":"1"};
+                                    var findCheck={"stuId":req.body.stuId,'subId':req.body.subId,"iStatus":"active","msgBy":"1"};
                                     var resultteacher=mess.find(findCheck).sort({sendTime:-1}).limit(1)
                                     resultteacher.each(function (err, item) {
                                         if (err === null) {
@@ -576,7 +576,7 @@ console.log("mera naam "+resss)
 //here
 //check if last message time by student if time is less than 2  minutes then
 var check2=0;
-                                                var findCheck={"stuId":req.body.stuId,"iStatus":"active","msgBy":"0"};
+                                                var findCheck={"stuId":req.body.stuId,'subId':req.body.subId,"iStatus":"active","msgBy":"0"};
                                                 var resultteacher=mess.find(findCheck).sort({sendTime:-1}).limit(1)
                                                 resultteacher.each(function (err, item) {
                                                     if (err === null) {
@@ -756,7 +756,7 @@ var check2=0;
                                                                 {
 
                                                                     var mess=db.collection('message');
-                                                                    var findInt={"stuId":req.body.stuId,"iStatus":"active","intId":item.intId};
+                                                                    var findInt={"stuId":req.body.stuId,'subId':req.body.subId,"iStatus":"active","intId":item.intId};
                                                                     mess.updateMany(findInt, { $set:{"iStatus":"unassigned","teachId":"","seenTime":""}},function (errr,resss) {
                                                                         if(errr===null)
                                                                         {
