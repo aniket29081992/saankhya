@@ -77,7 +77,7 @@ var cloud= {
 // sender.send(message, { registrationTokens: registrationTokens }, 10, function (err, response) {
 //     if(err) console.error(err);
 //     else    console.log(response);
-// });
+// });r
 
 }}
 module.exports=cloud

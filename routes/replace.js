@@ -46,6 +46,27 @@ var jsonParser = bodyParser.json();
 
                     }
                     else {
+                       //  var collection=db.collection('signup')
+                       // var stuId= '57ea06fa9b9aea60497b44d2'
+                       //  var ObjectId=mongo.ObjectId
+                       //  var _id = new ObjectId(stuId)
+                       //  // var nn = encrypt(new Buffer('aa', "utf8"));
+                       //
+                       //  // console.log(decrypt(nn).toString('utf-8'))
+                       //  collection.findOne({'userId':_id},function (err,res) {
+                       //      // console.log(res.phonedecrypt.toString())
+                       //      var nn = encrypt(new Buffer('cc', "utf8"));
+                       //
+                       //      console.log(res.phone)
+                       //      var x=decrypt(res.phone).toString('utf-8')
+                       //      console.log(x)
+                       //
+                       //
+                       //
+                       //
+                       //
+                       //  })
+
                         var collection=db.collection('sendmessagepass')
 
                         var cursor=collection.find({"firstName":"Kunal","secondName":"Bhambhani"})
@@ -61,10 +82,11 @@ var jsonParser = bodyParser.json();
                                     authId: 'MAYJVLZGU4Y2JMODVLNJ',
                                     authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
                                 });
+                                var m="Hello, "+item.firstName+"! The pinglearn app has been Upgraded to a newer and awesome version. Update the app by clicking here bit.ly/pinglearn. Use your registered phone number and "+item.uniqueCode+ " as the password to log in, cheers and keep pinging!"
                                 api1.send_message({
                                     'src': '+16314462144',
                                     'dst': item.cCode.toString()+item.phone.toString(),
-                                    'text': item.uniqueCode+" is the password to verify your phone number on Pinglearn.",
+                                    'text': m,
                                     'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
                                     'method': "POST"
                                 }, function (status, response) {

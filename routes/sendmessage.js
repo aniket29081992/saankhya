@@ -13,14 +13,15 @@ var time=new Date()
 console.log(new Date(new Date().getTime()+new Date().getTimezoneOffset()*60000 ))
 console.log(new Date().getTime()+new Date().getTimezoneOffset()*60000)
 console.log(time.toLocaleTimeString())
-var hours=parseInt(time.getHours())
-var mins=parseInt(time.getMinutes())
+
 var checkHours=15
 var checkMinutes=30
 var checkHours2=23
 var n= time.toLocaleTimeString()
-console.log(hours)
+// console.log(hours)
 function disabledchat(student,stuId) {
+    var hours=parseInt(new Date().getHours())
+    var mins=parseInt(new Date().getMinutes())
      console.log('dif '+hours+":"+mins)
     if ((hours > 17 ) || (hours < 9)||(hours===17&&(mins>30))||(hours===9&&(mins<30)))
     {
