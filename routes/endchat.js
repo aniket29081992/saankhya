@@ -60,7 +60,12 @@ var end = {
                         var teacherId=req.body.teachId
                         var interId=req.body.interId
                         var checkFind={"stuId":req.body.stuId,"intId":interId}
-                        message.updateMany(checkFind,{ $set:{"iStatus":"inactive"}},function (error11,result11)
+                        var docc={}
+                        docc['iStatus']='inactive'
+                            docc['iStatus']='inactive'
+                            docc['endType']=req.body.endType.toString()
+
+                        message.updateMany(checkFind,{ $set:docc},function (error11,result11)
                         {
                             if(error11===null)
                             {
