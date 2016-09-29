@@ -63,6 +63,7 @@ var end = {
                         var docc={}
                         docc['iStatus']='inactive'
                             docc['iStatus']='inactive'
+                            if(req.body.endType!==null&&req.body.endType!==undefined)
                             docc['endType']=req.body.endType.toString()
 
                         message.updateMany(checkFind,{ $set:docc},function (error11,result11)
