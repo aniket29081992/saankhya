@@ -85,7 +85,7 @@ var received = {
                                     {
                                         console.log(mod)
                                         // var docn={"stuId":stuId,"intId":interId,"subId":subId,"iStatus":"active","msgBy":upd}
-                                        var cursor=messg.find(doc,{ _id: 1, seenTime: 1,receivedTime:1 }).sort({sendTime:-1})
+                                        var cursor=messg.find(doc,{subId:1, _id: 1, seenTime: 1,receivedTime:1 }).sort({sendTime:-1})
                                         var senddoc=[]
                                         cursor.each(function (err,item) {
                                             if(err===null)
