@@ -401,7 +401,7 @@ var message = {
                                                 var difference=new Date().getTime()-teacherTime;
                                                 // console.log(difference)
 
-                                                if(difference<=5*60*1000)
+                                                if(difference<=10*60*1000)
                                                 {
 
                                                     {
@@ -591,7 +591,7 @@ var check2=0;
 
 
                                                                  console.log("differenceNow"+differenceNow)
-                                                                if(differenceNow<=2*60*1000)
+                                                                if(differenceNow<=5*60*1000)
                                                                 {
 
                                                                     var mess=db.collection('message');

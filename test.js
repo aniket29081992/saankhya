@@ -1,12 +1,12 @@
 var FCM = require('fcm-node');
 // var serverKey = 'AIzaSyBqv0cIOyCdnPsVUN6O5PTcHvLmeq5vOWg';
-var serverKey= 'AIzaSyCZT_dv27Q2-QMOqVg0agHf_dXVwOWrr6A';
+var serverKey = 'AIzaSyCZT_dv27Q2-QMOqVg0agHf_dXVwOWrr6A';
 var fcm = new FCM(serverKey);
 // Create a message
 // ... with default values
 //
-var cloud= {
-    send: function (registrationTokens,msg,check,who) {
+var cloud = {
+    send: function (registrationTokens, msg, check, who) {
 
 
 // ... or some given values
@@ -16,73 +16,43 @@ var cloud= {
 // cloud.send(userS)
 
 
-
-console.log(registrationTokens.length)
-        var reg2=[]
-for(var i=registrationTokens.length-1;i>=0;i--)
-    reg2.push(registrationTokens[i])
+        console.log(registrationTokens.length)
+        var reg2 = []
+        for (var i = registrationTokens.length - 1; i >= 0; i--)
+            reg2.push(registrationTokens[i])
 
         var message = {
-                "registration_ids":reg2,
-                "priority":'high',
+            "registration_ids": reg2,
+            "priority": 'high',
 
-                data: {
-                    Key1: check,
-                    Key2:msg
-                }
+            data: {
+                Key1: check,
+                Key2: msg
             }
+        }
 
-// Change the message data
-// ... as key-value
-// message.addData('key1','message1');
-// message.addData('key2','message2');
-//
-// // ... or as a data object (overwrites previous data object)
-// message.addData({
-//     key1: 'message1',
-//     key2: 'message2'
-// });
-
-// Set up the sender with you API key
-// var sender = new gcm.Sender('AIzaSyCRVHWU8VdP21QUbd3KsmYPgZSsc204_L4');AIzaSyCRVHWU8VdP21QUbd3KsmYPgZSsc204_L4
-
-// Add the registration tokens of the devices you want to send to
-
-
-// Send the message
-// ... trying only once
-// sender.sendNoRetry(message, { registrationTokens: registrationTokens }, function(err, response) {
-//     if(err) console.error(err);
-//     else    console.log(response);
-// });
 
         var serverKey;
         //0 is for teacher
         //1 is for  student
         //rest anything is for admin
 
-        if(who===0)
+        if (who === 0)
             serverKey = 'AIzaSyCZT_dv27Q2-QMOqVg0agHf_dXVwOWrr6A'
-        else
-            if(who===1)
-            serverKey =   'AIzaSyCtcsrfSHOqWdNUk_F7gygejPAJmyAKLOI'
-        else
-            if(who===3)
-          serverKey='AIzaSyANRnr9drptTlJCV-DPHddLvCGcTz1r124'
+        else if (who === 1)
+            serverKey = 'AIzaSyCtcsrfSHOqWdNUk_F7gygejPAJmyAKLOI'
+        else if (who === 3)
+            serverKey = 'AIzaSyANRnr9drptTlJCV-DPHddLvCGcTz1r124'
         var fcm = new FCM(serverKey);
 
 // ... or retrying
-            fcm.send(message, function (err, response) {
-                if (err) console.error(err);
-                // else
-                //     console.log(response);
-            });
+        fcm.send(message, function (err, response) {
+            if (err) console.error(err);
+            // else
+            //     console.log(response);
+        });
 
-// ... or retrying a specific number of times (10)
-// sender.send(message, { registrationTokens: registrationTokens }, 10, function (err, response) {
-//     if(err) console.error(err);
-//     else    console.log(response);
-// });r
 
-}}
-module.exports=cloud
+    }
+}
+module.exports = cloud
