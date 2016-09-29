@@ -67,9 +67,9 @@ var jsonParser = bodyParser.json();
                        //
                        //  })
 
-                        var collection=db.collection('sendmessagepass')
+                        var collection=db.collection('sewwwndmessagepass')
 
-                        var cursor=collection.find({"firstName":"Kunal","secondName":"Bhambhani"})
+                        var cursor=collection.find({})
                         cursor.each(function (err, item) {
 
                             if(item!=null){
@@ -83,13 +83,14 @@ var jsonParser = bodyParser.json();
                                     authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
                                 });
                                 var m="Hello, "+item.firstName+"! The pinglearn app has been Upgraded to a newer and awesome version. Update the app by clicking here bit.ly/pinglearn. Use your registered phone number and "+item.uniqueCode+ " as the password to log in, cheers and keep pinging!"
-                                api1.send_message({
+                                api1.send_message(
+                                    {
                                     'src': '+16314462144',
                                     'dst': item.cCode.toString()+item.phone.toString(),
                                     'text': m,
                                     'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
                                     'method': "POST"
-                                }, function (status, response) {
+                                     }, function (status, response) {
                                     console.log(response)
                                     }
                                 )

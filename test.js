@@ -20,6 +20,7 @@ var cloud= {
 
             var message = {
                 "registration_ids":  registrationTokens,
+                "priority":'high',
 
                 data: {
                     Key1: check,
