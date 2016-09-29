@@ -17,9 +17,13 @@ var cloud= {
 
 
 
+console.log(registrationTokens.length)
+        var reg2=[]
+for(var i=registrationTokens.length-1;i>=0;i--)
+    reg2.push(registrationTokens[i])
 
-            var message = {
-                "registration_ids":  registrationTokens,
+        var message = {
+                "registration_ids":  reg2,
                 "priority":'high',
 
                 data: {

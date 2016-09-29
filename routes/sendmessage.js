@@ -585,14 +585,15 @@ var check2=0;
                                                         if(check2++==0){
                                                             if(item!==null)
                                                             {
-                                                               var firstMsgtime=parseInt(item.sendTime)
+                                                               var firstMsgtime=new Date().getTime()
 
                                                                 var differenceNow=firstMsgtime-parseInt(item.acceptTime);
 
 
-
+                                                                 console.log("differenceNow"+differenceNow)
                                                                 if(differenceNow<=2*60*1000)
                                                                 {
+
                                                                     var mess=db.collection('message');
 
                                                                     var attachment
@@ -897,7 +898,7 @@ var check2=0;
                                                                                                                                                     else
                                                                                                                                                     {
                                                                                                                                                         console.log(admindata)
-                                                                                                                                                        cloud.send(admindata,dataa,0,3)
+                                                                                                                                                       // cloud.send(admindata,dataa,0,3)
                                                                                                                                                     }
                                                                                                                                                     disabledchat(db.collection('digo'),req.body.stuId)
 

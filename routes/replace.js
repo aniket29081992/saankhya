@@ -67,44 +67,55 @@ var jsonParser = bodyParser.json();
                        //
                        //  })
 
-                        var collection=db.collection('sewwwndmessagepass')
+                        var collection=db.collection('sendmessagepass')
+                        var stringd=['57e97fea7ba7c35800186723','57e97fea7ba7c35800186723']
+                        var ObjectId=mongo.ObjectId
+                        var _id=[]
+
+                          var d=  new ObjectId(stringd)
+                            console.log(d)
+
+                        console.log(_id)
+
+
+
 
                         var cursor=collection.find({})
-                        cursor.each(function (err, item) {
-
-                            if(item!=null){
-                                // var subStringname = item.firstName.substr(0, 4).toUpperCase();
-                                // var number = Math.floor(Math.random() * 1000) + 100
-                                // var uniqueCode = subStringname + number
-                                var doc={}
-
-                                var api1 = plivo.RestAPI({
-                                    authId: 'MAYJVLZGU4Y2JMODVLNJ',
-                                    authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
-                                });
-                                var m="Hello, "+item.firstName+"! The pinglearn app has been Upgraded to a newer and awesome version. Update the app by clicking here bit.ly/pinglearn. Use your registered phone number and "+item.uniqueCode+ " as the password to log in, cheers and keep pinging!"
-                                api1.send_message(
-                                    {
-                                    'src': '+16314462144',
-                                    'dst': item.cCode.toString()+item.phone.toString(),
-                                    'text': m,
-                                    'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
-                                    'method': "POST"
-                                     }, function (status, response) {
-                                    console.log(response)
-                                    }
-                                )
-                               // console.log(item._id.toString())
-                                // doc['grade']=item.grade
-                                // doc['school']=item.school
-
-{
-    console.log(item.uniqueCode)
-
-}
-                                   }
-
-                        })
+//                         cursor.each(function (err, item) {
+//
+//                             if(item!=null){
+//                                 // var subStringname = item.firstName.substr(0, 4).toUpperCase();
+//                                 // var number = Math.floor(Math.random() * 1000) + 100
+//                                 // var uniqueCode = subStringname + number
+//                                 var doc={}
+//
+//                                 var api1 = plivo.RestAPI({
+//                                     authId: 'MAYJVLZGU4Y2JMODVLNJ',
+//                                     authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
+//                                 });
+//                                 var m="Hello, "+item.firstName+"! The pinglearn app has been Upgraded to a newer and awesome version. Update the app by clicking here bit.ly/pinglearn. Use your registered phone number and "+item.uniqueCode+ " as the password to log in, cheers and keep pinging!"
+//                                 api1.send_message(
+//                                     {
+//                                     'src': '+16314462144',
+//                                     'dst': item.cCode.toString()+item.phone.toString(),
+//                                     'text': m,
+//                                     'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
+//                                     'method': "POST"
+//                                      }, function (status, response) {
+//                                     console.log(response)
+//                                     }
+//                                 )
+//                                // console.log(item._id.toString())
+//                                 // doc['grade']=item.grade
+//                                 // doc['school']=item.school
+//
+// {
+//     console.log(item.uniqueCode)
+//
+// }
+//                                    }
+//
+//                         })
 
 
                     }

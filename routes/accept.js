@@ -102,6 +102,7 @@ var accept = {
                                                                     // console.log(item.regTokens)
                                                                     if (item.teachId != req.body.teachId)
                                                                     {
+
                                                                         for (var i = 0; i < item.regTokens.length; i++)
                                                                         {
                                                                             console.log(item.regTokens[i])
