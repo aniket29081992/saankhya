@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f7aa06a-e584-4739-b6bc-ff7807b8fff3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/accept.js" afterPath="$PROJECT_DIR$/routes/accept.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/adminLogin.js" afterPath="$PROJECT_DIR$/routes/adminLogin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/appversion.js" afterPath="$PROJECT_DIR$/routes/appversion.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/blockingteacherstudent.js" afterPath="$PROJECT_DIR$/routes/blockingteacherstudent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/received.js" afterPath="$PROJECT_DIR$/routes/received.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendmessageteacher.js" afterPath="$PROJECT_DIR$/routes/sendmessageteacher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendmessage.js" afterPath="$PROJECT_DIR$/routes/sendmessage.js" />
     </list>
     <ignored path="pinglearnbackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,8 +28,8 @@
       <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+            <state relative-caret-position="135">
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -48,6 +42,29 @@
               <caret line="243" column="96" selection-start-line="243" selection-start-column="96" selection-end-line="243" selection-end-column="96" />
               <folding>
                 <element signature="e#18822#21299#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="accept.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/accept.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1215">
+              <caret line="128" column="77" selection-start-line="128" selection-start-column="77" selection-end-line="128" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendmessage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="40" column="26" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="26" />
+              <folding>
+                <element signature="e#23754#26131#0" expanded="false" />
+                <element signature="e#56910#68831#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -94,7 +111,6 @@
         <option value="$PROJECT_DIR$/routes/endchat.js" />
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/routes/replace.js" />
-        <option value="$PROJECT_DIR$/routes/sendmessage.js" />
         <option value="$PROJECT_DIR$/routes/received.js" />
         <option value="$PROJECT_DIR$/routes/accept.js" />
         <option value="$PROJECT_DIR$/routes/adminLogin.js" />
@@ -102,6 +118,7 @@
         <option value="$PROJECT_DIR$/routes/blockingteacherstudent.js" />
         <option value="$PROJECT_DIR$/routes/sendmessageteacher.js" />
         <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/routes/sendmessage.js" />
       </list>
     </option>
   </component>
@@ -160,7 +177,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="co&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/config.js&#10;acce&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;log&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;rec&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/received.js&#10;con&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/config.js&#10;re&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/received.js&#10;endch&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;test&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;rep&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/replace.js&#10;inde&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;confi&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/config.js&#10;send&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;e&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/replace.js&#10;sendme&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;logo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/logout.js&#10;sendot&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotpfgpass.js&#10;se&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotp.js&#10;te&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;otp&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotp.js&#10;cit&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/collgcity.js&#10;app&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/app.js&#10;end&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;logi&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;endc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;acc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;a&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;teac&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageteacher.js&#10;sendm&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageadmin.js&#10;setus&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;sen&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;for&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;fo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;tes&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;set&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;setuse&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;pas&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;feed&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/feedback.js&#10;admin&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/adminLogin.js&#10;bloc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/blockingteacherstudent.js&#10;login&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;fet&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/fetchstudentdetails.js&#10;teacher&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/teacherlogin.js&#10;in&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;teacherl&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/teacherlogin.js&#10;sendmess&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;report&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/reportmsg.js&#10;logout&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/logout.js&#10;blo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/blockingteacherstudent.js&#10;login.&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;accept&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js" />
+    <property name="SearchEverywhereHistoryKey" value="con&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/config.js&#10;sendm&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;accept&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;co&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/config.js&#10;acce&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;log&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;rec&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/received.js&#10;re&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/received.js&#10;endch&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;test&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;rep&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/replace.js&#10;inde&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;confi&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/config.js&#10;send&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;e&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/replace.js&#10;sendme&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;logo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/logout.js&#10;sendot&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotpfgpass.js&#10;se&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotp.js&#10;te&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;otp&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendotp.js&#10;cit&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/collgcity.js&#10;app&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/app.js&#10;end&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;logi&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;endc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/endchat.js&#10;acc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;a&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/accept.js&#10;teac&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessageteacher.js&#10;setus&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;sen&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;for&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;fo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;tes&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/test.js&#10;set&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;setuse&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/setuserdetail.js&#10;pas&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/forgotpass.js&#10;feed&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/feedback.js&#10;admin&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/adminLogin.js&#10;bloc&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/blockingteacherstudent.js&#10;login&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js&#10;fet&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/fetchstudentdetails.js&#10;teacher&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/teacherlogin.js&#10;in&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/index.js&#10;teacherl&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/teacherlogin.js&#10;sendmess&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/sendmessage.js&#10;report&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/reportmsg.js&#10;logout&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/logout.js&#10;blo&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/blockingteacherstudent.js&#10;login.&#9;FILE&#9;file:///Users/aniketverma/WebstormProjects/pinglearnbackend/routes/login.js" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -280,12 +297,12 @@
       <workItem from="1474875126426" duration="14900000" />
       <workItem from="1474952299953" duration="20000" />
       <workItem from="1474952324076" duration="64681000" />
-      <workItem from="1475224537105" duration="9159000" />
+      <workItem from="1475224537105" duration="11036000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="500923000" />
+    <option name="totallyTimeSpent" value="502800000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -467,7 +484,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>939</line>
+          <line>945</line>
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -562,12 +579,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>907</line>
+          <line>913</line>
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/sendmessage.js</url>
-          <line>906</line>
+          <line>912</line>
           <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -843,17 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5614">
-          <caret line="580" column="69" selection-start-line="580" selection-start-column="64" selection-end-line="580" selection-end-column="69" />
-          <folding>
-            <element signature="e#23754#26131#0" expanded="false" />
-            <element signature="e#56910#68017#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/checku.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
@@ -902,14 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/accept.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-986">
-          <caret line="116" column="77" selection-start-line="116" selection-start-column="77" selection-end-line="116" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/fetchteacherdetails.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -944,10 +942,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/accept.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="128" column="77" selection-start-line="128" selection-start-column="77" selection-end-line="128" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/sendmessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="40" column="26" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="26" />
+          <folding>
+            <element signature="e#23754#26131#0" expanded="false" />
+            <element signature="e#56910#68831#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="135">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding />
         </state>
       </provider>

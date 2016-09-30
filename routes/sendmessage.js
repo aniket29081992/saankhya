@@ -873,7 +873,13 @@ var check2=0;
                                                                                                                                             {
 
                                                                                                                                             noDocs.push({'coins':document.value.coins})
-                                                                                                                                            cloud.send(userS,noDocs,1,0)
+                                                                                                                                                for(var i=0;i<noDocs.length;i++)
+                                                                                                                                                {
+                                                                                                                                                    var sendMsg=[]
+                                                                                                                                                    sendMsg.push(noDocs[i])
+                                                                                                                                                    cloud.send(userS,sendMsg,1,0)
+                                                                                                                                                }
+
                                                                                                                                             //admin cloud.send(admin,dataa)
 
                                                                                                                                             var admin=db.collection('adminDetails')
