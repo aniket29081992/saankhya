@@ -86,7 +86,7 @@ var received = {
                                     {
                                         console.log(mod)
                                         // var docn={"stuId":stuId,"intId":interId,"subId":subId,"iStatus":"active","msgBy":upd}
-                                        var cursor=messg.find(doc,{}).sort({sendTime:-1})
+                                        var cursor=messg.find(doc,{stuId:1,_id:1,seenTime:1,teachId:1,subId:1}).sort({sendTime:-1})
                                         var senddoc=[]
                                         cursor.each(function (err,item) {
                                             if(err===null)
@@ -139,7 +139,7 @@ var received = {
                                                             if(docfcm!=null)
 
                                                             {
-                                                                console.log(docfcm)
+                                                                console.log(docfcm+"seen status checking")
                                                                 for(var i=0;i<docfcm.regTokens.length;i++)
 
                                                                     regTokfcm.push(docfcm.regTokens[i])

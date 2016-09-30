@@ -236,7 +236,12 @@ var messageT = {
                                                                                         if(checkSum==1)
                                                                                             console.log("no one active")
                                                                                         else {
-                                                                                            cloud.send(userS,noDocs,1,0)
+                                                                                                for(var i=0;i<noDocs.length;i++)
+                                                                                                {
+                                                                                                    var arrayFcm=[]
+                                                                                                    arrayFcm.push(noDocs[i])
+                                                                                                    cloud.send(userS,arrayFcm,1,0)
+                                                                                                }
                                                                                             //admin cloud.send(admin,dataa)
 
                                                                                             console.log("bas"+userS)

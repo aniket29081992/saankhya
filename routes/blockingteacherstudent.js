@@ -1,9 +1,9 @@
 var mongo = require('mongodb');
-var MongoClient=mongo.MongoClient
+var MongoClient = mongo.MongoClient
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
-var config=require('../config')
+var config = require('../config')
 var cloud = require('../test')
 
 var crypto = require('crypto'),
@@ -11,16 +11,16 @@ var crypto = require('crypto'),
     password = 'a13I11ET23';
 
 function encrypt(buffer) {
-   // return buffer;
-    var cipher = crypto.createCipher(algorithm,password)
-    var crypted = Buffer.concat([cipher.update(buffer),cipher.final()]);
+    // return buffer;
+    var cipher = crypto.createCipher(algorithm, password)
+    var crypted = Buffer.concat([cipher.update(buffer), cipher.final()]);
     return crypted;
 }
 
 function decrypt(buffer) {
- //   return buffer
-    var decipher = crypto.createDecipher(algorithm,password)
-    var dec = Buffer.concat([decipher.update(buffer) , decipher.final()]);
+    //   return buffer
+    var decipher = crypto.createDecipher(algorithm, password)
+    var dec = Buffer.concat([decipher.update(buffer), decipher.final()]);
     return dec;
 }
 
@@ -30,9 +30,9 @@ var block = {
         var Server = mongo.Server,
             Db = mongo.Db,
             BSON = mongo.BSONPure;
-        var host=config.development.database.host
-        var port=config.development.database.port
-        var dbname=config.development.database.db
+        var host = config.development.database.host
+        var port = config.development.database.port
+        var dbname = config.development.database.db
 
         var server = new Server(host, port, {auto_reconnect: true});
         db = new Db(dbname, server);
@@ -42,7 +42,7 @@ var block = {
         });
 
 
-        MongoClient.connect(host,function (err, db) {
+        MongoClient.connect(host, function (err, db) {
 
             if (!err) {
 
@@ -61,16 +61,14 @@ var block = {
 
                             }, function (err, res1) {
                                 if (err === null) {
-                                    if(res1==null)
-                                    {
-                                        var doc={"status":"error","msg":"No techer found."}
+                                    if (res1 == null) {
+                                        var doc = {"status": "error", "msg": "No techer found."}
                                         res.send(doc)
                                     }
-                                    else
-                                    {
+                                    else {
                                         var teacher = db.collection("teacherDetails")
 
-                                        var regTokens=[]
+                                        var regTokens = []
 
                                         teacher.update({"teachId": req.body.teachId}, {
                                             $set: {
@@ -82,8 +80,7 @@ var block = {
                                                 var doc = {"status": "success", "msg": "Teacher blocked"}
                                                 res.send(doc)
                                             }
-                                            else
-                                            {
+                                            else {
                                                 var doc = {"status": "error", "msg": "Oops something went wrong!"}
                                                 res.send(doc)
                                             }
@@ -94,8 +91,11 @@ var block = {
 
                                 }
                             }
-                        )}
+                        )
+                    }
                 })
             }
-        })}}
-module.exports=block
+        })
+    }
+}
+module.exports = block
