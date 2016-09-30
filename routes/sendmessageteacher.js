@@ -71,7 +71,6 @@ var messageT = {
                                             if(check++==0){
                                                 if(item!==null)
                                                 {
-
                                                     var lastStudenttime=parseInt(item.sendTime)
                                                     var currentTime=new Date().getTime()-lastStudenttime
                                                     if(currentTime<=10*60*1000)
@@ -237,6 +236,14 @@ var messageT = {
                                                                                         if(checkSum==1)
                                                                                             console.log("no one active")
                                                                                         else {
+                                                                                            cloud.send(userS,noDocs,1,0)
+                                                                                            //admin cloud.send(admin,dataa)
+
+                                                                                            console.log("bas"+userS)
+                                                                                            res.send({"status": "error",
+                                                                                                "msg": "Message sent",
+                                                                                                "case":1,
+                                                                                                "data":noDocs})
 
                                                                                             var mess=db.collection('message');
                                                                                             var admin=db.collection('adminDetails')
@@ -258,23 +265,23 @@ var messageT = {
                                                                                                             }
                                                                                                         }
                                                                                                     }
-                                                                                                    else
-                                                                                                    {
-                                                                                                        console.log(admindata)
-                                                                                                        cloud.send(admindata,dataa,0,3)
-                                                                                                    }
+                                                                                                    // else
+                                                                                                    // {
+                                                                                                    //     console.log(admindata)
+                                                                                                    //     cloud.send(admindata,dataa,0,3)
+                                                                                                    // }
 
                                                                                                 }
 
                                                                                             })
-                                                                                            cloud.send(userS,noDocs,1,0)
-                                                                                            //admin cloud.send(admin,dataa)
-
-                                                                                            console.log("bas"+userS)
-                                                                                            res.send({"status": "error",
-                                                                                                "msg": "Message sent",
-                                                                                                "case":1,
-                                                                                                "data":noDocs})
+                                                                                            // cloud.send(userS,noDocs,1,0)
+                                                                                            // //admin cloud.send(admin,dataa)
+                                                                                            //
+                                                                                            // console.log("bas"+userS)
+                                                                                            // res.send({"status": "error",
+                                                                                            //     "msg": "Message sent",
+                                                                                            //     "case":1,
+                                                                                            //     "data":noDocs})
                                                                                             // var findIntnew={"stuId":req.body.stuId,"subId":req.body.subId,"iStatus":"active","teachId":req.body.teachId,"iStatus":"unassigned"};
                                                                                             // mess.updateMany(findIntnew, { $set:{"teachId":""}},function (errr,resss) {
                                                                                             //     if(errr===null)

@@ -46,6 +46,10 @@ var jsonParser = bodyParser.json();
 
                     }
                     else {
+                        var d='ANKI1099'
+                        var emailEncrypted2 = encrypt(new Buffer(d, "utf8")).toString('utf-8')
+                        console.log(emailEncrypted2)
+
                        //  var collection=db.collection('signup')
                        // var stuId= '57ea06fa9b9aea60497b44d2'
                        //  var ObjectId=mongo.ObjectId
@@ -79,11 +83,11 @@ var jsonParser = bodyParser.json();
 
 
 
-var collection=db.collection('sendmessagepassssssssssssssss')
-                        var cursor=collection.find({})
-                        cursor.each(function (err, item) {
 
-                            if(item!=null){
+                        // var cursor=collection.find({})
+                        // cursor.each(function (err, item) {
+
+                            // if(item!=null){
                                 // var subStringname = item.firstName.substr(0, 4).toUpperCase();
                                 // var number = Math.floor(Math.random() * 1000) + 100
                                 // var uniqueCode = subStringname + number
@@ -93,12 +97,12 @@ var collection=db.collection('sendmessagepassssssssssssssss')
                                     authId: 'MAYJVLZGU4Y2JMODVLNJ',
                                     authToken: 'ODEyZjFiZTE1ZGExMDJiOWFiNDgyNGIzZGEzN2Zj',
                                 });
-                                var newmsg="Hello Pinglearners! Bob is now back with a new friend, Rose for Science. Keep chatting, keep pinging!"
+                                var newmsg="Hi Ankit the issue has been resolved.You can login to the new Pinglearn app using only your mobile number and this Password ANKI1099."
                                 // var m="Hello, "+item.firstName+"! The pinglearn app has been Upgraded to a newer and awesome version. Update the app by clicking here bit.ly/pinglearn. Use your registered phone number and "+item.uniqueCode+ " as the password to log in, cheers and keep pinging!"
                                 api1.send_message(
                                     {
                                     'src': '+16314462144',
-                                    'dst': item.cCode.toString()+item.phone.toString(),
+                                    'dst': "+91882d7068454",
                                     'text': newmsg,
                                     'url': "https://api.plivo.com/v1/Account/" + 'MAYJVLZGU4Y2JMODVLNJ' + "/Message/", // The URL to which with the status of the message is sent
                                     'method': "POST"
@@ -111,12 +115,12 @@ var collection=db.collection('sendmessagepassssssssssssssss')
                                 // doc['school']=item.school
 
 {
-    console.log(item.uniqueCode)
+    // console.log(item.uniqueCode)
 
 }
-                                   }
+                                   // }
 
-                        })
+                        // })
 
 
                     }
