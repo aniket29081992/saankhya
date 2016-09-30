@@ -71,6 +71,7 @@ var messageT = {
                                             if(check++==0){
                                                 if(item!==null)
                                                 {
+
                                                     var lastStudenttime=parseInt(item.sendTime)
                                                     var currentTime=new Date().getTime()-lastStudenttime
                                                     if(currentTime<=10*60*1000)

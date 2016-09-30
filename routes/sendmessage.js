@@ -502,7 +502,7 @@ var message = {
 
                                                                                         })
                                                                                         cloud.send(userS,dataa,0,0)
-                                                                                        disabledchat(db.collection('digo'),req.body.stuId)
+                                                                                       // disabledchat(db.collection('digo'),req.body.stuId)
                                                                                         //admin cloud.send(admin,dataa)
 
 
