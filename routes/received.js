@@ -69,8 +69,9 @@ var received = {
                             }
                             var doc={ _id: { $in: _id }}
                             var setdoc={}
-                            if(req.body.isSeen!==null&&req.body.isSeen!==undefined)
+                            if(req.body.seenBy!==null&&req.body.seenBy!==undefined)
                                 setdoc['seenTime']=new Date().getTime().toString();
+                            if(req.body.recBy!==null&&req.body.recBy!==undefined)
                             setdoc['receivedTime']=new Date().getTime().toString()
 
 
@@ -85,7 +86,7 @@ var received = {
                                     {
                                         console.log(mod)
                                         // var docn={"stuId":stuId,"intId":interId,"subId":subId,"iStatus":"active","msgBy":upd}
-                                        var cursor=messg.find(doc,{subId:1, _id: 1, seenTime: 1,receivedTime:1 }).sort({sendTime:-1})
+                                        var cursor=messg.find(doc,{}).sort({sendTime:-1})
                                         var senddoc=[]
                                         cursor.each(function (err,item) {
                                             if(err===null)
@@ -107,7 +108,11 @@ var received = {
                                                     var comp,
                                                         _id,
                                                         who;
-                                                    var recBy=req.body.recBy
+                                                    var recBy;
+                                                    if(req.body.recBy!==null&&req.body.recBy!==undefined)
+                                                    recBy=req.body.recBy
+                                                    if(req.body.seenBy!==null&&req.body.seenBy!==undefined)
+                                                        recBy=req.body.seenBy
                                                     //send fcm to the other one if seenby is 0 send to student else teacher
                                                     if(recBy==='1')
                                                     {
