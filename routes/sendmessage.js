@@ -696,7 +696,7 @@ var check2=0;
 
                                                                                                 })
                                                                                                 cloud.send(userS,dataa,0,0)
-                                                                                                disabledchat(db.collection('digo'),req.body.stuId)
+                                                                                                // disabledchat(db.collection('digo'),req.body.stuId)
                                                                                                 var admin=db.collection('adminDetails')
                                                                                                 var cursoradmin=admin.find();
                                                                                                 cursoradmin.each(function (error,item) {
@@ -726,7 +726,7 @@ var check2=0;
                                                                                                 })
                                                                                                 //admin cloud.send(admin,dataa)
 
-                                                                                                disabledchat(db.collection('digo'),req.body.stuId)
+                                                                                                // disabledchat(db.collection('digo'),req.body.stuId)
 
                                                                                                 var msg = {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins}
                                                                                                 res.send(msg);
