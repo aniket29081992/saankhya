@@ -12,8 +12,8 @@ var multiparty = require('connect-multiparty'),
     multipartyMiddleware = multiparty();
 var coll=require('./collgcity')
 var fdback=require('./feedback')
-var sndmsg=require('./sendmessage')
-var sndmsgT=require('./sendmessageteacher')
+var sndmsg=require('./SendMessage/sendmessage')
+var sndmsgT=require('./SendMessage/sendmessageteacher')
 var page=require('./pagination')
 var accept=require('./accept')
 var end=require('./endchat')
@@ -31,8 +31,8 @@ var auth=require('./auth')
 var seen=require('./msgseen')
 var rec=require('./received')
 var appversion=require('./appversion')
-var adminsend=require('./sendmessageadmin')
-
+var adminsend=require('./SendMessage/sendmessageadmin')
+var sub=require('./sendsubdetails')
 var reportmsg=require('./reportmsg')
 /* GET home page. */
 router.use(multipartyMiddleware);
@@ -53,9 +53,11 @@ var auth = function (req, res, next) {
     res.sendStatus(401);
   }
 }
+express().engine('html', require('ejs').renderFile);
+express().set('view engine', 'html');
 router.get('/', function(req, res, next) {
 
-  res.render('index', { title: 'Express' });
+  res.render(__dirname + '/Users/aniketverma/Downloads/pinglearn.com/index.html');
 });
 
 router.post ('/api/c',auth, c.check111);
@@ -92,5 +94,6 @@ router.get('/api/list/teacher',auth,list.listteacher)
 router.get('/api/version',auth,appversion.checkversion)
 router.get('/api/feedback/view',auth,fdback.viewfeedbacks)
 router.get('/api/avtars',auth,avtars.getavtars)
+router.get('/api/sublist',auth,sub.sendsub)
 router.post('/api/feedback',auth,fdback.feedbackm)
 module.exports = router;

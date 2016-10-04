@@ -51,6 +51,8 @@ var page = {
                     else {
                         var userId=req.body.userId
                         var page=req.body.page
+                        var subId=req.body.subId
+                        var newmsg=req.body.newmsg
 
                         var college = db.collection("message");
                         var skp=0;
@@ -61,10 +63,17 @@ var page = {
                         else
                             lmt=5
                         var sendDoc=[]
+                        var cursor={}
 
-
-                        var cursor = college.find({"stuId":userId,sendTime: { $lt: req.body.sendTime }}
+                         if(newmsg==='0')
+                         cursor = college.find({"stuId":userId,subId:subId,sendTime: { $lt: req.body.sendTime }}
                         ).sort({sendTime: -1}).skip(skp).limit(lmt);
+                          else
+                              if(newmsg==='1')
+
+                                  cursor = college.find({"stuId":userId,receivedTime:null}
+                                  ).sort({sendTime: -1}).limit(20);;
+
                         cursor.each(function (err, item) {
                             if (err === null) {
                            if(item!==null)
@@ -77,21 +86,21 @@ var page = {
                            {
                                console.log("mine"+sendDoc.length)
                                if(sendDoc.length==0)
-                                   res.send({"status:":"error","msg":"We ran out of pages"})
+                                   res.send({"status":"error","msg":"We ran out of pages"})
                                else{
                                var senddoc;
                                if(page==1){
-                                   senddoc={"status:":"success","data":sendDoc}
+                                   senddoc={"status":"success","data":sendDoc}
                                res.send(senddoc)}
                                else
 
-                               res.send({"status:":"success","data":sendDoc})}
+                               res.send({"status":"success","data":sendDoc})}
                            }
 
                                               }
                                               else
                             {
-                                res.send({"status:":"error","msg":"Something went wrong"})
+                                res.send({"status":"error","msg":"Something went wrong"})
 
                             }
                         });

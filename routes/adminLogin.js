@@ -85,9 +85,11 @@ var adminlogin = {
 
                                         }
                                         else {
+
                                             var doc = {"status": "error", "msg": "Something went wrong."}
                                             res.send(doc)
-                                        }
+
+                                              }
                                     })
 
 

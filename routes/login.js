@@ -124,7 +124,7 @@ function proceedSignup(req,res,collection,collectioninsert,collectionsession)
 
 
                 var subStringname = req.body.firstName.substr(0, 4).toUpperCase().trim();
-                var number = Math.floor(Math.random() * 1000) + 100
+                var number = Math.floor(Math.random() * 900) + 100
                 var uniqueCode = subStringname + number
 
                 var phone2 = req.body.phone

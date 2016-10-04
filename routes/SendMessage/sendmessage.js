@@ -1,9 +1,9 @@
 var mongo = require('mongodb');
 var MongoClient=mongo.MongoClient
 var crypto = require('crypto');
-var cloud=require('../test')
-var config=require('../config')
-var uploadimg=require('./imageuploader')
+var cloud=require('../../test')
+var config=require('../../config')
+var uploadimg=require('./../imageuploader')
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
 var crypto = require('crypto'),
@@ -257,7 +257,8 @@ function firstEntry(req,res,mess,teach,student,admin)
 
                                                        var cursoradmin=admin.find();
                                                        var admindata=[]
-                                                       cursoradmin.each(function (error,item) {
+                                                       cursoradmin.each(function (error,item)
+                                                       {
                                                            if(error===null)
                                                            {
 
