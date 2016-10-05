@@ -71,7 +71,8 @@ var page = {
                           else
                               if(newmsg==='1')
 
-                                  cursor = college.find({"stuId":userId,receivedTime:null}
+
+                                  cursor = college.find({"stuId":userId,$or:[{"receivedTime":null},{"receivedTime":''}]}
                                   ).sort({sendTime: -1}).limit(20);;
 
                         cursor.each(function (err, item) {

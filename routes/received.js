@@ -127,7 +127,7 @@ var received = {
                                                     //send msg to student id
                                                     else {
                                                         collectionName=db.collection('teacherDetails')
-                                                        _id=req.body.teachId
+                                                        _id=item.teachId
                                                         comp="teachId"
                                                         who=0
                                                     }
