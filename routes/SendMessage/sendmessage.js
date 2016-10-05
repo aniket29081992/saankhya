@@ -459,7 +459,7 @@ var message = {
                                                                             var teacher=db.collection('teacherDetails');
                                                                             var d=item.teachId
 
-                                                                            teacher.findOne({"teachId":d},function (err5,res5) {
+                                                                            teacher.findOne({"teachId":d,subIds: req.body.subId},function (err5,res5) {
                                                                                 if(err5===null)
                                                                                 {
 
