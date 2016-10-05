@@ -53,12 +53,11 @@ var auth = function (req, res, next) {
     res.sendStatus(401);
   }
 }
-express().engine('html', require('ejs').renderFile);
-express().set('view engine', 'html');
-router.get('/', function(req, res, next) {
+var path = require('path');
 
-  res.render(__dirname + '/Users/aniketverma/Downloads/pinglearn.com/index.html');
-});
+
+
+
 
 router.post ('/api/c',auth, c.check111);
 router.post ('/api/signup',auth, login.signUprequest);

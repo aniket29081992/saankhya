@@ -22,10 +22,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'routes/pinglearn.com')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.get('/', function(req, res, next) {
+  // require('../app').use('/css',express.static(path.join(__dirname, 'routes/pinglearn.com/assets/application_home-c8ab933452e524219e093bd2b433b128.css')));
+  res.sendFile(path.join(__dirname + '/routes/pinglearn.com/index.html'));
+});
 var auth = function (req, res, next) {
   var user = basicAuth(req);
   if (!user || !user.name || !user.pass) {
