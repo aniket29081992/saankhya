@@ -91,9 +91,11 @@ var received = {
                                         cursor.each(function (err,item) {
                                             if(err===null)
                                             {
+                                                var teachIdnew=''
                                                 if(item!=null)
                                                 {
 
+                                                    teachIdnew=item.teachId
                                                     senddoc.push(item)
                                                 }
                                                 else
@@ -127,7 +129,7 @@ var received = {
                                                     //send msg to student id
                                                     else {
                                                         collectionName=db.collection('teacherDetails')
-                                                        _id=item.teachId
+                                                        _id=teachIdnew
                                                         comp="teachId"
                                                         who=0
                                                     }
