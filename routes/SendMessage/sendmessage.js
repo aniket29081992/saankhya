@@ -761,7 +761,7 @@ var check2=0;
 
                                                                     var mess=db.collection('message');
                                                                     var findInt={"stuId":req.body.stuId,'subId':req.body.subId,"iStatus":"active","intId":item.intId};
-                                                                    mess.updateMany(findInt, { $set:{"iStatus":"unassigned","teachId":"","seenTime":""}},function (errr,resss) {
+                                                                    mess.updateMany(findInt, { $set:{"iStatus":"unassigned","teachId":"","seenTime":"",'receivedTime':''}},function (errr,resss) {
                                                                         if(errr===null)
                                                                         {
                                                                             var teachDb=db.collection("teacherDetails");
