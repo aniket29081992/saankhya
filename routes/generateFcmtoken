@@ -89,12 +89,18 @@ var fcm = {
                                     if(!newww.includes(t))
                                         newww.push(t)
                                     console.log(newww)
-                                    newupdoc['regTokens']=newww
+                                    var regArray=[]
+                                    for (var i=0;i<newww.length;i++)
+                                    {
+                                        if(newww[i]!==req.body.oldregToken)
+                                            regArray.push(newww[i])
+                                    }
+                                    newupdoc['regTokens']=regArray
 
                                     collectionname.update({[comp]:_id}, {
                                         $set: newupdoc
                                     },function (errrors,resultss) {
-
+                                        console.log(errrors)
                                         if((errrors===null)&&(resultss.result.nModified!==0)) {
                                             console.log(resultss.result.nModified)
                                             res.send({'status': 'success', 'msg': 'Token refreshed'})
