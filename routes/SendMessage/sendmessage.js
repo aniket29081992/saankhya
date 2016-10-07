@@ -195,6 +195,7 @@ function firstEntry(req, res, mess, teach, student, admin) {
                                                 checkSum++;
                                                 if (item !== null) {
                                                     // console.log(item.regTokens)
+                                                    console.log(item.teachId)
                                                     if (item.regTokens !== undefined && (item.regTokens !== null)) {
                                                         for (var i = 0; i < item.regTokens.length; i++) {
                                                             // console.log("digo"+item.regTokens[i])
@@ -398,8 +399,7 @@ var message = {
                                                             if ((req.body.attachment !== null) && (req.body.attachment !== undefined) && (req.body.attachment.length !== 0))
                                                                 coins = 200
                                                             var stu = db.collection('digo')
-                                                            var ObjectId = mongo.ObjectId
-                                                            var _id = new ObjectId(req.body.stuId)
+
                                                             stu.findAndModify({'_id': _id}, [], {$inc: {'coins': coins * -1}}, {new: true}, function (error, document) {
                                                                 if (error === null) {
                                                                     {
@@ -421,6 +421,7 @@ var message = {
                                                                                     if (err5 === null) {
 
                                                                                         if (res5 !== null) {
+                                                                                            console.log(res5.teachId)
                                                                                             if (res5.regTokens !== undefined && (res5.regTokens !== null)) {
                                                                                                 for (var i = 0; i < res5.regTokens.length; i++)
                                                                                                     userS.push(res5.regTokens[i])
@@ -630,6 +631,7 @@ var message = {
                                                                                             }, function (errors, resultnew) {
                                                                                                 if (errors === null) {
                                                                                                     // console.log("digo+"+resultnew.regTokens[0])
+                                                                                                    console.log(resultnew.teachId)
                                                                                                     if (resultnew.regTokens !== undefined && (resultnew.regTokens !== null)) {
                                                                                                         for (var i = 0; i < resultnew.regTokens.length; i++) {
                                                                                                             //console.log(item.regTokens[i])
@@ -830,7 +832,7 @@ var message = {
                                                                                                                                     {
                                                                                                                                         checkSum++;
                                                                                                                                         if (item !== null) {
-                                                                                                                                            // console.log(item.regTokens)
+                                                                                                                                            console.log(item.teachId)
                                                                                                                                             if (item.regTokens !== undefined && (item.regTokens !== null)) {
                                                                                                                                                 for (var i = 0; i < item.regTokens.length; i++) {
                                                                                                                                                     // console.log(item.regTokens[i])
