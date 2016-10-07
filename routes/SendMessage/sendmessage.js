@@ -247,12 +247,13 @@ function firstEntry(req,res,mess,teach,student,admin)
 
 
                                                        var msg =
-                                                       {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins
+                                                       {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins,'grade':document.value.grade
                                                        }
                                                        res.send(msg);
                                                        var dataa=[]
                                                      //  dataa.push({"coins":document.value.coins})
                                                            result.ops[0]['coins']=document.value.coins
+                                                           result.ops[0]['grade']=document.value.grade
                                                        dataa.push(result.ops[0])
 
                                                        var cursoradmin=admin.find();
@@ -472,6 +473,7 @@ var message = {
                                                                                         var dataa=[]
                                                                                         // dataa.push({"coins":document.value.coins})
                                                                                         result.ops[0]['coins']=document.value.coins
+                                                                                        result.ops[0]['grade']=document.value.grade
                                                                                         dataa.push(result.ops[0])
                                                                                         var admin=db.collection('adminDetails')
 
@@ -507,7 +509,7 @@ var message = {
                                                                                         //admin cloud.send(admin,dataa)
 
 
-                                                                                        var msg = {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins}
+                                                                                        var msg = {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins,'grade':document.value.grade}
                                                                                         res.send(msg);
                                                                                     }
                                                                                     else
@@ -666,6 +668,7 @@ var check2=0;
                                                                                                 }
                                                                                                 var dataa=[]
                                                                                                 result.ops[0]['coins']=document.value.coins
+                                                                                                result.ops[0]['grade']=document.value.grade
                                                                                                // dataa.push({"coins":document.value.coins})
                                                                                                 dataa.push(result.ops[0])
                                                                                                 var admin=db.collection('adminDetails')
@@ -729,7 +732,7 @@ var check2=0;
 
                                                                                                 // disabledchat(db.collection('digo'),req.body.stuId)
 
-                                                                                                var msg = {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins}
+                                                                                                var msg = {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins,'grade':document.value.grade}
                                                                                                 res.send(msg);
                                                                                             }
                                                                                             else
@@ -874,6 +877,7 @@ var check2=0;
                                                                                                                                             {
 
                                                                                                                                             noDocs.push({'coins':document.value.coins})
+                                                                                                                                                noDocs.push({'grade':document.value.grade})
                                                                                                                                                 for(var i=0;i<noDocs.length;i++)
                                                                                                                                                 {
                                                                                                                                                     var sendMsg=[]
@@ -915,6 +919,7 @@ var check2=0;
                                                                                                                                             console.log("bas"+userS)
                                                                                                                                             res.send({"status": "success",
                                                                                                                                                 'coins':document.value.coins,
+                                                                                                                                                'grade':document.value.grade,
                                                                                                                                                 "msg": "Message sent",
                                                                                                                                                 "case":1,
                                                                                                                                                 "data":noDocs})}
