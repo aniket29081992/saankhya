@@ -245,16 +245,16 @@ function firstEntry(req,res,mess,teach,student,admin)
                                                    // else
                                                        {
 
-
+                                                           var dataa=[]
+                                                           //  dataa.push({"coins":document.value.coins})
+                                                           result.ops[0]['coins']=document.value.coins
+                                                           result.ops[0]['grade']=document.value.grade
+                                                           dataa.push(result.ops[0])
                                                        var msg =
                                                        {"status": "success", "msg": "Message sent","data":result.ops[0],'coins':document.value.coins,'grade':document.value.grade
                                                        }
                                                        res.send(msg);
-                                                       var dataa=[]
-                                                     //  dataa.push({"coins":document.value.coins})
-                                                           result.ops[0]['coins']=document.value.coins
-                                                           result.ops[0]['grade']=document.value.grade
-                                                       dataa.push(result.ops[0])
+
 
                                                        var cursoradmin=admin.find();
                                                        var admindata=[]
