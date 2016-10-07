@@ -10,9 +10,9 @@ var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'a13I11ET23';
 var time=new Date()
-console.log(new Date(new Date().getTime()+new Date().getTimezoneOffset()*60000 ))
-console.log(new Date().getTime()+new Date().getTimezoneOffset()*60000)
-console.log(time.toLocaleTimeString())
+// console.log(new Date(new Date().getTime()+new Date().getTimezoneOffset()*60000 ))
+// console.log(new Date().getTime()+new Date().getTimezoneOffset()*60000)
+// console.log(time.toLocaleTimeString())
 
 var checkHours=15
 var checkMinutes=30
@@ -22,10 +22,10 @@ var n= time.toLocaleTimeString()
 function disabledchat(student,stuId) {
     var hours=parseInt(new Date().getHours())
     var mins=parseInt(new Date().getMinutes())
-     console.log('dif '+hours+":"+mins)
+     // console.log('dif '+hours+":"+mins)
     if ((hours > 17 ) || (hours < 9)||(hours===17&&(mins>30))||(hours===9&&(mins<30)))
     {
-        console.log(hours+":"+mins)
+        // console.log(hours+":"+mins)
 
         var ObjectId=mongo.ObjectId
         var _id = new ObjectId(stuId)
@@ -67,19 +67,19 @@ function decrypt(buffer)
 function firstEntry(req,res,mess,teach,student,admin)
 {
 
-    console.log("cofse")
+    // console.log("cofse")
     var findCheck={"stuId":req.body.stuId,"subId":req.body.subId};
     var cursor=mess.find(findCheck).sort({sendTime:-1}).limit(1)
     var count=0
     var insertDocument;
     cursor.each(function (err,item) {
-        console.log(item)
+        // console.log(item)
         if(err===null)
         {
 
            if(count++==0)
            {
-               console.log("check")
+               // console.log("check")
                if(item!=null)
            {
 
@@ -362,7 +362,7 @@ var message = {
             if (!err) {
 
 
-                console.log("Connected to 'signup' database");
+                // console.log("Connected to 'signup' database");
                 db.collection('message', {strict: true}, function (err, collection) {
                     if (err) {
 
@@ -372,6 +372,7 @@ var message = {
                     else {
                       var mess=db.collection('message');
                         var findInt={"stuId":req.body.stuId,"subId":req.body.subId,"iStatus":"active"};
+                        console.log('subjec id is '+req.body.subId)
 
                         mess.findOne(findInt,function (errors,doc) {
                             if(errors===null)
@@ -410,7 +411,7 @@ var message = {
 
                                                         var attachment
 
-                                                        console.log("diggo"+req.body.attachment.length)
+                                                        // console.log("diggo"+req.body.attachment.length)
                                                         if((req.body.attachment===' ')||(req.body.attachment.length==0))
                                                             attachment=' '
                                                         else{
@@ -490,14 +491,14 @@ var message = {
                                                                                                         for(var i=0;i<item.regTokens.length;i++)
                                                                                                         {
                                                                                                             admindata.push(item.regTokens[i])
-                                                                                                            console.log(item.regTokens[i])
-                                                                                                            console.log(admindata)
+                                                                                                            // console.log(item.regTokens[i])
+                                                                                                            // console.log(admindata)
                                                                                                         }
                                                                                                     }
                                                                                                 }
                                                                                                 else
                                                                                                 {
-                                                                                                    console.log(admindata)
+                                                                                                    // console.log(admindata)
                                                                                                     cloud.send(admindata,dataa,0,3)
                                                                                                 }
 
@@ -554,12 +555,11 @@ var message = {
                                                                 teachDb.update({"teachId":item.teachId,subIds:req.body.subId},{ $set:{"availStatus":"active"}},function (error1,result1) {
                                                                     if(error1===null)
                                                                     {
-                                                                        console.log("yahoo"+item.teachId)
+                                                                        // console.log("yahoo"+item.teachId)
                                                                         firstEntry(req,res,mess,db.collection('teacherDetails'),db.collection('digo'),db.collection('adminDetails'))
 
 
                                                                     }})
-console.log("mera naam "+resss)
 
 
                                                             }
@@ -574,7 +574,7 @@ console.log("mera naam "+resss)
                                                     }
                                                 }
 
-                                                console.log((difference)/(1000*60*60))
+                                                // console.log((difference)/(1000*60*60))
                                             }
                                             else
                                             {
@@ -593,7 +593,7 @@ var check2=0;
                                                                 var differenceNow=firstMsgtime-parseInt(item.acceptTime);
 
 
-                                                                 console.log("differenceNow"+differenceNow)
+                                                                 // console.log("differenceNow"+differenceNow)
                                                                 if(differenceNow<=5*60*1000)
                                                                 {
 
@@ -601,7 +601,7 @@ var check2=0;
 
                                                                     var attachment
 
-                                                                    console.log("diggo"+req.body.attachment.length)
+                                                                    // console.log("diggo"+req.body.attachment.length)
                                                                     if((req.body.attachment===' ')||(req.body.attachment.length==0))
                                                                         attachment=' '
                                                                     else {
@@ -657,7 +657,7 @@ var check2=0;
                                                                                         {
                                                                                             if(errors===null)
                                                                                             {
-                                                                                                console.log("digo+"+resultnew.regTokens[0])
+                                                                                                // console.log("digo+"+resultnew.regTokens[0])
                                                                                                 if(resultnew.regTokens!==undefined&&(resultnew.regTokens!==null))
                                                                                                 {
                                                                                                 for(var i=0;i<resultnew.regTokens.length;i++)
@@ -685,14 +685,14 @@ var check2=0;
                                                                                                                 for(var i=0;i<item.regTokens.length;i++)
                                                                                                                 {
                                                                                                                     admindata.push(item.regTokens[i])
-                                                                                                                    console.log(item.regTokens[i])
-                                                                                                                    console.log(admindata)
+                                                                                                                    // console.log(item.regTokens[i])
+                                                                                                                    // console.log(admindata)
                                                                                                                 }
                                                                                                             }
                                                                                                         }
                                                                                                         else
                                                                                                         {
-                                                                                                            console.log(admindata)
+                                                                                                            // console.log(admindata)
                                                                                                             cloud.send(admindata,dataa,0,3)
                                                                                                         }
 
@@ -714,14 +714,14 @@ var check2=0;
                                                                                                                 for(var i=0;i<item.regTokens.length;i++)
                                                                                                                 {
                                                                                                                     admindata.push(item.regTokens[i])
-                                                                                                                    console.log(item.regTokens[i])
-                                                                                                                    console.log(admindata)
+                                                                                                                    // console.log(item.regTokens[i])
+                                                                                                                    // console.log(admindata)
                                                                                                                 }
                                                                                                             }
                                                                                                         }
                                                                                                         else
                                                                                                         {
-                                                                                                            console.log(admindata)
+                                                                                                            // console.log(admindata)
                                                                                                             cloud.send(admindata,dataa,0,3)
                                                                                                         }
 
@@ -773,7 +773,7 @@ var check2=0;
                                                                                 {
 
                                                                                     var attachment
-                                                                                    console.log("diggo"+req.body.attachment.length)
+                                                                                    // console.log("diggo"+req.body.attachment.length)
                                                                                     if((req.body.attachment===' ')||(req.body.attachment.length==0))
                                                                                         attachment=' '
                                                                                     else {
@@ -858,7 +858,7 @@ var check2=0;
                                                                                                                                         {
                                                                                                                                         for(var i=0;i<item.regTokens.length;i++)
                                                                                                                                         {
-                                                                                                                                            console.log(item.regTokens[i])
+                                                                                                                                            // console.log(item.regTokens[i])
                                                                                                                                             userS.push(item.regTokens[i])
                                                                                                                                         }
 
@@ -901,8 +901,8 @@ var check2=0;
                                                                                                                                                             for(var i=0;i<item.regTokens.length;i++)
                                                                                                                                                             {
                                                                                                                                                                 admindata.push(item.regTokens[i])
-                                                                                                                                                                console.log(item.regTokens[i])
-                                                                                                                                                                console.log(admindata)
+                                                                                                                                                                // console.log(item.regTokens[i])
+                                                                                                                                                                // console.log(admindata)
                                                                                                                                                             }
                                                                                                                                                         }
                                                                                                                                                     }
@@ -916,7 +916,7 @@ var check2=0;
                                                                                                                                                 }
 
                                                                                                                                             })
-                                                                                                                                            console.log("bas"+userS)
+                                                                                                                                            // console.log("bas"+userS)
                                                                                                                                             res.send({"status": "success",
                                                                                                                                                 'coins':document.value.coins,
                                                                                                                                                 'grade':document.value.grade,
@@ -955,12 +955,12 @@ var check2=0;
                                                                                     })
 
 
-                                                                                    console.log("yahoo"+item.teachId)
+                                                                                    // console.log("yahoo"+item.teachId)
 
                                                                                     // firstEntry(req,res,mess)mess
                                                                                 }
                                                                             })
-                                                                            console.log("mera naam "+resss)
+
 
 
                                                                         }
