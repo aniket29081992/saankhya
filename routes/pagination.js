@@ -66,14 +66,14 @@ var page = {
                         var cursor={}
 
                          if(newmsg==='0')
-                         cursor = college.find({"stuId":userId,subId:subId,sendTime: { $lt: req.body.sendTime }}
-                        ).sort({sendTime: -1}).skip(skp).limit(lmt);
+                         cursor = college.find({"stuId":userId,subId:subId,sendTime:{ $lt: req.body.sendTime }}
+  ).sort({sendTime: -1}).skip(skp).limit(lmt);
                           else
                               if(newmsg==='1')
 
 
-                                  cursor = college.find({"stuId":userId,$or:[{"receivedTime":null},{"receivedTime":''}]}
-                                  ).sort({sendTime: -1}).limit(20);;
+                                  cursor = college.find({"stuId":userId  })
+                                  .sort({sendTime: -1}).limit(20);
 
                         cursor.each(function (err, item) {
                             if (err === null) {
@@ -90,12 +90,16 @@ var page = {
                                    res.send({"status":"error","msg":"We ran out of pages"})
                                else{
                                var senddoc;
-                               if(page==1){
+                               if(page==1)
+                               {
                                    senddoc={"status":"success","data":sendDoc}
-                               res.send(senddoc)}
+                                   res.send(senddoc)
+                               }
                                else
 
-                               res.send({"status":"success","data":sendDoc})}
+                               res.send({"status":"success","data":sendDoc})
+
+                                   }
                            }
 
                                               }

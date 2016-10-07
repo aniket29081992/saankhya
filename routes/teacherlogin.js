@@ -73,18 +73,24 @@ var teachlogin = {
                                     //console.log("dekh lo" + req.body.regToken)
 
                                     var t = req.body.regToken
-                                    if(!newww.includes(t))
+                                    if(!newww.includes(t)&&t!==null)
                                     newww.push(t)
-                                    console.log(newww);
-                                    teacher.update({"teachId": req.body.teachId,"blockingStatus":false}, {
+                                   // console.log(newww);
+                                    teacher.findAndModify({"teachId": req.body.teachId,"blockingStatus":false},[], {
                                         $set: {
                                             "regTokens": newww
 
                                         }
                                     }, function (errrors, resultss) {
+                                        console.log(errrors)
                                         if (errrors === null) {
-                                            console.log("nice"+resultss.result.nModified)
-                                            if(resultss.result.nMatched!=0){
+                                            if(resultss.value!==null)
+
+
+                                            {
+                                            // console.log("nice"+resultss.result.nModified)
+                                            //
+                                            // if(resultss.result.nMatched!=0){
                                             var token;
                                             var random1=  Math.floor(100000 + Math.random() * 900000).toString()
                                             var random2=  Math.floor(100000 + Math.random() * 900000).toString()
@@ -100,13 +106,15 @@ var teachlogin = {
                                                 "outTime":""}
                                             sessionTeacher.insert(docc)
                                             console.log(resultss)
-                                            var doc = {"status": "success", "msg": "Authenticated"}
+                                            var doc = {"status": "success", "msg": "Authenticated","data":resultss.value}
                                             res.send(doc)
                                         }
-                                        else {
+                                        else
+                                            {
                                             var doc = {"status": "error", "msg": "You are not allowed to login."}
                                                 res.send(doc)
-                                        }}
+                                        }
+                                        }
                                         else
                                         {
                                             var doc = {"status": "error", "msg": "Oops something went wrong"}

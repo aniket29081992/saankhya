@@ -96,5 +96,5 @@ router.get('/api/feedback/view',auth,fdback.viewfeedbacks)
 router.get('/api/avtars',auth,avtars.getavtars)
 router.get('/api/sublist',auth,sub.sendsub)
 router.post('/api/feedback',auth,fdback.feedbackm)
-router.post('r',auth,refreshtoken.generatefcm)
+router.post('/api/refreshtoken',auth,refreshtoken.generatefcm)
 module.exports = router;
