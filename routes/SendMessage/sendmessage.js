@@ -212,14 +212,13 @@ function firstEntry(req, res, mess, teach, student, admin) {
                                                         //  dataa.push({"coins":document.value.coins})
                                                         result.ops[0]['coins'] = document.value.coins
                                                         result.ops[0]['grade'] = document.value.grade
+                                                        console.log(result.ops[0])
                                                         dataa.push(result.ops[0])
                                                         var msg =
                                                         {
                                                             "status": "success",
                                                             "msg": "Message sent",
-                                                            "data": result.ops[0],
-                                                            'coins': document.value.coins,
-                                                            'grade': document.value.grade
+                                                            "data": result.ops[0]
                                                         }
                                                         res.send(msg);
 
@@ -815,6 +814,11 @@ var message = {
                                                                                                                 if (err === null) {
                                                                                                                     count++;
                                                                                                                     if (item11 != null) {
+                                                                                                                        item11['coins']=document.value.coins
+                                                                                                                        item11['grade']=document.value.grade
+
+                                                                                                                        // noDocs.push({'coins': document.value.coins})
+                                                                                                                        // noDocs.push({'grade': document.value.grade})
                                                                                                                         noDocs.push(item11)
                                                                                                                     }
                                                                                                                     else {
@@ -845,8 +849,6 @@ var message = {
                                                                                                                                         else {
                                                                                                                                             {
 
-                                                                                                                                                noDocs.push({'coins': document.value.coins})
-                                                                                                                                                noDocs.push({'grade': document.value.grade})
                                                                                                                                                 for (var i = 0; i < noDocs.length; i++) {
                                                                                                                                                     var sendMsg = []
                                                                                                                                                     sendMsg.push(noDocs[i])

@@ -35,7 +35,8 @@ var adminsend=require('./SendMessage/sendmessageadmin')
 var sub=require('./sendsubdetails')
 var reportmsg=require('./reportmsg')
 var refreshtoken=require('./generateFcmtoken')
-
+var sendpush=require('./sendPush')
+/* GET home page. */
 router.use(multipartyMiddleware);
 var basicAuth = require('basic-auth');
 
@@ -96,6 +97,6 @@ router.get('/api/feedback/view',auth,fdback.viewfeedbacks)
 router.get('/api/avtars',auth,avtars.getavtars)
 router.get('/api/sublist',auth,sub.sendsub)
 router.post('/api/feedback',auth,fdback.feedbackm)
-
+router.post('/api/sendpush',auth,sendpush.sendpush)
 router.post('/api/refreshtoken',auth,refreshtoken.generatefcm)
 module.exports = router;
