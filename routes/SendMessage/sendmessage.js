@@ -398,7 +398,8 @@ var message = {
                                                             if ((req.body.attachment !== null) && (req.body.attachment !== undefined) && (req.body.attachment.length !== 0))
                                                                 coins = 200
                                                             var stu = db.collection('digo')
-
+                                                            var ObjectId=mongo.ObjectId
+                                                            var _id = new ObjectId(req.body.stuId)
                                                             stu.findAndModify({'_id': _id}, [], {$inc: {'coins': coins * -1}}, {new: true}, function (error, document) {
                                                                 if (error === null) {
                                                                     {

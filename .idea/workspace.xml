@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6f7aa06a-e584-4739-b6bc-ff7807b8fff3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/SendMessage/sendmessage.js" afterPath="$PROJECT_DIR$/routes/SendMessage/sendmessage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sendPush.js" afterPath="$PROJECT_DIR$/routes/sendPush.js" />
     </list>
     <ignored path="pinglearnbackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,21 +25,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+            <state relative-caret-position="78">
+              <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sendmessage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sendmessage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2136">
-              <caret line="816" column="156" selection-start-line="816" selection-start-column="156" selection-end-line="816" selection-end-column="156" />
+            <state relative-caret-position="128">
+              <caret line="401" column="97" selection-start-line="401" selection-start-column="97" selection-end-line="401" selection-end-column="97" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fetchstudentdetails.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/fetchstudentdetails.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="74" column="45" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -60,8 +68,8 @@
       <file leaf-file-name="sendmessageteacher.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/SendMessage/sendmessageteacher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
+            <state relative-caret-position="128">
+              <caret line="112" column="68" selection-start-line="112" selection-start-column="68" selection-end-line="113" selection-end-column="93" />
               <folding>
                 <element signature="e#18854#21331#0" expanded="false" />
               </folding>
@@ -94,16 +102,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pagination.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/pagination.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -150,7 +148,6 @@
         <option value="$PROJECT_DIR$/routes/avtars.js" />
         <option value="$PROJECT_DIR$/routes/checku.js" />
         <option value="$PROJECT_DIR$/routes/feedback.js" />
-        <option value="$PROJECT_DIR$/routes/fetchstudentdetails.js" />
         <option value="$PROJECT_DIR$/routes/fetchteacherdetails.js" />
         <option value="$PROJECT_DIR$/routes/listteacher.js" />
         <option value="$PROJECT_DIR$/routes/logout.js" />
@@ -188,8 +185,9 @@
         <option value="$PROJECT_DIR$/routes/SendMessage/sendmessageteacher.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/routes/sendPush.js" />
-        <option value="$PROJECT_DIR$/routes/SendMessage/sendmessage.js" />
         <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/routes/fetchstudentdetails.js" />
+        <option value="$PROJECT_DIR$/routes/SendMessage/sendmessage.js" />
       </list>
     </option>
   </component>
@@ -374,12 +372,12 @@
       <workItem from="1475224537105" duration="26677000" />
       <workItem from="1475480657268" duration="17360000" />
       <workItem from="1475586144276" duration="2195000" />
-      <workItem from="1475642391431" duration="45305000" />
+      <workItem from="1475642391431" duration="47166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="583301000" />
+    <option name="totallyTimeSpent" value="585162000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -561,7 +559,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js</url>
-          <line>920</line>
+          <line>921</line>
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -621,42 +619,42 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js</url>
-          <line>570</line>
+          <line>571</line>
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js</url>
-          <line>736</line>
+          <line>737</line>
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js</url>
-          <line>752</line>
+          <line>753</line>
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js</url>
-          <line>768</line>
+          <line>769</line>
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js</url>
-          <line>795</line>
+          <line>796</line>
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js</url>
-          <line>812</line>
+          <line>813</line>
           <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js</url>
-          <line>883</line>
+          <line>884</line>
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js</url>
-          <line>882</line>
+          <line>883</line>
           <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -815,14 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/fetchstudentdetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="81" column="52" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,16 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/SendMessage/sendmessageteacher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding>
-            <element signature="e#18854#21331#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/sendPush.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-954">
@@ -1071,18 +1051,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js">
+    <entry file="file://$PROJECT_DIR$/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2136">
-          <caret line="816" column="156" selection-start-line="816" selection-start-column="156" selection-end-line="816" selection-end-column="156" />
+        <state relative-caret-position="78">
+          <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
+    <entry file="file://$PROJECT_DIR$/routes/SendMessage/sendmessageteacher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="128">
+          <caret line="112" column="68" selection-start-line="112" selection-start-column="68" selection-end-line="113" selection-end-column="93" />
+          <folding>
+            <element signature="e#18854#21331#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/fetchstudentdetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="74" column="45" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/SendMessage/sendmessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="401" column="97" selection-start-line="401" selection-start-column="97" selection-end-line="401" selection-end-column="97" />
           <folding />
         </state>
       </provider>
