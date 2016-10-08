@@ -161,7 +161,8 @@ var regTokens=[]
         {
             var regTokens=[]
             regTokens.push(req.body.regToken)
-             docins={"signupDate": new Date(),
+             docins={
+                "signupDate": new Date(),
                 "email": emailEncrypted2.toString('utf-8'),
                 "firstName": req.body.firstName,
                 "uniqueCode": uniqueCode,
@@ -780,7 +781,7 @@ var login = {
 
 
                             })
-//check in user details
+
                         }
 //                         else
                         else if (gId == '1') {
