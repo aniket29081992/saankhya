@@ -4,7 +4,7 @@ var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var plivo = require('plivo');
 var config=require('../config')
-var cloud = require('../../test')
+var cloud = require('./test')
 
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
