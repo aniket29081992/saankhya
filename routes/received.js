@@ -61,8 +61,8 @@ var received = {
                             var msgId = req.body.msgId
 
                             var _id = []
-                            var ObjectId = mongo.ObjectId
-                            for (var i = 0; i < msgId.length; i++)
+                            var ObjectId=mongo.ObjectId
+                            for (var i = 0; i <msgId.length; i++)
                             {
                                 var d= new ObjectId(msgId[i])
                                 _id.push(d)
