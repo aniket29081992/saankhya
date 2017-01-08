@@ -284,11 +284,11 @@
         </div>
         <div class="space"></div>
         <div class="row">
-            <div class="col-md-10 col-sm-10">
+            <div class="col-md-12 col-sm-12">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-3">
                         <div class="team">
-                            <img src="img/team/02.jpg" class="img-responsive img-circle" alt="...">
+                            <img src="img/team/044.jpg" class="img-responsive img-circle" alt="...">
                             <br>
                             <h4>Lian Gwapa</h4>
                             <p class="small">CEO/Founder</p>
@@ -296,7 +296,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-3">
                         <div class="team">
                             <img src="img/team/04.jpg" class="img-responsive img-circle" alt="...">
                             <br>
@@ -306,7 +306,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-3">
                         <div class="team">
                             <img src="img/team/03.jpg" class="img-responsive img-circle" alt="...">
                             <br>
@@ -315,20 +315,20 @@
                             <hr>
                         </div>
                     </div>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="team">
+                            <img src="img/team/044.jpg" class="img-responsive img-circle" alt="...">
+                            <br>
+                            <h4>Lian Gwapa</h4>
+                            <p class="small">CEO/Founder</p>
+                            <hr>
+                        </div>
+                    </div>
 
                 </div>
             </div>
 
-            <div class="col-md-2 col-sm-2">
-                <div class="team hire">
-                    <h4>We Are Hiring!</h4>
-                    <hr>
-                    <div class="space"></div>
-                    <a href="#">
-                        <span class="fa fa-paper-plane-o fa-2x"></span>
-                    </a>
-                </div>
-            </div>
+
         </div>
 
         <div class="text-center">
@@ -400,10 +400,10 @@
             </div>
 
             <div class="col-md-9">
-                <form autocomplete="off">
+                <form id = "checknow" action="" method="POST" target ="no-target">
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input id ="name" type="text" class="form-control" placeholder="Your Name">
                             <input type="text" class="form-control" placeholder="Phone No.">
                         </div>
                         <div class="col-md-6">
@@ -413,9 +413,13 @@
                     </div>
                     <textarea class="form-control" rows="4" placeholder="Message"></textarea>
                     <div class="text-right">
-                        <a href="#" class="btn send-btn">Send</a>
-                    </div>
+                    <button  style="background: #C59A6D" id="form-submit"  class="btn send-btn" type="submit" >Send</button>
+                        </div>
                 </form>
+               <!--f <div class="text-right">-->
+                <!--<button id="form-submit" type="submit">SUBMIT</button>-->
+                <iframe src="#" id="no-target" name="no-target" style="visibility:hidden"></iframe>
+                <!--</div>-->
             </div>
         </div>
     </div>
@@ -457,6 +461,27 @@
 <!-- Javascripts
 ================================================== -->
 <script type="text/javascript" src="js/main.js"></script>
+<script>
+//    function check()
+    $('#checknow').on('submit',function() {
+//        alert("cool");
+//   $('#checknow').on('submit',function () {
+//        alert("so");
+
+        var val = $('#name').val();
+        val = encodeURIComponent(val);
+        var q1 = "entry.1876329742";
+        var baseUrl = "https://docs.google.com/a/bitmesra.ac.in/forms/d/e/1FAIpQLSdsA_If_LmUScUtMrpBJGDbXd5lNCkee21swFNjjvNHmqo8sA/formResponse?";
+        var submit = "&submit=Submit"
+        var submiturl = (baseUrl + q1 + "=" + val + submit);
+        console.log(submiturl);
+        $(this)[0].action=submiturl;
+        $("#checknow").submit(submiturl);
+//        alert(val)
+//   })
+    });
+
+</script>
 
 </body>
 </html>
